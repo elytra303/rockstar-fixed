@@ -573,7 +573,6 @@ public class Aura extends BaseModule {
                           RotationPriority.TO_TARGET
                   );
                }
-            }
 
                public float getGCDValue() {
       double sensitivity = (Double)mc.options.getMouseSensitivity().getValue();
