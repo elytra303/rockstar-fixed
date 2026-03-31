@@ -52,7 +52,7 @@ import net.minecraft.world.RaycastContext.ShapeType;
 import ru.kotopushka.compiler.sdk.annotations.VMProtect;
 import ru.kotopushka.compiler.sdk.enums.VMProtectType;
 
-@ModuleInfo(name = "Aura", category = ModuleCategory.COMBAT, desc = "Бьёт женщин и детей")
+@ModuleInfo(name = "Aura", category = ModuleCategory.COMBAT, desc = "Пиздит мать пионера резиновым дилдаком")
 public class Aura extends BaseModule {
    private SliderSetting attackDistance;
    private SliderSetting aimDistance;
@@ -99,16 +99,16 @@ public class Aura extends BaseModule {
    private final EventListener<ClientPlayerTickEvent> onPlayerTick = event -> {
       if (mc.player != null) {
          float requiredAimDistance = enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled()
-            ? 50.0F
-            : this.aimDistance.getCurrentValue();
+                 ? 50.0F
+                 : this.aimDistance.getCurrentValue();
          TargetSettings.Builder builder = new TargetSettings.Builder()
-            .targetPlayers(this.players.isSelected())
-            .targetAnimals(this.animals.isSelected())
-            .targetMobs(this.mobs.isSelected())
-            .targetInvisibles(this.invisibles.isSelected())
-            .targetNakedPlayers(this.nakedPlayers.isSelected())
-            .targetFriends(this.friends.isSelected())
-            .requiredRange(requiredAimDistance);
+                 .targetPlayers(this.players.isSelected())
+                 .targetAnimals(this.animals.isSelected())
+                 .targetMobs(this.mobs.isSelected())
+                 .targetInvisibles(this.invisibles.isSelected())
+                 .targetNakedPlayers(this.nakedPlayers.isSelected())
+                 .targetFriends(this.friends.isSelected())
+                 .requiredRange(requiredAimDistance);
          if (this.sortingMode.is(this.distanceSorting)) {
             builder.sortBy(TargetComparators.DISTANCE);
          } else if (this.sortingMode.is(this.healthSorting)) {
@@ -120,10 +120,10 @@ public class Aura extends BaseModule {
          TargetSettings settings = builder.build();
          LivingEntity target = enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity living ? living : null;
          if (!this.targeting.isEnabled()
-            || target == null
-            || MathHelper.sqrt((float)mc.player.squaredDistanceTo(RotationMath.getNearestPoint(target))) > requiredAimDistance
-            || !mc.world.hasEntity(target)
-            || !target.isAlive()) {
+                 || target == null
+                 || MathHelper.sqrt((float)mc.player.squaredDistanceTo(RotationMath.getNearestPoint(target))) > requiredAimDistance
+                 || !mc.world.hasEntity(target)
+                 || !target.isAlive()) {
             enigma.getInstance().getTargetManager().update(settings);
          }
 
@@ -149,22 +149,22 @@ public class Aura extends BaseModule {
       this.rotationMode = new ModeSetting(this, "modules.settings.aura.rotationMode");
       this.noRotation = new ModeSetting.Value(this.rotationMode, "modules.settings.aura.noRotation");
       this.simpleRotation = new ModeSetting.Value(this.rotationMode, "modules.settings.aura.simpleRotation").select();
-      this.funTimeRotation = new ModeSetting.Value(this.rotationMode, "FunTime");
-      this.spookyTimeRotation = new ModeSetting.Value(this.rotationMode, "SpookyTime");
-      this.holyWorldRotation = new ModeSetting.Value(this.rotationMode, "HolyWorld");
-      this.intaveRotation = new ModeSetting.Value(this.rotationMode, "Intave");
+      this.funTimeRotation = new ModeSetting.Value(this.rotationMode, "ФакТайм");
+      this.spookyTimeRotation = new ModeSetting.Value(this.rotationMode, "СрукиТайм");
+      this.holyWorldRotation = new ModeSetting.Value(this.rotationMode, "ХолиВрот");
+      this.intaveRotation = new ModeSetting.Value(this.rotationMode, "Сактейв");
       this.attackDistance = new SliderSetting(this, "modules.settings.aura.attackDistance")
-         .min(0.1F)
-         .max(6.0F)
-         .step(0.1F)
-         .currentValue(3.0F)
-         .suffix(number -> " %s".formatted(Localizator.translate("block")) + TextUtility.makeCountTranslated(number));
+              .min(0.1F)
+              .max(6.0F)
+              .step(0.1F)
+              .currentValue(3.0F)
+              .suffix(number -> " %s".formatted(Localizator.translate("block")) + TextUtility.makeCountTranslated(number));
       this.aimDistance = new SliderSetting(this, "modules.settings.aura.aimDistance")
-         .min(0.1F)
-         .max(6.0F)
-         .step(0.1F)
-         .currentValue(3.0F)
-         .suffix(number -> " %s".formatted(Localizator.translate("block")) + TextUtility.makeCountTranslated(number));
+              .min(0.1F)
+              .max(6.0F)
+              .step(0.1F)
+              .currentValue(3.0F)
+              .suffix(number -> " %s".formatted(Localizator.translate("block")) + TextUtility.makeCountTranslated(number));
       this.onlyCriticals = new BooleanSetting(this, "only_crits");
       this.walls = new BooleanSetting(this, "modules.settings.aura.walls").enable();
       this.rayTrace = new BooleanSetting(this, "modules.settings.aura.rayTrace").enable();
@@ -201,38 +201,38 @@ public class Aura extends BaseModule {
       } else if (this.inRange(targetedEntity)) {
          return false;
       } else if (this.walls.isEnabled()
-         && this.spookyTimeRotation.isSelected()
-         && mc.world
-               .raycast(
-                  new RaycastContext(
-                     mc.player.getEyePos(),
-                     mc.player
-                        .getEyePos()
-                        .add(
-                           mc.player
-                              .getRotationVector(-90.0F, enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw())
-                              .multiply(this.attackDistance.getCurrentValue())
-                        ),
-                     ShapeType.COLLIDER,
-                     FluidHandling.NONE,
-                     mc.player
-                  )
-               )
-               .getType()
-            == Type.BLOCK) {
+              && this.spookyTimeRotation.isSelected()
+              && mc.world
+              .raycast(
+                      new RaycastContext(
+                              mc.player.getEyePos(),
+                              mc.player
+                                      .getEyePos()
+                                      .add(
+                                              mc.player
+                                                      .getRotationVector(-90.0F, enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw())
+                                                      .multiply(this.attackDistance.getCurrentValue())
+                                      ),
+                              ShapeType.COLLIDER,
+                              FluidHandling.NONE,
+                              mc.player
+                      )
+              )
+              .getType()
+              == Type.BLOCK) {
          return false;
       } else {
          return !MathUtility.canTraceWithBlock(
-                  this.attackDistance.getCurrentValue(),
-                  enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw(),
-                  enigma.getInstance().getRotationHandler().getCurrentRotation().getPitch(),
-                  mc.player,
-                  targetedEntity,
-                  !this.walls.isEnabled()
-               )
-               && this.rayTrace.isEnabled()
-            ? false
-            : !this.onlyCriticals.isEnabled() || !this.isCriticalRequired(targetedEntity) || CombatUtility.canPerformCriticalHit(targetedEntity, true);
+                 this.attackDistance.getCurrentValue(),
+                 enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw(),
+                 enigma.getInstance().getRotationHandler().getCurrentRotation().getPitch(),
+                 mc.player,
+                 targetedEntity,
+                 !this.walls.isEnabled()
+         )
+                 && this.rayTrace.isEnabled()
+                 ? false
+                 : !this.onlyCriticals.isEnabled() || !this.isCriticalRequired(targetedEntity) || CombatUtility.canPerformCriticalHit(targetedEntity, true);
       }
    }
 
@@ -246,9 +246,9 @@ public class Aura extends BaseModule {
          return false;
       } else {
          return CombatUtility.getMace() != null
-            ? this.attackTimer.finished(500L)
-            : mc.player.getAttackCooldownProgress(1.5F) > 0.93F && this.attackTimer.finished(500L)
-               || this.fastPvp.isSelected() && this.attackTimer.finished(50L);
+                 ? this.attackTimer.finished(500L)
+                 : mc.player.getAttackCooldownProgress(1.5F) > 0.93F && this.attackTimer.finished(500L)
+                 || this.fastPvp.isSelected() && this.attackTimer.finished(50L);
       }
    }
 
@@ -281,15 +281,15 @@ public class Aura extends BaseModule {
 
          if (this.shield) {
             mc.interactionManager
-               .sendSequencedPacket(
-                  mc.world,
-                  sequence -> new PlayerInteractItemC2SPacket(
-                     mc.player.getActiveHand(),
-                     sequence,
-                     enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw(),
-                     enigma.getInstance().getRotationHandler().getCurrentRotation().getPitch()
-                  )
-               );
+                    .sendSequencedPacket(
+                            mc.world,
+                            sequence -> new PlayerInteractItemC2SPacket(
+                                    mc.player.getActiveHand(),
+                                    sequence,
+                                    enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw(),
+                                    enigma.getInstance().getRotationHandler().getCurrentRotation().getPitch()
+                            )
+                    );
          }
 
          this.additional = new Rotation(MathUtility.random(5.0, 20.0), MathUtility.random(5.0, 10.0));
@@ -441,144 +441,138 @@ public class Aura extends BaseModule {
             }
 
             if (this.rotationMode.is(this.spookyTimeRotation)) {
-               // ============================================================================
-// Refactored SpookyTime rotation block for rotateHead(LivingEntity)
-// Drop-in replacement for: if (this.rotationMode.is(this.spookyTimeRotation))
-// ============================================================================
+               // Periodically reset Perlin noise seed for natural variation
+               if (mc.player.age % 500 == 0) {
+                  this.noise = new PerlinNoise();
+                  this.noiseFactor = 1.0F;
+               }
 
-               if (this.rotationMode.is(this.spookyTimeRotation)) {
-                  // Periodically reset Perlin noise seed for natural variation
-                  if (mc.player.age % 500 == 0) {
-                     this.noise = new PerlinNoise();
-                     this.noiseFactor = 1.0F;
-                  }
+               // --- Base target rotation ---
+               boolean collide = EntityUtility.collideWith(targetedEntity, 1.0F);
+               Vec3d nearPoint = RotationMath.getNearestPoint(targetedEntity);
 
-                  // --- Base target rotation ---
-                  boolean collide = EntityUtility.collideWith(targetedEntity, 1.0F);
-                  Vec3d nearPoint = RotationMath.getNearestPoint(targetedEntity);
+               Rotation targetRot = RotationMath.getRotationTo(new Vec3d(
+                       nearPoint.x,
+                       MathHelper.clamp(
+                               MathUtility.interpolate(mc.player.getY(), targetedEntity.getEyeY(), 0.5),
+                               targetedEntity.getBoundingBox().minY,
+                               targetedEntity.getBoundingBox().maxY
+                       ),
+                       nearPoint.z
+               ));
 
-                  Rotation targetRot = RotationMath.getRotationTo(new Vec3d(
-                          nearPoint.x,
-                          MathHelper.clamp(
-                                  MathUtility.interpolate(mc.player.getY(), targetedEntity.getEyeY(), 0.5),
-                                  targetedEntity.getBoundingBox().minY,
-                                  targetedEntity.getBoundingBox().maxY
-                          ),
-                          nearPoint.z
-                  ));
+               Rotation multipoint = RotationMath.getRotationTo(RotationMath.getNearestPoint(targetedEntity));
 
-                  Rotation multipoint = RotationMath.getRotationTo(RotationMath.getNearestPoint(targetedEntity));
+               if (collide) {
+                  targetRot = RotationMath.getRotationTo(targetedEntity.getPos().add(0.0, 0.5, 0.0));
+               }
 
-                  if (collide) {
-                     targetRot = RotationMath.getRotationTo(targetedEntity.getPos().add(0.0, 0.5, 0.0));
-                  }
+               // Correct pitch when ray-trace fails at longer distances
+               if (!MathUtility.canTraceWithBlock(
+                       this.attackDistance.getCurrentValue(),
+                       targetRot.getYaw(),
+                       targetRot.getPitch(),
+                       mc.player,
+                       targetedEntity,
+                       !this.walls.isEnabled()
+               ) && mc.player.getEyePos().distanceTo(targetedEntity.getEyePos()) > 3.0) {
+                  targetRot.setPitch(multipoint.getPitch() + 10.0F);
+               }
 
-                  // Correct pitch when ray-trace fails at longer distances
-                  if (!MathUtility.canTraceWithBlock(
-                          this.attackDistance.getCurrentValue(),
-                          targetRot.getYaw(),
-                          targetRot.getPitch(),
-                          mc.player,
-                          targetedEntity,
-                          !this.walls.isEnabled()
-                  ) && mc.player.getEyePos().distanceTo(targetedEntity.getEyePos()) > 3.0) {
-                     targetRot.setPitch(multipoint.getPitch() + 10.0F);
-                  }
+               boolean idle = this.attackTimer.finished(collide ? 500L : 200L);
 
-                  boolean idle = this.attackTimer.finished(collide ? 500L : 200L);
+               if (this.additional == null) {
+                  this.additional = new Rotation(0.0F, 0.0F);
+               }
 
-                  if (this.additional == null) {
-                     this.additional = new Rotation(0.0F, 0.0F);
-                  }
+               float targetYaw = targetRot.getYaw();
+               float targetPitch = targetRot.getPitch();
+               Rotation currentRot = handler.getCurrentRotation();
+               float currentYaw = currentRot.getYaw();
+               float currentPitch = currentRot.getPitch();
+               float yawDiff = RotationMath.getAngleDifference(currentYaw, targetYaw);
+               float pitchDiff = RotationMath.getAngleDifference(currentPitch, targetPitch);
 
-                  float targetYaw = targetRot.getYaw();
-                  float targetPitch = targetRot.getPitch();
-                  Rotation currentRot = handler.getCurrentRotation();
-                  float currentYaw = currentRot.getYaw();
-                  float currentPitch = currentRot.getPitch();
-                  float yawDiff = RotationMath.getAngleDifference(currentYaw, targetYaw);
-                  float pitchDiff = RotationMath.getAngleDifference(currentPitch, targetPitch);
+               // --- GCD Fix: compute legal mouse-step granularity ---
+               float gcd = this.getGCDValue();
 
-                  // --- GCD Fix: compute legal mouse-step granularity ---
-                  float gcd = this.getGCDValue();
+               // --- Idle mode: smooth sine/cosine sway (0.5–1.0°) instead of sharp jumps ---
+               if (idle && !collide) {
+                  float swayTime = mc.player.age * 0.05F;
+                  float swayAmplitudeYaw = (float) MathUtility.random(0.5, 1.0);
+                  float swayAmplitudePitch = (float) MathUtility.random(0.3, 0.7);
+                  targetYaw += (float) Math.sin(swayTime) * swayAmplitudeYaw;
+                  targetPitch += (float) Math.cos(swayTime * 0.7F) * swayAmplitudePitch;
+               }
 
-                  // --- Idle mode: smooth sine/cosine sway (0.5–1.0°) instead of sharp jumps ---
-                  if (idle && !collide) {
-                     float swayTime = mc.player.age * 0.05F;
-                     float swayAmplitudeYaw = (float) MathUtility.random(0.5, 1.0);
-                     float swayAmplitudePitch = (float) MathUtility.random(0.3, 0.7);
-                     targetYaw += (float) Math.sin(swayTime) * swayAmplitudeYaw;
-                     targetPitch += (float) Math.cos(swayTime * 0.7F) * swayAmplitudePitch;
-                  }
+               // Active combat: apply post-attack additional offsets
+               if (!idle && EntityUtility.getBlock(0.0, 2.0, 0.0) == Blocks.AIR && !collide) {
+                  targetYaw += this.additional.getYaw();
+                  targetPitch += this.additional.getPitch();
+               }
 
-                  // Active combat: apply post-attack additional offsets
-                  if (!idle && EntityUtility.getBlock(0.0, 2.0, 0.0) == Blocks.AIR && !collide) {
-                     targetYaw += this.additional.getYaw();
-                     targetPitch += this.additional.getPitch();
-                  }
+               // Wall check: look straight up when target is fully occluded
+               if (this.walls.isEnabled()
+                       && !MathUtility.canSeen(nearPoint)
+                       && mc.player.fallDistance <= CombatUtility.getFallDistance(targetedEntity)) {
+                  targetPitch = -90.0F;
+               }
 
-                  // Wall check: look straight up when target is fully occluded
-                  if (this.walls.isEnabled()
-                          && !MathUtility.canSeen(nearPoint)
-                          && mc.player.fallDistance <= CombatUtility.getFallDistance(targetedEntity)) {
-                     targetPitch = -90.0F;
-                  }
+               // --- Dynamic speed: per-tick randomization for human-like acceleration ---
+               float baseFactor = (float) MathUtility.random(0.6, 1.4);
 
-                  // --- Dynamic speed: per-tick randomization for human-like acceleration ---
-                  // baseFactor jitters the overall speed each tick
-                  float baseFactor = (float) MathUtility.random(0.6, 1.4);
+               float absDiffSum = Math.abs(yawDiff) + Math.abs(pitchDiff);
+               float urgency = Math.min(1.0F, absDiffSum / 90.0F);
+               float dynamicScale = 0.3F + urgency * 0.7F;
 
-                  // urgency ramps speed up when the cursor is far from the target,
-                  // and slows it down as we converge
-                  float absDiffSum = Math.abs(yawDiff) + Math.abs(pitchDiff);
-                  float urgency = Math.min(1.0F, absDiffSum / 90.0F);
-                  float dynamicScale = 0.3F + urgency * 0.7F;
+               float yawSpeed = Math.max(
+                       (Math.abs(yawDiff) * dynamicScale * baseFactor) / (idle ? 8.0F : 3.0F),
+                       (float) MathUtility.random(0.5, 2.0)
+               );
+               float pitchSpeed = Math.max(
+                       (Math.abs(pitchDiff) * dynamicScale * baseFactor) / (idle ? 12.0F : 4.0F),
+                       (float) MathUtility.random(0.3, 1.5)
+               );
 
-                  float yawSpeed = Math.max(
-                          (Math.abs(yawDiff) * dynamicScale * baseFactor) / (idle ? 8.0F : 3.0F),
-                          (float) MathUtility.random(0.5, 2.0)
-                  );
-                  float pitchSpeed = Math.max(
-                          (Math.abs(pitchDiff) * dynamicScale * baseFactor) / (idle ? 12.0F : 4.0F),
-                          (float) MathUtility.random(0.3, 1.5)
-                  );
+               // --- Perlin noise for organic micro-jitter ---
+               long timeElapsed = System.currentTimeMillis() - this.rotationStartTime;
+               float yawNoise = (float) this.noise.noise(timeElapsed * 5.0E-4);
+               float pitchNoise = (float) this.noise.noise(timeElapsed * 5.0E-4, 10.0);
 
-                  // --- Perlin noise for organic micro-jitter ---
-                  long timeElapsed = System.currentTimeMillis() - this.rotationStartTime;
-                  float yawNoise = (float) this.noise.noise(timeElapsed * 5.0E-4);
-                  float pitchNoise = (float) this.noise.noise(timeElapsed * 5.0E-4, 10.0);
+               if (absDiffSum < 10.0F) {
+                  this.noiseFactor = Math.max(0.0F, this.noiseFactor - 0.05F);
+               }
 
-                  // Gradually dampen noise as we converge on the target
-                  if (absDiffSum < 10.0F) {
-                     this.noiseFactor = Math.max(0.0F, this.noiseFactor - 0.05F);
-                  }
+               float finalYaw = targetYaw + yawNoise * 15.0F * this.noiseFactor;
+               float finalPitch = targetPitch + pitchNoise * 15.0F * this.noiseFactor;
 
-                  float finalYaw = targetYaw + yawNoise * 15.0F * this.noiseFactor;
-                  float finalPitch = targetPitch + pitchNoise * 15.0F * this.noiseFactor;
+               // --- Apply GCD fix: snap rotation deltas to legal mouse increments ---
+               float yawDelta = finalYaw - currentYaw;
+               float pitchDelta = finalPitch - currentPitch;
+               yawDelta -= yawDelta % gcd;
+               pitchDelta -= pitchDelta % gcd;
+               finalYaw = currentYaw + yawDelta;
+               finalPitch = currentPitch + pitchDelta;
 
-                  // --- Apply GCD fix: snap rotation deltas to legal mouse increments ---
-                  float yawDelta = finalYaw - currentYaw;
-                  float pitchDelta = finalPitch - currentPitch;
-                  yawDelta -= yawDelta % gcd;
-                  pitchDelta -= pitchDelta % gcd;
-                  finalYaw = currentYaw + yawDelta;
-                  finalPitch = currentPitch + pitchDelta;
+               handler.rotate(
+                       new Rotation(finalYaw, Math.clamp(finalPitch, -90.0F, 90.0F)),
+                       moveCorrection,
+                       yawSpeed * 20.0F,
+                       pitchSpeed * 20.0F,
+                       (float) MathUtility.random(25.0, 60.0),
+                       RotationPriority.TO_TARGET
+               );
+            }
+         }
+      }
+   }
 
-                  handler.rotate(
-                          new Rotation(finalYaw, Math.clamp(finalPitch, -90.0F, 90.0F)),
-                          moveCorrection,
-                          yawSpeed * 20.0F,
-                          pitchSpeed * 20.0F,
-                          (float) MathUtility.random(25.0, 60.0),
-                          RotationPriority.TO_TARGET
-                  );
-
-               public float getGCDValue() {
+   public float getGCDValue() {
       double sensitivity = (Double)mc.options.getMouseSensitivity().getValue();
       double value = sensitivity * 0.6 + 0.2;
       double result = Math.pow(value, 3.0) * 0.8;
       return (float)result * 0.15F;
-   }}
+   }
 
    public float getSensitivity(float rot) {
       return this.getDeltaMouse(rot) * this.getGCDValue();
@@ -597,14 +591,14 @@ public class Aura extends BaseModule {
       } else {
          Criticals criticals = enigma.getInstance().getModuleManager().getModule(Criticals.class);
          boolean predict = criticals.isEnabled() && (criticals.canCritical() || mc.player.isOnGround())
-            || !mc.player.isOnGround() && FallingPlayer.fromPlayer(mc.player).findFall(CombatUtility.getFallDistance(target));
+                 || !mc.player.isOnGround() && FallingPlayer.fromPlayer(mc.player).findFall(CombatUtility.getFallDistance(target));
          return this.onlyCriticals.isEnabled()
-            && this.isCriticalRequired(target)
-            && (
-               predict
-                  || CombatUtility.canPerformCriticalHit(target, true)
-                  || !this.attackTimer.finished(!ServerUtility.isHW() && !ServerUtility.isST() ? 50L : (long)MathUtility.random(50.0, 150.0))
-            );
+                 && this.isCriticalRequired(target)
+                 && (
+                 predict
+                         || CombatUtility.canPerformCriticalHit(target, true)
+                         || !this.attackTimer.finished(!ServerUtility.isHW() && !ServerUtility.isST() ? 50L : (long)MathUtility.random(50.0, 150.0))
+         );
       }
    }
 
