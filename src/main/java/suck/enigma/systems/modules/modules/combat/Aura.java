@@ -572,14 +572,13 @@ public class Aura extends BaseModule {
                           (float) MathUtility.random(25.0, 60.0),
                           RotationPriority.TO_TARGET
                   );
-               }
 
                public float getGCDValue() {
       double sensitivity = (Double)mc.options.getMouseSensitivity().getValue();
       double value = sensitivity * 0.6 + 0.2;
       double result = Math.pow(value, 3.0) * 0.8;
       return (float)result * 0.15F;
-   }
+   }}
 
    public float getSensitivity(float rot) {
       return this.getDeltaMouse(rot) * this.getGCDValue();
