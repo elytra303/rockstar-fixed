@@ -49,7 +49,7 @@ import ru.kotopushka.compiler.sdk.annotations.Compile;
 import ru.kotopushka.compiler.sdk.annotations.CompileBytecode;
 import ru.kotopushka.compiler.sdk.annotations.Initialization;
 
-public enum enigma implements IMinecraft {
+public enum Enigma implements IMinecraft {
    INSTANCE;
 
    public static final String NAME = "enigma";
