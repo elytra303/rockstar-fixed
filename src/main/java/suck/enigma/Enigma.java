@@ -150,7 +150,7 @@ public enum Enigma implements IMinecraft {
       this.setPanic(false);
    }
 
-   public static enigma getInstance() {
+   public static Enigma getInstance() {
       return INSTANCE;
    }
 
