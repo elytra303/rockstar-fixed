@@ -1,0 +1,8 @@
+{
+  "clickgui_open": { "sounds": [ "enigma:clickgui_open" ] },
+  "toggle": { "sounds": [ "enigma:toggle" ] },
+  "applepay": { "sounds": [ "enigma:applepay" ] },
+  "welcome": { "sounds": [ "enigma:welcome" ] },
+  "typing": { "sounds": [ "enigma:typing" ] },
+  "critical": { "sounds": [ "enigma:critical" ] }
+}

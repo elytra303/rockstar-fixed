@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "enigma",
+	"version": "1.0.0",
+	"name": "Enigma",
+	"description": "Лучший бесплатный чит!",
+	"authors": [
+		"ВондерФулл",
+		"ENDerNak",
+		"pidoras148",
+		"фажито",
+		"рукаблуд",
+		"шейд",
+		"воровской"
+	],
+	"contact": {
+		"homepage": "https://rt.pornhub.com/"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/enigma/icon.png",
+	"environment": "client",
+	"entrypoints": {},
+	"mixins": [
+		"enigma.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"jars": [
+		{
+			"file": "libs/discord-rpc.jar"
+		}
+	],
+	"suggests": {
+		"another-mod": "*"
+	},
+	"accessWidener": "enigma.accesswidener"
+}
