@@ -51,28 +51,28 @@ public class BossBarHudMixin implements IMinecraft {
 
       ServerUtility.setHasCT(ctTimer > 0);
       ServerUtility.setCtTime(ctTimer);
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (!removals.isEnabled() || !removals.getBossBar().isSelected()) {
-         if (enigma.getInstance().getHud().getIsland().isShowing()
+         if (Enigma.getInstance().getHud().getIsland().isShowing()
             && !this.bossBars.isEmpty()
             && (!removals.isEnabled() || !removals.getBossBar().isSelected())
             && !ServerUtility.isCM()) {
-            DynamicIsland island = enigma.getInstance().getHud().getIsland();
+            DynamicIsland island = Enigma.getInstance().getHud().getIsland();
             boolean islandShowingPvp = island.isShowing() && island.statuses().stream().anyMatch(status -> status instanceof PVPStatus);
             if (removals.isEnabled() && removals.getBossBar().isSelected() || ServerUtility.hasCT && islandShowingPvp) {
                return;
             }
 
             context.getMatrices().push();
-            context.getMatrices().translate(0.0F, enigma.getInstance().getHud().getIsland().getSize().height + 7.0F, 0.0F);
+            context.getMatrices().translate(0.0F, Enigma.getInstance().getHud().getIsland().getSize().height + 7.0F, 0.0F);
          }
       }
    }
 
    @Inject(method = "render", at = @At("HEAD"), cancellable = true)
    private void render(CallbackInfo ci) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
-      DynamicIsland island = enigma.getInstance().getHud().getIsland();
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
+      DynamicIsland island = Enigma.getInstance().getHud().getIsland();
       boolean islandShowingPvp = island.isShowing() && island.statuses().stream().anyMatch(status -> status instanceof PVPStatus);
       if (removals.isEnabled() && removals.getBossBar().isSelected() || ServerUtility.hasCT && islandShowingPvp) {
          ci.cancel();
@@ -82,9 +82,9 @@ public class BossBarHudMixin implements IMinecraft {
    @Inject(method = "render", at = @At("RETURN"))
    private void onRenderReturn(DrawContext context, CallbackInfo ci) {
       int j = 19 * this.bossBars.size();
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (!removals.isEnabled() || !removals.getBossBar().isSelected()) {
-         if (enigma.getInstance().getHud().getIsland().isShowing()
+         if (Enigma.getInstance().getHud().getIsland().isShowing()
             && !this.bossBars.isEmpty()
             && (!removals.isEnabled() || !removals.getBossBar().isSelected())
             && !ServerUtility.isCM()) {

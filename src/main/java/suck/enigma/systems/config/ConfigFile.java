@@ -26,7 +26,7 @@ import suck.enigma.utility.sounds.ClientSounds;
 import net.minecraft.text.Text;
 
 public class ConfigFile implements IMinecraft {
-   private List<Module> modules = enigma.getInstance().getModuleManager().getModules();
+   private List<Module> modules = Enigma.getInstance().getModuleManager().getModules();
    private File file;
    private String fileName;
 
@@ -59,7 +59,7 @@ public class ConfigFile implements IMinecraft {
                         int key = moduleObject.has("key") ? moduleObject.get("key").getAsInt() : 0;
 
                         try {
-                           Module module = enigma.getInstance().getModuleManager().getModule(moduleName);
+                           Module module = Enigma.getInstance().getModuleManager().getModule(moduleName);
                            if (!(module instanceof MenuModule)) {
                               module.setEnabled(enabled, true);
                               module.setKey(key);
@@ -82,11 +82,11 @@ public class ConfigFile implements IMinecraft {
                      }
                   }
 
-                  ClientSounds.MODULE.play(enigma.getInstance().getModuleManager().getModule(Sounds.class).getVolume().getCurrentValue(), 1.0F);
-                  enigma.getInstance().getNotificationManager().addNotification(NotificationType.SUCCESS, Localizator.translate("configs.loaded"));
+                  ClientSounds.MODULE.play(Enigma.getInstance().getModuleManager().getModule(Sounds.class).getVolume().getCurrentValue(), 1.0F);
+                  Enigma.getInstance().getNotificationManager().addNotification(NotificationType.SUCCESS, Localizator.translate("configs.loaded"));
                   enigma.LOGGER.info("Loaded {} modules from config {}", loadedModules, this.fileName);
                   if (!this.fileName.equals("autosave")) {
-                     enigma.getInstance().getConfigManager().setCurrent(this);
+                     Enigma.getInstance().getConfigManager().setCurrent(this);
                   }
 
                   return;
@@ -125,7 +125,7 @@ public class ConfigFile implements IMinecraft {
 
          fileWriter.close();
          if (!this.fileName.equals("autosave")) {
-            enigma.getInstance().getConfigManager().setCurrent(this);
+            Enigma.getInstance().getConfigManager().setCurrent(this);
          }
 
          enigma.LOGGER.info("Successfully saved config " + this.fileName);
@@ -136,7 +136,7 @@ public class ConfigFile implements IMinecraft {
 
    public void delete() {
       if (this.file.exists() && this.file.delete()) {
-         enigma.getInstance().getConfigManager().getConfigFiles().remove(this);
+         Enigma.getInstance().getConfigManager().getConfigFiles().remove(this);
          MessageUtility.info(Text.of("Конфиг " + this.fileName + " успешно удален"));
          enigma.LOGGER.info("Config file deleted: {}", this.file.getAbsolutePath());
       } else {

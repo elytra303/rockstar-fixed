@@ -33,7 +33,7 @@ public class KeyBinds extends HudList {
       this.width = 92.0F;
       this.height = 18.0F;
 
-      for (Module module : enigma.getInstance().getModuleManager().getModules()) {
+      for (Module module : Enigma.getInstance().getModuleManager().getModules()) {
          boolean forward = module.isEnabled() && module.getKey() != -1;
          module.getKeybindsAnimation().update(forward);
          module.getKeybindsAnimation().setEasing(Easing.BAKEK);
@@ -54,7 +54,7 @@ public class KeyBinds extends HudList {
    @Override
    protected void renderComponent(UIContext context) {
       Font font = Fonts.REGULAR.getFont(7.0F);
-      List<Module> modules = new ArrayList<>(enigma.getInstance().getModuleManager().getModules());
+      List<Module> modules = new ArrayList<>(Enigma.getInstance().getModuleManager().getModules());
       if (this.lastSize == modules.size()) {
          modules.sort(Comparator.comparingDouble(m -> font.width(m.getName())));
          this.lastSize = modules.size();
@@ -102,7 +102,7 @@ public class KeyBinds extends HudList {
 
    @Override
    public boolean show() {
-      return !enigma.getInstance().getModuleManager().getModules().stream().filter(module -> module.isEnabled() && module.getKey() != -1).toList().isEmpty()
+      return !Enigma.getInstance().getModuleManager().getModules().stream().filter(module -> module.isEnabled() && module.getKey() != -1).toList().isEmpty()
          || mc.currentScreen instanceof ChatScreen
          || this.alwaysDisplay.isEnabled();
    }

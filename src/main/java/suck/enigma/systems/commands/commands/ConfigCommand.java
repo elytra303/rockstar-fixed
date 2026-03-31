@@ -23,7 +23,7 @@ public final class ConfigCommand {
 
    @Compile
    public Command command() {
-      List<String> configNames = enigma.getInstance().getConfigManager().getConfigFiles().stream()
+      List<String> configNames = Enigma.getInstance().getConfigManager().getConfigFiles().stream()
             .map(ConfigFile::getFileName).toList();
       return CommandBuilder.begin(
             "config",
@@ -68,24 +68,24 @@ public final class ConfigCommand {
             case SAVE -> this::saveConfig;
             case REMOVE -> s -> {
                if (s != null) {
-                  enigma.getInstance().getConfigManager().getConfig(s).delete();
+                  Enigma.getInstance().getConfigManager().getConfig(s).delete();
                }
             };
-            case LIST -> s -> enigma.getInstance().getConfigManager().listConfigs();
+            case LIST -> s -> Enigma.getInstance().getConfigManager().listConfigs();
             case LOAD -> s -> {
-               enigma.getInstance().getConfigManager().refresh();
-               if (s != null && enigma.getInstance().getConfigManager().getConfig(s) != null) {
-                  enigma.getInstance().getConfigManager().getConfig(s).load();
+               Enigma.getInstance().getConfigManager().refresh();
+               if (s != null && Enigma.getInstance().getConfigManager().getConfig(s) != null) {
+                  Enigma.getInstance().getConfigManager().getConfig(s).load();
                }
             };
-            case DIR -> s -> enigma.getInstance().getConfigManager().directionConfig();
+            case DIR -> s -> Enigma.getInstance().getConfigManager().directionConfig();
          };
       }
 
       @Compile
       private void saveConfig(String configName) {
          if (configName != null) {
-            ConfigManager configManager = enigma.getInstance().getConfigManager();
+            ConfigManager configManager = Enigma.getInstance().getConfigManager();
             configManager.createConfig(configName);
             MessageUtility.info(Text.of(Localizator.translate("commands.config.saved", configName)));
          }

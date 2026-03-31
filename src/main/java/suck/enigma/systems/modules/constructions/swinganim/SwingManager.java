@@ -107,7 +107,7 @@ public class SwingManager {
    }
 
    public String getCurrent() {
-      SwingPresetManager manager = enigma.getInstance().getSwingPresetManager();
+      SwingPresetManager manager = Enigma.getInstance().getSwingPresetManager();
       return manager.getCurrent() != null ? manager.getCurrent().getFileName() : this.current;
    }
 

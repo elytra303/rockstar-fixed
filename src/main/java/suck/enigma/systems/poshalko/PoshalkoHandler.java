@@ -45,6 +45,6 @@ public class PoshalkoHandler implements IMinecraft {
    };
 
    public PoshalkoHandler() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 }

@@ -170,7 +170,7 @@ public class Assist extends BaseModule {
 
             if (armorPoint < 0.36) {
                if (this.visible) {
-                  enigma.getInstance().getNotificationManager().addNotificationOther(NotificationType.INFO, "Поломка", "Ваша броня на грани поломки");
+                  Enigma.getInstance().getNotificationManager().addNotificationOther(NotificationType.INFO, "Поломка", "Ваша броня на грани поломки");
                   this.visible = false;
                }
             } else {

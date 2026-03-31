@@ -50,7 +50,7 @@ public class ElytraStrafe extends BaseModule {
             pitch *= -1.0F;
          }
 
-         enigma.getInstance()
+         Enigma.getInstance()
             .getRotationHandler()
             .rotate(new Rotation(yaw, pitch), MoveCorrection.DIRECT, 180.0F, 180.0F, 180.0F, RotationPriority.NOT_IMPORTANT);
       }

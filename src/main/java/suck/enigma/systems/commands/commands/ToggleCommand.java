@@ -15,7 +15,7 @@ import ru.kotopushka.compiler.sdk.annotations.Compile;
 public class ToggleCommand {
       @Compile
       public Command command() {
-            List<String> moduleNames = enigma.getInstance().getModuleManager().getModules().stream()
+            List<String> moduleNames = Enigma.getInstance().getModuleManager().getModules().stream()
                         .map(module -> module.getName().replace(" ", "")).toList();
             return CommandBuilder.begin("toggle")
                         .aliases("t")

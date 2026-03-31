@@ -76,14 +76,14 @@ public class ColorSettingComponent extends MenuSettingComponent<ColorSetting> {
    @Override
    public void onMouseClicked(double mouseX, double mouseY, MouseButton button) {
       if (this.isHovered(mouseX, mouseY) && button == MouseButton.LEFT) {
-         if (enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen) {
+         if (Enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen) {
             dropDownScreen.getColorPickers()
                .add(
                   this.picker = new ColorPicker(
                      (float)mouseX, (float)mouseY, 6.0F, this.setting.isAlpha(), this.setting.getColor(), Localizator.translate(this.setting.getName())
                   )
                );
-         } else if (enigma.getInstance().getMenuScreen() instanceof ModernScreen modernScreen) {
+         } else if (Enigma.getInstance().getMenuScreen() instanceof ModernScreen modernScreen) {
             modernScreen.getColorPickers()
                .add(
                   this.picker = new ColorPicker(

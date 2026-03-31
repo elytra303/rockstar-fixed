@@ -32,7 +32,7 @@ public class TargetSettings implements IMinecraft {
    public boolean isEntityValid(Entity entity) {
       if (mc.player != null && mc.world != null && entity != null) {
          if (ServerUtility.isCM() && this.targetPlayers && entity instanceof ItemDisplayEntity) {
-            for (Point point : enigma.getInstance().getModuleManager().getModule(CounterMine.class).getScanner().getPoints()) {
+            for (Point point : Enigma.getInstance().getModuleManager().getModule(CounterMine.class).getScanner().getPoints()) {
                if (point.isTarget() && point.getEntity() == entity && !point.isFriend()) {
                   return this.isWithinRange(entity);
                }
@@ -49,11 +49,11 @@ public class TargetSettings implements IMinecraft {
             } else if (!this.targetInvisibles && entity.isInvisible()) {
                return false;
             } else if (entity instanceof PlayerEntity player) {
-               AntiBot antiBotModule = enigma.getInstance().getModuleManager().getModule(AntiBot.class);
+               AntiBot antiBotModule = Enigma.getInstance().getModuleManager().getModule(AntiBot.class);
                if (antiBotModule.isRWBot(player)) {
                   return false;
                } else {
-                  boolean isFriend = enigma.getInstance().getFriendManager().isFriend(player.getName().getString());
+                  boolean isFriend = Enigma.getInstance().getFriendManager().isFriend(player.getName().getString());
                   if (!this.targetFriends && isFriend) {
                      return false;
                   } else {

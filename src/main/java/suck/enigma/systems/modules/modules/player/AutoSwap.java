@@ -81,7 +81,7 @@ public class AutoSwap extends BaseModule {
             }
 
             this.timer.reset();
-            enigma.getInstance()
+            Enigma.getInstance()
                .getNotificationManager()
                .addNotificationOther(
                   NotificationType.SUCCESS,

@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class InGameOverlayRendererMixin {
    @Inject(method = "renderFireOverlay", at = @At("HEAD"), cancellable = true)
    private static void renderFireOverlayHook(MatrixStack matrices, VertexConsumerProvider vertexConsumers, CallbackInfo ci) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getFire().isSelected()) {
          ci.cancel();
       }
@@ -23,7 +23,7 @@ public class InGameOverlayRendererMixin {
 
    @Inject(method = "renderInWallOverlay", at = @At("HEAD"), cancellable = true)
    private static void renderInWallOverlayHook(Sprite sprite, MatrixStack matrices, VertexConsumerProvider vertexConsumers, CallbackInfo ci) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getClip().isSelected()) {
          ci.cancel();
       }

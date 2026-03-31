@@ -21,7 +21,7 @@ public class ClientPlayNetworkHandlerMixin implements IMinecraft {
    public void onEntity(EntityS2CPacket packet, CallbackInfo ci) {
       ClientPlayNetworkHandler self = (ClientPlayNetworkHandler) (Object) this;
       ClientWorld world = self.getWorld();
-      if (world != null && enigma.getInstance().getModuleManager().getModule(BackTrack.class).isEnabled()) {
+      if (world != null && Enigma.getInstance().getModuleManager().getModule(BackTrack.class).isEnabled()) {
          int id = ((EntityS2CPacketAccessor) packet).getId();
          Entity entity = world.getEntityById(id);
          if (entity != null) {

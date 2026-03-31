@@ -46,7 +46,7 @@ public final class MsdfRenderer {
       float thickness = 0.05F;
       float smoothness = 0.5F;
       float spacing = 0.0F;
-      NameProtect nameProtectModule = enigma.getInstance().getModuleManager().getModule(NameProtect.class);
+      NameProtect nameProtectModule = Enigma.getInstance().getModuleManager().getModule(NameProtect.class);
       if (nameProtectModule.isEnabled()) {
          text = nameProtectModule.patchName(text);
       }

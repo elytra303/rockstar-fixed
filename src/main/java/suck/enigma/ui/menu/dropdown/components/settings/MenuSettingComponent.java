@@ -27,12 +27,12 @@ public abstract class MenuSettingComponent<T extends Setting> extends CustomComp
    public void update(UIContext context) {
       String translatedDescription = Localizator.translateOrEmpty(this.setting.getDescription());
       if (this.parent instanceof ModuleComponent component
-         && (component.getParent().isHovered(context) && this.isHovered(context) || enigma.getInstance().getMenuScreen() instanceof DropDownScreen)) {
-         ((DropDownScreen)enigma.getInstance().getMenuScreen()).setDesc(Localizator.translate(translatedDescription));
+         && (component.getParent().isHovered(context) && this.isHovered(context) || Enigma.getInstance().getMenuScreen() instanceof DropDownScreen)) {
+         ((DropDownScreen)Enigma.getInstance().getMenuScreen()).setDesc(Localizator.translate(translatedDescription));
       }
 
       if (this.parent instanceof Popup && this.isHovered(context)) {
-         enigma.getInstance().getHud().setDesc(Localizator.translate(translatedDescription));
+         Enigma.getInstance().getHud().setDesc(Localizator.translate(translatedDescription));
       }
 
       super.update(context);

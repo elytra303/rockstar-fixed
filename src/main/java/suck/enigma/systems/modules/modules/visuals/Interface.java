@@ -44,7 +44,7 @@ public class Interface extends BaseModule {
       }
 
       this.lastLang = lang;
-      enigma.getInstance().getThemeManager().setCurrentTheme(this.dark.isSelected() ? Theme.DARK : Theme.LIGHT);
+      Enigma.getInstance().getThemeManager().setCurrentTheme(this.dark.isSelected() ? Theme.DARK : Theme.LIGHT);
    };
 
    public Interface() {
@@ -108,11 +108,11 @@ public class Interface extends BaseModule {
    }
 
    public static boolean glassSelected() {
-      return enigma.getInstance().getModuleManager().getModule(Interface.class).liquidGlass.isSelected();
+      return Enigma.getInstance().getModuleManager().getModule(Interface.class).liquidGlass.isSelected();
    }
 
    public static float glass() {
-      return enigma.getInstance().getModuleManager().getModule(Interface.class).liquidGlassAnim.getValue();
+      return Enigma.getInstance().getModuleManager().getModule(Interface.class).liquidGlassAnim.getValue();
    }
 
    public static float minimalizm() {

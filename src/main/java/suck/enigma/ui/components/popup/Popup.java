@@ -104,7 +104,7 @@ public class Popup extends CustomComponent {
          );
       }
 
-      boolean dark = enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
+      boolean dark = Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
       context.drawSquircle(
          this.x,
          this.y,

@@ -40,7 +40,7 @@ public class ItemPickup extends BaseModule {
 
       if (ItemUtility.isDonItem(stack)) {
          String name = stack.getName().getString();
-         enigma.getInstance()
+         Enigma.getInstance()
             .getNotificationManager()
             .addNotificationOther(NotificationType.INFO, "Донатный предмет", "Вы подобрали донатный предмет: " + name);
       }

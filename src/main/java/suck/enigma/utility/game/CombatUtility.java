@@ -59,9 +59,9 @@ public final class CombatUtility implements IMinecraft {
          return !ServerUtility.isFS() && !ServerUtility.isST()
             ? 0.0F
             : (
-               enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 10 == 0
+               Enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 10 == 0
                   ? 0.4F
-                  : (enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 5 == 0 ? 0.2F : 0.0F)
+                  : (Enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 5 == 0 ? 0.2F : 0.0F)
             );
       }
    }
@@ -69,12 +69,12 @@ public final class CombatUtility implements IMinecraft {
    public static boolean canPerformCriticalHit(LivingEntity target, boolean ignoreSprint) {
       if (mc.world != null && mc.player != null) {
          Block blockAboveHead = mc.world.getBlockState(mc.player.getBlockPos().up(2)).getBlock();
-         Aura aura = enigma.getInstance().getModuleManager().getModule(Aura.class);
+         Aura aura = Enigma.getInstance().getModuleManager().getModule(Aura.class);
          return mc.player.isClimbing()
             || EntityUtility.getBlock(0.0, 2.0, 0.0) != Blocks.AIR
                && (
-                  enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 10 == 0
-                     || enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 5 == 0
+                  Enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 10 == 0
+                     || Enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 5 == 0
                )
                && (ServerUtility.isST() || ServerUtility.isFS())
             || mc.currentScreen instanceof InventoryScreen
@@ -89,9 +89,9 @@ public final class CombatUtility implements IMinecraft {
             || mc.player.hasVehicle()
             || (mc.player.getMainHandStack().getItem() instanceof MaceItem ? mc.player.fallDistance > 1.0F : mc.player.fallDistance > getFallDistance(target))
             || ServerUtility.isST()
-               && enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 5 == 0
+               && Enigma.getInstance().getModuleManager().getModule(Aura.class).getAttacks() % 5 == 0
                && EntityUtility.getBlock(0.0, 2.0, 0.0) != Blocks.AIR
-            || enigma.getInstance().getModuleManager().getModule(Criticals.class).canCritical();
+            || Enigma.getInstance().getModuleManager().getModule(Criticals.class).canCritical();
       } else {
          return false;
       }

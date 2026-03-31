@@ -37,7 +37,7 @@ public class AutoFarmNukeTurkey implements IMinecraft {
                BlockPos pos = mc.player.getBlockPos().add(offset);
                if (!(mc.player.getPos().distanceTo(Vec3d.ofCenter(pos)) > 6.0)) {
                   Block block = mc.world.getBlockState(pos).getBlock();
-                  AutoFarm autoFarm = enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
+                  AutoFarm autoFarm = Enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
                   if (autoFarm.getMelon().isSelected() && block == Blocks.MELON || autoFarm.getTikva().isSelected() && block == Blocks.PUMPKIN) {
                      targetBlockPos = pos;
                      targetBlock = block;
@@ -64,7 +64,7 @@ public class AutoFarmNukeTurkey implements IMinecraft {
                   BlockPos pos = mc.player.getBlockPos().up().add(offset);
                   if (!(mc.player.getPos().distanceTo(Vec3d.ofCenter(pos)) > 6.0) && mc.world.getBlockState(pos).getBlock() != Blocks.AIR) {
                      Block block = mc.world.getBlockState(pos).getBlock();
-                     AutoFarm autoFarm = enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
+                     AutoFarm autoFarm = Enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
                      if (autoFarm.getMelon().isSelected() && block == Blocks.MELON
                         || autoFarm.getTikva().isSelected() && block == Blocks.PUMPKIN
                         || autoFarm.getAllCrops().isSelected() && block instanceof CropBlock) {
@@ -97,7 +97,7 @@ public class AutoFarmNukeTurkey implements IMinecraft {
          float yaw = (float)Math.toDegrees(Math.atan2(deltaZ, deltaX)) - 90.0F + MathUtility.random(-2.0, 2.0);
          float pitch = (float)(-Math.toDegrees(Math.atan2(deltaY, horizontalDistance))) + MathUtility.random(-1.0, 1.0);
          mc.player.networkHandler.sendPacket(new PlayerInteractItemC2SPacket(Hand.MAIN_HAND, 0, yaw, pitch));
-         enigma.getInstance().getRotationHandler().rotate(new Rotation(yaw, pitch), MoveCorrection.SILENT, 180.0F, 80.0F, 180.0F, RotationPriority.NORMAL);
+         Enigma.getInstance().getRotationHandler().rotate(new Rotation(yaw, pitch), MoveCorrection.SILENT, 180.0F, 80.0F, 180.0F, RotationPriority.NORMAL);
          this.equipAxe();
          Direction direction = getDirection(targetBlockPos);
          mc.interactionManager.updateBlockBreakingProgress(targetBlockPos, direction);

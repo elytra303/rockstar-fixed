@@ -23,16 +23,16 @@ public class SwingAnimScreen extends CustomScreen implements IScaledResolution, 
    private final Popup end = new Popup(500.0F, 100.0F).title("anim_to");
 
    public SwingAnimScreen() {
-      SwingManager manager = enigma.getInstance().getSwingManager();
-      enigma.getInstance().getSwingPresetManager().refresh();
+      SwingManager manager = Enigma.getInstance().getSwingManager();
+      Enigma.getInstance().getSwingPresetManager().refresh();
       this.presets.add(new PresetComponent());
       this.applySettings(manager.getSharedSettings().settings, this.shared);
       this.applySettings(manager.getStartPhase().settings, this.start);
       this.applySettings(manager.getEndPhase().settings, this.end);
-      SwingManager swingManager = enigma.getInstance().getSwingManager();
+      SwingManager swingManager = Enigma.getInstance().getSwingManager();
       String swing = swingManager.getCurrent();
 
-      for (SwingPreset value : enigma.getInstance().getSwingManager().getPresets()) {
+      for (SwingPreset value : Enigma.getInstance().getSwingManager().getPresets()) {
          if (value.getName().equals(swing)) {
             swingManager.getBezier().start(value.getBezierStart()).end(value.getBezierEnd());
             swingManager.getBack().enabled(value.isSwingBack());
@@ -126,7 +126,7 @@ public class SwingAnimScreen extends CustomScreen implements IScaledResolution, 
    }
 
    public void close() {
-      SwingPresetManager manager = enigma.getInstance().getSwingPresetManager();
+      SwingPresetManager manager = Enigma.getInstance().getSwingPresetManager();
       if (manager.getCurrent() != null) {
          manager.getCurrent().save();
       }
@@ -136,6 +136,6 @@ public class SwingAnimScreen extends CustomScreen implements IScaledResolution, 
       }
 
       super.close();
-      mc.setScreen(enigma.getInstance().getMenuScreen());
+      mc.setScreen(Enigma.getInstance().getMenuScreen());
    }
 }

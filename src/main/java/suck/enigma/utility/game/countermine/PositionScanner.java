@@ -20,7 +20,7 @@ import org.joml.Vector3f;
 public class PositionScanner implements IMinecraft {
    private final List<Point> points = new ArrayList<>();
    private final EventListener<ClientPlayerTickEvent> onTick = event -> {
-      CounterMine cm = enigma.getInstance().getModuleManager().getModule(CounterMine.class);
+      CounterMine cm = Enigma.getInstance().getModuleManager().getModule(CounterMine.class);
       this.points.clear();
 
       for (Entity entity : mc.world.getEntities()) {
@@ -56,7 +56,7 @@ public class PositionScanner implements IMinecraft {
                                     float z = rotation.getFloat(2);
                                     float w = rotation.getFloat(3);
                                     Vec3d tiltedPos = this.calculateTiltedPoint(entity.getPos(), x, y, z, w, 0.25F);
-                                    if (enigma.getInstance().getModuleManager().getModule(CounterMine.class).isMinDamage()) {
+                                    if (Enigma.getInstance().getModuleManager().getModule(CounterMine.class).isMinDamage()) {
                                        this.points.add(new Point(entity, x > -0.04F, hologramNearby, entity.getPos().add(0.0, -0.4F, 0.0)));
                                     } else {
                                        this.points.add(new Point(entity, x > -0.04F, hologramNearby, tiltedPos));

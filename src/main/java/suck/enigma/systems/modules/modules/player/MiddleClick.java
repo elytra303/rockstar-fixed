@@ -28,7 +28,7 @@ public class MiddleClick extends BaseModule {
       if (mc.currentScreen == null && action == 1) {
          if (this.clickFriend.isSelected() && this.clickFriendKey.isKey(key) && mc.targetedEntity instanceof PlayerEntity) {
             String nick = mc.targetedEntity.getName().getString();
-            FriendManager friend = enigma.getInstance().getFriendManager();
+            FriendManager friend = Enigma.getInstance().getFriendManager();
             if (friend.isFriend(nick)) {
                friend.remove(nick);
             } else {

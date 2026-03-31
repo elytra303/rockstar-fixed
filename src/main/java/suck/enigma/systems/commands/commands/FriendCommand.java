@@ -30,7 +30,7 @@ public class FriendCommand {
    private void handle(CommandContext ctx) {
       String action = (String)ctx.arguments().get(0);
       String id = (String)ctx.arguments().get(1);
-      FriendManager fm = enigma.getInstance().getFriendManager();
+      FriendManager fm = Enigma.getInstance().getFriendManager();
       String var5 = action.toLowerCase();
       switch (var5) {
          case "add":
@@ -51,7 +51,7 @@ public class FriendCommand {
 
    @Compile
    private void printList() {
-      List<String> friends = enigma.getInstance().getFriendManager().listFriends();
+      List<String> friends = Enigma.getInstance().getFriendManager().listFriends();
       if (friends.isEmpty()) {
          MessageUtility.info(Text.of(Localizator.translate("commands.friends.empty")));
       } else {

@@ -29,12 +29,12 @@ public class ClientPlayerEntityMixin implements ClientPlayerEntityAddition, IMin
    @Unique
    private int groundTicks = 0;
    @Unique
-   private final Aura aura = enigma.getInstance().getModuleManager().getModule(Aura.class);
+   private final Aura aura = Enigma.getInstance().getModuleManager().getModule(Aura.class);
 
    @Redirect(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"), require = 0)
    private boolean onIsUsingItemRedirect(ClientPlayerEntity player) {
       SlowDownEvent slowDownEvent = new SlowDownEvent();
-      enigma.getInstance().getEventManager().triggerEvent(slowDownEvent);
+      Enigma.getInstance().getEventManager().triggerEvent(slowDownEvent);
       return player.isUsingItem() && player.getVehicle() == null && !slowDownEvent.isCancelled();
    }
 
@@ -53,13 +53,13 @@ public class ClientPlayerEntityMixin implements ClientPlayerEntityAddition, IMin
       at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;setScreen(Lnet/minecraft/client/gui/screen/Screen;)V")
    )
    private boolean preventCloseScreen(MinecraftClient instance, Screen screen) {
-      enigma.getInstance().getEventManager().triggerEvent(new CloseScreenEvent(screen));
+      Enigma.getInstance().getEventManager().triggerEvent(new CloseScreenEvent(screen));
       return true;
    }
 
    @Inject(method = "pushOutOfBlocks", at = @At("HEAD"), cancellable = true)
    public void removePushOutFromBlocks(double x, double z, CallbackInfo ci) {
-      NoPush noPush = enigma.getInstance().getModuleManager().getModule(NoPush.class);
+      NoPush noPush = Enigma.getInstance().getModuleManager().getModule(NoPush.class);
       if (noPush.isEnabled() && noPush.getBlocks().isSelected()) {
          ci.cancel();
       }
@@ -67,12 +67,12 @@ public class ClientPlayerEntityMixin implements ClientPlayerEntityAddition, IMin
 
    @Inject(method = "tick", at = @At("HEAD"))
    public void triggerTickEvent(CallbackInfo ci) {
-      enigma.getInstance().getEventManager().triggerEvent(new ClientPlayerTickEvent());
+      Enigma.getInstance().getEventManager().triggerEvent(new ClientPlayerTickEvent());
    }
 
    @Inject(method = "tick", at = @At("RETURN"))
    public void triggerTickEndEvent(CallbackInfo ci) {
-      enigma.getInstance().getEventManager().triggerEvent(new ClientPlayerTickEndEvent());
+      Enigma.getInstance().getEventManager().triggerEvent(new ClientPlayerTickEndEvent());
    }
 
    @Inject(method = "tickMovement", at = @At("HEAD"))
@@ -86,7 +86,7 @@ public class ClientPlayerEntityMixin implements ClientPlayerEntityAddition, IMin
 
    @Redirect(method = "sendMovementPackets", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getYaw()F"))
    public float replaceMovePacketYaw(ClientPlayerEntity instance) {
-      RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+      RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
       float yaw = rotationHandler.isIdling() ? instance.getYaw() : rotationHandler.getCurrentRotation().getYaw();
       rotationHandler.getServerRotation().setYaw(yaw);
       return yaw;
@@ -94,7 +94,7 @@ public class ClientPlayerEntityMixin implements ClientPlayerEntityAddition, IMin
 
    @Redirect(method = "sendMovementPackets", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getPitch()F"))
    public float replaceMovePacketPitch(ClientPlayerEntity instance) {
-      RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+      RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
       float pitch = rotationHandler.isIdling() ? instance.getPitch() : rotationHandler.getCurrentRotation().getPitch();
       rotationHandler.getServerRotation().setYaw(pitch);
       return pitch;
@@ -102,7 +102,7 @@ public class ClientPlayerEntityMixin implements ClientPlayerEntityAddition, IMin
 
    @Inject(method = "dropSelectedItem", at = @At("HEAD"), cancellable = true)
    private void onDropSelectedItem(boolean entireStack, CallbackInfoReturnable<Boolean> cir) {
-      InvUtils slotLock = enigma.getInstance().getModuleManager().getModule(InvUtils.class);
+      InvUtils slotLock = Enigma.getInstance().getModuleManager().getModule(InvUtils.class);
       if (slotLock.isEnabled() && slotLock.getSlotLock().isSelected() && slotLock.isLocked(mc.player.getInventory().selectedSlot)) {
          cir.setReturnValue(false);
          cir.cancel();

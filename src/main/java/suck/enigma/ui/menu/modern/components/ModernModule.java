@@ -47,7 +47,7 @@ public class ModernModule extends CustomComponent {
       this.hoverAnimation.update(this.isHovered(context.getMouseX(), context.getMouseY()));
       this.blockingAnimation.update(this.blocking);
       this.blockingColorAnimation
-         .update(this.blocking ? new ColorRGBA(255.0F, 150.0F, 150.0F) : enigma.getInstance().getThemeManager().getCurrentTheme().getTextColor());
+         .update(this.blocking ? new ColorRGBA(255.0F, 150.0F, 150.0F) : Enigma.getInstance().getThemeManager().getCurrentTheme().getTextColor());
       this.shakeAnimation.update(this.blocking ? (this.shakeValue ? 1.0F : -1.0F) : 0.0F);
       if (this.blockingAnimation.getValue() == 1.0F) {
          this.blocking = false;
@@ -61,7 +61,7 @@ public class ModernModule extends CustomComponent {
          this.shakeValue = true;
       }
 
-      boolean dark = enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
+      boolean dark = Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
       context.drawSquircle(
          this.x,
          this.y,
@@ -159,7 +159,7 @@ public class ModernModule extends CustomComponent {
          }
 
          this.bindingMode = false;
-         if (enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen) {
+         if (Enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen) {
             dropDownScreen.getSearchField().setFocused(false);
          }
       }
@@ -169,14 +169,14 @@ public class ModernModule extends CustomComponent {
 
    public void open() {
       if (this.module.getSettings().isEmpty()) {
-         if (enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled() && !this.blocking) {
+         if (Enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled() && !this.blocking) {
             ClientSounds.CRITICAL.play(1.0F, 1.0F);
          }
 
          this.blocking = true;
          this.shakeValue = true;
       } else {
-         ModernScreen modernScreen = (ModernScreen)enigma.getInstance().getMenuScreen();
+         ModernScreen modernScreen = (ModernScreen)Enigma.getInstance().getMenuScreen();
          Rect win = modernScreen.getMenuWindow();
          List<ModernSettings> windows = modernScreen.getWindows();
          float x = win.getX() + win.getWidth() + 10.0F;

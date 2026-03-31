@@ -68,7 +68,7 @@ public class AntiBot extends BaseModule {
    }
 
    private void checkPlayersForFakes() {
-      Entity currentTarget = enigma.getInstance().getTargetManager().getCurrentTarget();
+      Entity currentTarget = Enigma.getInstance().getTargetManager().getCurrentTarget();
 
       for (PlayerEntity player : mc.world.getPlayers()) {
          if (!this.isInvalidPlayer(player) && this.isSuspiciousTargetFake(player, currentTarget) && player.age < 30) {

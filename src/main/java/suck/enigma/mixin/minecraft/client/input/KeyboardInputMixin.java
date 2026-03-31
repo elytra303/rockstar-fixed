@@ -26,7 +26,7 @@ public abstract class KeyboardInputMixin {
       boolean sneaking = accessor.getInput().sneak();
       boolean sprint = accessor.getInput().sprint();
       InputEvent event = new InputEvent(movementForward, movementSideways, jumping, sneaking, sprint);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
       accessor.setMovementForward(event.getForward());
       accessor.setMovementSideways(event.getStrafe());
       boolean forwardKey = event.getForward() > 0.0F;

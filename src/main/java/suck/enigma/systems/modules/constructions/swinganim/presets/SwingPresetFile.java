@@ -45,7 +45,7 @@ public class SwingPresetFile implements IMinecraft {
             JsonObject jsonObject = JsonParser.parseReader(reader).getAsJsonObject();
             JsonObject animation = jsonObject.getAsJsonObject("animation");
 
-            for (Setting setting : enigma.getInstance().getSwingManager().getSharedSettings().getSettings()) {
+            for (Setting setting : Enigma.getInstance().getSwingManager().getSharedSettings().getSettings()) {
                if (animation.has(setting.getName())) {
                   setting.load(animation.get(setting.getName()));
                }
@@ -53,7 +53,7 @@ public class SwingPresetFile implements IMinecraft {
 
             JsonObject startPhase = jsonObject.getAsJsonObject("startPhase");
 
-            for (Setting settingx : enigma.getInstance().getSwingManager().getStartPhase().getSettings()) {
+            for (Setting settingx : Enigma.getInstance().getSwingManager().getStartPhase().getSettings()) {
                if (startPhase.has(settingx.getName())) {
                   settingx.load(startPhase.get(settingx.getName()));
                }
@@ -61,14 +61,14 @@ public class SwingPresetFile implements IMinecraft {
 
             JsonObject endPhase = jsonObject.getAsJsonObject("endPhase");
 
-            for (Setting settingxx : enigma.getInstance().getSwingManager().getEndPhase().getSettings()) {
+            for (Setting settingxx : Enigma.getInstance().getSwingManager().getEndPhase().getSettings()) {
                if (endPhase.has(settingxx.getName())) {
                   settingxx.load(endPhase.get(settingxx.getName()));
                }
             }
 
             if (!this.fileName.equals("autosave")) {
-               enigma.getInstance().getSwingPresetManager().setCurrent(this);
+               Enigma.getInstance().getSwingPresetManager().setCurrent(this);
             }
          } catch (Exception var10) {
             enigma.LOGGER.error("Failed to load config file {}: {}", this.fileName, var10.getMessage());
@@ -85,21 +85,21 @@ public class SwingPresetFile implements IMinecraft {
          JsonObject json = new JsonObject();
          JsonObject animation = new JsonObject();
 
-         for (Setting setting : enigma.getInstance().getSwingManager().getSharedSettings().getSettings()) {
+         for (Setting setting : Enigma.getInstance().getSwingManager().getSharedSettings().getSettings()) {
             animation.add(setting.getName(), setting.save());
          }
 
          json.add("animation", animation);
          JsonObject startPhase = new JsonObject();
 
-         for (Setting setting : enigma.getInstance().getSwingManager().getStartPhase().getSettings()) {
+         for (Setting setting : Enigma.getInstance().getSwingManager().getStartPhase().getSettings()) {
             startPhase.add(setting.getName(), setting.save());
          }
 
          json.add("startPhase", startPhase);
          JsonObject endPhase = new JsonObject();
 
-         for (Setting setting : enigma.getInstance().getSwingManager().getEndPhase().getSettings()) {
+         for (Setting setting : Enigma.getInstance().getSwingManager().getEndPhase().getSettings()) {
             endPhase.add(setting.getName(), setting.save());
          }
 
@@ -121,7 +121,7 @@ public class SwingPresetFile implements IMinecraft {
          fileWriter.close();
          System.out.println("saved");
          if (!this.fileName.equals("autosave")) {
-            enigma.getInstance().getSwingPresetManager().setCurrent(this);
+            Enigma.getInstance().getSwingPresetManager().setCurrent(this);
          }
       } catch (IOException var10) {
          enigma.LOGGER.error("Failed to save config file", var10);
@@ -133,7 +133,7 @@ public class SwingPresetFile implements IMinecraft {
 
       try {
          Files.delete(filePath);
-         enigma.getInstance().getSwingPresetManager().getSwingPresetFiles().remove(this);
+         Enigma.getInstance().getSwingPresetManager().getSwingPresetFiles().remove(this);
          enigma.LOGGER.info("Config file deleted: {}", filePath);
       } catch (NoSuchFileException var3) {
          enigma.LOGGER.warn("Tried to delete a file that does not exist: {}", filePath);

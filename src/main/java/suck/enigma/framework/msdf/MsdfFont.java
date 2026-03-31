@@ -75,7 +75,7 @@ public final class MsdfFont {
       int prevChar = -1;
       float width = 0.0F;
       boolean skipNext = false;
-      NameProtect nameProtectModule = enigma.getInstance().getModuleManager().getModule(NameProtect.class);
+      NameProtect nameProtectModule = Enigma.getInstance().getModuleManager().getModule(NameProtect.class);
       if (nameProtectModule.isEnabled()) {
          text = nameProtectModule.patchName(text);
       }
@@ -110,7 +110,7 @@ public final class MsdfFont {
 
    public float getWidth(String text, float size) {
       text = text.replace("і", "i").replace("І", "I");
-      NameProtect nameProtectModule = enigma.getInstance().getModuleManager().getModule(NameProtect.class);
+      NameProtect nameProtectModule = Enigma.getInstance().getModuleManager().getModule(NameProtect.class);
       boolean np = nameProtectModule.isEnabled();
       if (np) {
          text = nameProtectModule.patchName(text);

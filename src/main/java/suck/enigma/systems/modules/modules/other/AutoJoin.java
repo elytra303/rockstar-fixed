@@ -45,7 +45,7 @@ public class AutoJoin extends BaseModule {
          }
 
          if (sword != null) {
-            enigma.getInstance().getNotificationManager().addNotificationOther(NotificationType.SUCCESS, "Успешный вход", "Вы успешно вошли на дуэли");
+            Enigma.getInstance().getNotificationManager().addNotificationOther(NotificationType.SUCCESS, "Успешный вход", "Вы успешно вошли на дуэли");
             this.toggle();
          }
       }

@@ -24,7 +24,7 @@ public abstract class ExplosionImplMixin implements IMinecraft {
       List<BlockPos> debris = affectedBlocks.stream()
             .filter(pos -> self.getWorld().getBlockState(pos).isOf(Blocks.ANCIENT_DEBRIS)).toList();
       if (!debris.isEmpty() && self.getWorld().getRegistryKey() == World.NETHER) {
-         enigma.getInstance().getEventManager().triggerEvent(new AncientDebrisEvent(debris, self.getPosition()));
+         Enigma.getInstance().getEventManager().triggerEvent(new AncientDebrisEvent(debris, self.getPosition()));
       }
    }
 }

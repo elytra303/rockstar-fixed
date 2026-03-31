@@ -41,9 +41,9 @@ public class RotationPlayer extends BaseModule {
          if (now - this.lastSwingTimeMs > 2000L) {
             this.lastTarget = null;
          } else {
-            Rotation predicted = enigma.getInstance()
+            Rotation predicted = Enigma.getInstance()
                .getAi()
-               .predictRotation(enigma.getInstance().getRotationHandler().getPlayerRotation(), this.lastTarget);
+               .predictRotation(Enigma.getInstance().getRotationHandler().getPlayerRotation(), this.lastTarget);
             mc.player.setYaw(predicted.getYaw());
             mc.player.setPitch(predicted.getPitch());
          }

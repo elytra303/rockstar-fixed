@@ -110,7 +110,7 @@ public class AutoBrew extends BaseModule {
          if (brew.getSlot(3).getStack().getItem() == Items.AIR) {
             if (this.isPotionType(brew, (Potion)Potions.WATER.value())) {
                if (this.findIngredient(Items.NETHER_WART) == -1) {
-                  enigma.getInstance()
+                  Enigma.getInstance()
                      .getNotificationManager()
                      .addNotificationOther(
                         NotificationType.ERROR, "Предмет не найден", "Вам необходимо иметь " + Items.NETHER_WART.getName().getString() + " в инвентаре"
@@ -162,7 +162,7 @@ public class AutoBrew extends BaseModule {
 
    private void handleIngredient(Item item, int slot) {
       if (this.findIngredient(item) == -1) {
-         enigma.getInstance()
+         Enigma.getInstance()
             .getNotificationManager()
             .addNotificationOther(NotificationType.ERROR, "Предмет не найден", "Вам необходимо иметь " + item.getName().getString() + " в инвентаре");
          this.toggle();

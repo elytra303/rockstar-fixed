@@ -30,6 +30,6 @@ public class ChatListener implements IMinecraft {
    };
 
    public ChatListener() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 }

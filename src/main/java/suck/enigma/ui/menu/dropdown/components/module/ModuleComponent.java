@@ -106,7 +106,7 @@ public class ModuleComponent extends CustomComponent {
       this.currentPenis.update();
       this.blockingAnimation.update(this.blocking);
       this.blockingColorAnimation
-         .update(this.blocking ? new ColorRGBA(255.0F, 150.0F, 150.0F) : enigma.getInstance().getThemeManager().getCurrentTheme().getTextColor());
+         .update(this.blocking ? new ColorRGBA(255.0F, 150.0F, 150.0F) : Enigma.getInstance().getThemeManager().getCurrentTheme().getTextColor());
       this.shakeAnimation.update(this.blocking ? (this.shakeValue ? 1.0F : -1.0F) : 0.0F);
       if (this.blockingAnimation.getValue() == 1.0F) {
          this.blocking = false;
@@ -122,7 +122,7 @@ public class ModuleComponent extends CustomComponent {
 
       if (this.parent.isHovered(context) && this.isHovered(context)) {
          CursorUtility.set(CursorType.HAND);
-         if (enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen) {
+         if (Enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen) {
             dropDownScreen.setDesc(this.module.getDescription());
          }
       }
@@ -202,7 +202,7 @@ public class ModuleComponent extends CustomComponent {
 
    public void open() {
       if (this.module.getSettings().isEmpty()) {
-         if (enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled() && !this.blocking) {
+         if (Enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled() && !this.blocking) {
             ClientSounds.CRITICAL.play(1.0F, 1.0F);
          }
 
@@ -211,7 +211,7 @@ public class ModuleComponent extends CustomComponent {
       } else {
          this.parent.setSelectedModuleComponent(this);
          this.onInit();
-         if (enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled()) {
+         if (Enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled()) {
             ClientSounds.CLICKGUI_OPEN.play(0.8F, 1.3F);
          }
       }
@@ -227,7 +227,7 @@ public class ModuleComponent extends CustomComponent {
          }
 
          this.bindingMode = false;
-         if (enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen) {
+         if (Enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen) {
             dropDownScreen.getSearchField().setFocused(false);
          }
       }

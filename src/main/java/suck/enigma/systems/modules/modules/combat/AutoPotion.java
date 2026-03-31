@@ -62,7 +62,7 @@ public class AutoPotion extends BaseModule {
    private AutoPotion.UseTask task;
    private final EventListener<InputEvent> onInput = event -> {
       if (this.task != null) {
-         GuiMove guiMove = enigma.getInstance().getModuleManager().getModule(GuiMove.class);
+         GuiMove guiMove = Enigma.getInstance().getModuleManager().getModule(GuiMove.class);
          boolean hotbar = this.task.slot instanceof HotbarSlot;
          if (guiMove.isEnabled() && guiMove.slowing() && !hotbar) {
             event.setForward(0.0F);
@@ -72,9 +72,9 @@ public class AutoPotion extends BaseModule {
    };
    private final EventListener<ClientPlayerTickEvent> onUpdateEvent = event -> {
       Rotation rotation = this.getRotation();
-      GuiMove guiMove = enigma.getInstance().getModuleManager().getModule(GuiMove.class);
+      GuiMove guiMove = Enigma.getInstance().getModuleManager().getModule(GuiMove.class);
       if (this.task != null) {
-         enigma.getInstance().getRotationHandler().rotate(rotation, RotationPriority.USE_ITEM);
+         Enigma.getInstance().getRotationHandler().rotate(rotation, RotationPriority.USE_ITEM);
          boolean hotbar = this.task.slot instanceof HotbarSlot;
          int offset = guiMove.isEnabled() && guiMove.slowing() && !hotbar ? 1 : 0;
          if (hotbar) {
@@ -118,7 +118,7 @@ public class AutoPotion extends BaseModule {
                ItemSlot slot = search.findItem(this.potionPredicate(potionValue.effect));
                if (slot != null) {
                   this.task = new AutoPotion.UseTask(slot, InventoryUtility.getCurrentHotbarSlot().getSlotId());
-                  enigma.getInstance().getRotationHandler().rotate(rotation, MoveCorrection.SILENT, 180.0F, 180.0F, 180.0F, RotationPriority.USE_ITEM);
+                  Enigma.getInstance().getRotationHandler().rotate(rotation, MoveCorrection.SILENT, 180.0F, 180.0F, 180.0F, RotationPriority.USE_ITEM);
                   potionValue.throwTimer.reset();
                   break;
                }

@@ -71,7 +71,7 @@ public class ElytraTarget extends BaseModule {
          }
       }
 
-      LivingEntity target = enigma.getInstance().getTargetManager().getLivingTarget();
+      LivingEntity target = Enigma.getInstance().getTargetManager().getLivingTarget();
       ElytraUtility.setLastVec(ElytraUtility.leaveVec(target));
       ElytraUtility.useFirework(this.fireworkSlot.getCurrentValue());
    };
@@ -127,9 +127,9 @@ public class ElytraTarget extends BaseModule {
 
    @Override
    public void tick() {
-      Aura aura = enigma.getInstance().getModuleManager().getModule(Aura.class);
-      LivingEntity target = enigma.getInstance().getTargetManager().getLivingTarget();
-      if (!enigma.getInstance().getModuleManager().getModule(ElytraStrafe.class).isEnabled()
+      Aura aura = Enigma.getInstance().getModuleManager().getModule(Aura.class);
+      LivingEntity target = Enigma.getInstance().getTargetManager().getLivingTarget();
+      if (!Enigma.getInstance().getModuleManager().getModule(ElytraStrafe.class).isEnabled()
          && ElytraUtility.getFireworkTimer().finished(target != null && mc.player.distanceTo(target) < 6.0F ? 500L : (target != null ? 1000L : 1500L))
          && mc.player.isGliding()
          && !mc.player.isUsingItem()) {
@@ -137,7 +137,7 @@ public class ElytraTarget extends BaseModule {
       }
 
       if (mc.player.isGliding() && target != null) {
-         RotationHandler handler = enigma.getInstance().getRotationHandler();
+         RotationHandler handler = Enigma.getInstance().getRotationHandler();
          Rotation rot = RotationMath.getRotationTo(
             ElytraUtility.leaving() ? target.getEyePos().add(ElytraUtility.leaveVec(target)) : ElytraUtility.targetPoint(target)
          );
@@ -176,7 +176,7 @@ public class ElytraTarget extends BaseModule {
    }
 
    private Blink blink() {
-      return enigma.getInstance().getModuleManager().getModule(Blink.class);
+      return Enigma.getInstance().getModuleManager().getModule(Blink.class);
    }
 
    @Override

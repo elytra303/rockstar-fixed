@@ -15,7 +15,7 @@ public class FriendManager implements IMinecraft {
    private final List<String> friends = new ArrayList<>();
 
    public void add(String name) {
-      if (enigma.getInstance().getTargetManager().getTarget().contains(name)) {
+      if (Enigma.getInstance().getTargetManager().getTarget().contains(name)) {
          MessageUtility.error(Text.of(Localizator.translate("commands.friends.target")));
       } else if (this.friends.contains(name)) {
          MessageUtility.info(Text.of(Localizator.translate("commands.friends.exists", name)));
@@ -25,7 +25,7 @@ public class FriendManager implements IMinecraft {
          this.friends.add(name);
          MessageUtility.info(Text.of(Localizator.translate("commands.friends.added", name)));
          if (EntityUtility.isInGame()) {
-            enigma.getInstance().getFileManager().writeFile("client");
+            Enigma.getInstance().getFileManager().writeFile("client");
          }
       }
    }
@@ -38,7 +38,7 @@ public class FriendManager implements IMinecraft {
          MessageUtility.info(Text.of(Localizator.translate("commands.friends.not_exists", name)));
       }
 
-      enigma.getInstance().getFileManager().writeFile("client");
+      Enigma.getInstance().getFileManager().writeFile("client");
    }
 
    @Compile
@@ -48,7 +48,7 @@ public class FriendManager implements IMinecraft {
       } else {
          this.friends.clear();
          MessageUtility.info(Text.of("Список друзей успешно очищен!"));
-         enigma.getInstance().getFileManager().writeFile("client");
+         Enigma.getInstance().getFileManager().writeFile("client");
       }
    }
 

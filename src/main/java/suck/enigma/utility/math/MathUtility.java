@@ -192,7 +192,7 @@ public final class MathUtility implements IMinecraft {
       if (target != null && entity != null && mc.world != null) {
          float partialTicks = mc.getRenderTickCounter().getTickDelta(false);
          Vec3d startPos = entity.getCameraPosVec(partialTicks);
-         Vec3d endPos = enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled() && target instanceof PlayerEntity player
+         Vec3d endPos = Enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled() && target instanceof PlayerEntity player
             ? player.getBoundingBox()
                .offset(ElytraPredictionSystem.predictPlayerPosition(player))
                .offset(-player.getX(), -player.getY(), -player.getZ())

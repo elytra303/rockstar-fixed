@@ -35,7 +35,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(LivingEntityRenderer.class)
 public abstract class LivingEntityRendererMixin<T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<? super S>> {
    @Unique
-   private static final AntiInvisible ANTI_INVISIBLE_MODULE = enigma.getInstance().getModuleManager().getModule(AntiInvisible.class);
+   private static final AntiInvisible ANTI_INVISIBLE_MODULE = Enigma.getInstance().getModuleManager().getModule(AntiInvisible.class);
 
    @Shadow
    public abstract Identifier getTexture(S var1);
@@ -46,7 +46,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, S extend
    )
    public float changeYaw(float oldValue, LivingEntity entity) {
       if (entity instanceof ClientPlayerEntity && !AntiAim.FORCE) {
-         RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+         RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
          float yaw = rotationHandler.isIdling() ? oldValue : rotationHandler.getRenderRotation().getYaw();
          rotationHandler.getServerRotation().setYaw(yaw);
          return yaw;
@@ -61,7 +61,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, S extend
    )
    public float changeHeadYaw(float oldValue, LivingEntity entity) {
       if (entity instanceof ClientPlayerEntity && !AntiAim.FORCE) {
-         RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+         RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
          float yaw = rotationHandler.isIdling() ? oldValue : rotationHandler.getRenderRotation().getYaw();
          rotationHandler.getServerRotation().setYaw(yaw);
          return yaw;
@@ -76,7 +76,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, S extend
    )
    public float changePitch(float oldValue, LivingEntity entity) {
       if (entity instanceof ClientPlayerEntity && !AntiAim.FORCE) {
-         RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+         RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
          float pitch = rotationHandler.isIdling() ? oldValue : rotationHandler.getRenderRotation().getPitch();
          rotationHandler.getServerRotation().setYaw(pitch);
          return pitch;
@@ -110,12 +110,12 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, S extend
       }
 
       Entity entity = ((EntityRenderStateAddition)livingEntityRenderState).enigma$getEntity();
-      FriendMarkers markers = enigma.getInstance().getModuleManager().getModule(FriendMarkers.class);
+      FriendMarkers markers = Enigma.getInstance().getModuleManager().getModule(FriendMarkers.class);
       if (entity instanceof PlayerEntity player
          && instance instanceof BipedEntityModel<?> model
          && markers.isEnabled()
          && markers.getHeads().isSelected()
-         && enigma.getInstance().getFriendManager().isFriend(player.getName().getString())) {
+         && Enigma.getInstance().getFriendManager().isFriend(player.getName().getString())) {
          BipedEntityModelAccessor accessor = (BipedEntityModelAccessor)model;
          float scale = 1.09F;
          accessor.enigma$getHead().scale(new Vector3f(scale, scale, scale));

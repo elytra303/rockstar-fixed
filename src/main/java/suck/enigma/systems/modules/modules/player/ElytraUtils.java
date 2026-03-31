@@ -118,11 +118,11 @@ public class ElytraUtils extends BaseModule {
    };
    private final EventListener<FireworkEvent> onFirework = event -> {
       if (this.boost.isEnabled() && event.getEntity() == mc.player) {
-         if (enigma.getInstance().getTargetManager().getLivingTarget() instanceof PlayerEntity player && !ElytraPredictionSystem.isLeaving(player)) {
+         if (Enigma.getInstance().getTargetManager().getLivingTarget() instanceof PlayerEntity player && !ElytraPredictionSystem.isLeaving(player)) {
          }
 
          double boostPower = 1.5 * this.getAdvancedBoost();
-         RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+         RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
          Vec3d rotationVector = rotationHandler.isIdling()
             ? rotationHandler.getPlayerRotation().getRotationVector()
             : rotationHandler.getCurrentRotation().getRotationVector();
@@ -137,7 +137,7 @@ public class ElytraUtils extends BaseModule {
    };
    private final EventListener<ReceivePacketEvent> onReceivePacketEvent = event -> {
       if (event.getPacket() instanceof PlayerPositionLookS2CPacket) {
-         RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+         RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
          Rotation rot = rotationHandler.isIdling() ? rotationHandler.getPlayerRotation() : rotationHandler.getCurrentRotation();
          System.out.println(String.format("ELYTRA BOOSTER HUETA. ANGLES: yaw(%s) pitch(%s) speed(%s)", rot.getYaw(), rot.getPitch(), this.getAdvancedBoost()));
       }
@@ -162,10 +162,10 @@ public class ElytraUtils extends BaseModule {
    }
 
    private double getAdvancedBoost() {
-      if (enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isDefensiveActive()) {
+      if (Enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isDefensiveActive()) {
       }
 
-      RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+      RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
       Rotation rot = rotationHandler.isIdling() ? rotationHandler.getPlayerRotation() : rotationHandler.getCurrentRotation();
       float playerYaw = rot.getYaw();
       float playerPitch = rot.getPitch();

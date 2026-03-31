@@ -32,7 +32,7 @@ public class WorldRendererMixin implements IMinecraft {
       Profilers.get().swap(enigma.MOD_ID + "_renderWorld");
       MatrixStack matrices = new MatrixStack();
       matrices.multiplyPositionMatrix(positionMatrix);
-      enigma.getInstance()
+      Enigma.getInstance()
          .getEventManager()
          .triggerEvent(new Render3DEvent(matrices, positionMatrix, projectionMatrix, camera, tickCounter.getTickDelta(false)));
    }

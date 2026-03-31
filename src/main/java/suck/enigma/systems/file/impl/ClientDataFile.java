@@ -35,13 +35,13 @@ public class ClientDataFile extends ClientFile implements IMinecraft {
    public void write() {
       JsonObject json = new JsonObject();
       json.addProperty("username", mc.getSession().getUsername());
-      json.addProperty("theme", enigma.getInstance().getThemeManager().getCurrentTheme().name());
-      json.addProperty("swing", enigma.getInstance().getSwingManager().getCurrent());
+      json.addProperty("theme", Enigma.getInstance().getThemeManager().getCurrentTheme().name());
+      json.addProperty("swing", Enigma.getInstance().getSwingManager().getCurrent());
       json.add("hudElements", this.getHudElementsJsonArray());
       json.add("friends", this.getFriendsJsonArray());
       json.add("colorPickerPresets", this.getColorPickerPresetsJsonArray());
       json.add("password", this.getPassword());
-      ConfigFile currentConfig = enigma.getInstance().getConfigManager().getCurrent();
+      ConfigFile currentConfig = Enigma.getInstance().getConfigManager().getCurrent();
       if (currentConfig != null) {
          json.addProperty("lastConfig", currentConfig.getFileName());
       }
@@ -68,10 +68,10 @@ public class ClientDataFile extends ClientFile implements IMinecraft {
 
          if (object.has("swing")) {
             String swing = object.get("swing").getAsString();
-            SwingManager swingManager = enigma.getInstance().getSwingManager();
-            SwingPresetManager manager = enigma.getInstance().getSwingPresetManager();
+            SwingManager swingManager = Enigma.getInstance().getSwingManager();
+            SwingPresetManager manager = Enigma.getInstance().getSwingPresetManager();
 
-            for (SwingPreset value : enigma.getInstance().getSwingManager().getPresets()) {
+            for (SwingPreset value : Enigma.getInstance().getSwingManager().getPresets()) {
                if (value.getName().equals(swing)) {
                   swingManager.getBezier().start(value.getBezierStart()).end(value.getBezierEnd());
                   swingManager.getBack().enabled(value.isSwingBack());
@@ -106,18 +106,18 @@ public class ClientDataFile extends ClientFile implements IMinecraft {
 
             try {
                Theme theme = Theme.valueOf(themeName);
-               enigma.getInstance().getThemeManager().setCurrentTheme(theme);
+               Enigma.getInstance().getThemeManager().setCurrentTheme(theme);
             } catch (IllegalArgumentException var16) {
-               enigma.getInstance().getThemeManager().setCurrentTheme(Theme.DARK);
+               Enigma.getInstance().getThemeManager().setCurrentTheme(Theme.DARK);
             }
          }
 
          if (object.has("friends")) {
             JsonArray friendsArray = object.getAsJsonArray("friends");
-            enigma.getInstance().getFriendManager().clear();
+            Enigma.getInstance().getFriendManager().clear();
 
             for (JsonElement friendElement : friendsArray) {
-               enigma.getInstance().getFriendManager().add(friendElement.getAsString());
+               Enigma.getInstance().getFriendManager().add(friendElement.getAsString());
             }
          }
 
@@ -132,7 +132,7 @@ public class ClientDataFile extends ClientFile implements IMinecraft {
                float x = elementObject.get("x").getAsFloat();
                float y = elementObject.get("y").getAsFloat();
                boolean showing = elementObject.get("showing").getAsBoolean();
-               HudElement element = enigma.getInstance().getHud().getElementByName(name);
+               HudElement element = Enigma.getInstance().getHud().getElementByName(name);
                if (element != null) {
                   element.setX(x);
                   element.setY(y);
@@ -152,7 +152,7 @@ public class ClientDataFile extends ClientFile implements IMinecraft {
 
          if (object.has("lastConfig")) {
             String configName = object.get("lastConfig").getAsString();
-            ConfigFile config = enigma.getInstance().getConfigManager().getConfig(configName);
+            ConfigFile config = Enigma.getInstance().getConfigManager().getConfig(configName);
             if (config != null) {
                config.load();
             }
@@ -165,7 +165,7 @@ public class ClientDataFile extends ClientFile implements IMinecraft {
    private JsonArray getHudElementsJsonArray() {
       JsonArray hudElementsArray = new JsonArray();
 
-      for (HudElement element : enigma.getInstance().getHud().getElements()) {
+      for (HudElement element : Enigma.getInstance().getHud().getElements()) {
          JsonObject elementObject = new JsonObject();
          elementObject.addProperty("name", element.getName());
          elementObject.addProperty("x", element.getX());
@@ -191,7 +191,7 @@ public class ClientDataFile extends ClientFile implements IMinecraft {
    private JsonArray getFriendsJsonArray() {
       JsonArray friendsJsonArray = new JsonArray();
 
-      for (String friendsName : enigma.getInstance().getFriendManager().listFriends()) {
+      for (String friendsName : Enigma.getInstance().getFriendManager().listFriends()) {
          friendsJsonArray.add(friendsName);
       }
 
@@ -201,7 +201,7 @@ public class ClientDataFile extends ClientFile implements IMinecraft {
    private JsonArray getPassword() {
       JsonArray passwordJsonArray = new JsonArray();
 
-      for (Entry<String, String> pass : enigma.getInstance().getModuleManager().getModule(AutoAuth.class).listPassword().entrySet()) {
+      for (Entry<String, String> pass : Enigma.getInstance().getModuleManager().getModule(AutoAuth.class).listPassword().entrySet()) {
          JsonObject passObject = new JsonObject();
          passObject.addProperty("nick", pass.getValue());
          passObject.addProperty("pass", pass.getKey());
@@ -250,7 +250,7 @@ public class ClientDataFile extends ClientFile implements IMinecraft {
          JsonObject passObject = passElement.getAsJsonObject();
          String nick = passObject.get("nick").getAsString();
          String pass = passObject.get("pass").getAsString();
-         enigma.getInstance().getModuleManager().getModule(AutoAuth.class).put(nick, pass);
+         Enigma.getInstance().getModuleManager().getModule(AutoAuth.class).put(nick, pass);
       }
    }
 }

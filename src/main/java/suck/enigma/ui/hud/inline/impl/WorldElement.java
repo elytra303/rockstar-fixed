@@ -23,6 +23,6 @@ public class WorldElement extends InlineElement {
       super.update(context);
       this.cords.update(String.format("%s %s %s", Math.round(mc.player.getX()), Math.round(mc.player.getY()), Math.round(mc.player.getZ())));
       this.server.update(ServerUtility.getServerName(this.shortName.isEnabled()), ServerUtility.getIP());
-      this.tps.update(TextUtility.formatNumber(enigma.getInstance().getTpsHandler().getTPS()).replace(",", ".").replace(".0", ""));
+      this.tps.update(TextUtility.formatNumber(Enigma.getInstance().getTpsHandler().getTPS()).replace(",", ".").replace(".0", ""));
    }
 }

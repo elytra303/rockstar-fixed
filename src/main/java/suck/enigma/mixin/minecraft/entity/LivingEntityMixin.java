@@ -40,9 +40,9 @@ public abstract class LivingEntityMixin {
 
    @ModifyReturnValue(method = "getHandSwingDuration", at = @At("RETURN"))
    public int replaceSwingSpeed(int original) {
-      SwingAnimation swingAnimationModule = enigma.getInstance().getModuleManager().getModule(SwingAnimation.class);
+      SwingAnimation swingAnimationModule = Enigma.getInstance().getModuleManager().getModule(SwingAnimation.class);
       return swingAnimationModule.isEnabled() && swingAnimationModule.shouldApplyAnimation(this.getMainHandStack())
-            ? (int) (original * enigma.getInstance().getSwingManager().getSpeed().getCurrentValue())
+            ? (int) (original * Enigma.getInstance().getSwingManager().getSpeed().getCurrentValue())
             : original;
    }
 
@@ -50,7 +50,7 @@ public abstract class LivingEntityMixin {
    public void triggerJumpEvent(CallbackInfo ci) {
       LivingEntity livingEntity = (LivingEntity) (Object) this;
       EntityJumpEvent event = new EntityJumpEvent(livingEntity);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
       if (event.isCancelled()) {
          ci.cancel();
       }
@@ -72,7 +72,7 @@ public abstract class LivingEntityMixin {
 
    @Inject(method = "tickMovement", at = @At("HEAD"))
    public void removeJumpDelay(CallbackInfo ci) {
-      NoDelay noDelay = enigma.getInstance().getModuleManager().getModule(NoDelay.class);
+      NoDelay noDelay = Enigma.getInstance().getModuleManager().getModule(NoDelay.class);
       if (noDelay.isEnabled() && noDelay.getJump().isEnabled()) {
          this.jumpingCooldown = 0;
       }
@@ -80,7 +80,7 @@ public abstract class LivingEntityMixin {
 
    @Inject(method = "isPushable", at = @At("HEAD"), cancellable = true)
    private void removePushFromEntity(CallbackInfoReturnable<Boolean> cir) {
-      NoPush noPush = enigma.getInstance().getModuleManager().getModule(NoPush.class);
+      NoPush noPush = Enigma.getInstance().getModuleManager().getModule(NoPush.class);
       LivingEntity entity = (LivingEntity) (Object) this;
       if (entity instanceof ClientPlayerEntity && noPush.isEnabled() && noPush.getEntities().isSelected()) {
          cir.setReturnValue(false);
@@ -90,18 +90,18 @@ public abstract class LivingEntityMixin {
    @Inject(method = "onDeath", at = @At("TAIL"))
    public void triggerEntityDeathEvent(DamageSource damageSource, CallbackInfo ci) {
       LivingEntity entity = (LivingEntity) (Object) this;
-      enigma.getInstance().getEventManager().triggerEvent(new EntityDeathEvent(entity, damageSource));
+      Enigma.getInstance().getEventManager().triggerEvent(new EntityDeathEvent(entity, damageSource));
    }
 
    @Redirect(method = "calcGlidingVelocity(Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/Vec3d;", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getPitch()F"))
    private float redirectGetPitch(LivingEntity instance) {
-      RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+      RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
       return rotationHandler.isIdling() ? instance.getPitch() : rotationHandler.getCurrentRotation().getPitch();
    }
 
    @Redirect(method = "calcGlidingVelocity(Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/Vec3d;", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getRotationVector()Lnet/minecraft/util/math/Vec3d;"))
    private Vec3d redirectGetRotationVector(LivingEntity instance) {
-      RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+      RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
       return rotationHandler.isIdling() ? instance.getRotationVector()
             : rotationHandler.getCurrentRotation().getRotationVector();
    }

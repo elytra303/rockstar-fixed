@@ -95,7 +95,7 @@ public class Arrows extends BaseModule {
                   40.0F,
                   20.0F,
                   20.0F,
-                  (enigma.getInstance().getFriendManager().isFriend(arrow.getKey().getName().getString()) ? Colors.GREEN : Colors.ACCENT)
+                  (Enigma.getInstance().getFriendManager().isFriend(arrow.getKey().getName().getString()) ? Colors.GREEN : Colors.ACCENT)
                      .mulAlpha(arrow.getValue().showing.getValue())
                );
                RenderUtility.end(ms);

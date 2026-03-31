@@ -76,7 +76,7 @@ public class TargetHud extends HudElement {
       if (this.target != null) {
          Font regular7 = Fonts.REGULAR.getFont(7.0F);
          Font semibold6 = Fonts.SEMIBOLD.getFont(6.0F);
-         boolean dark = enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
+         boolean dark = Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
          ColorRGBA bgColor = Colors.getBackgroundColor().withAlpha(255.0F * (dark ? 0.8F - 0.6F * Interface.glass() : 0.7F));
          boolean hover = GuiUtility.isHovered(this.x + 30.0F, this.y + 3.0F + 6.0F * this.content.getValue(), 60.0, 6.0, context);
          if (!hover || this.copyTimer.finished(1000L)) {
@@ -232,7 +232,7 @@ public class TargetHud extends HudElement {
                   enigma.id(
                      Interface.glassSelected()
                         ? "icons/hud/whoglass.png"
-                        : (enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK ? "icons/hud/whodark.png" : "icons/hud/who.png")
+                        : (Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK ? "icons/hud/whodark.png" : "icons/hud/who.png")
                   ),
                   this.x + 6.0F * this.content.getValue(),
                   this.y + 6.0F,
@@ -332,7 +332,7 @@ public class TargetHud extends HudElement {
    }
 
    private LivingEntity getTarget() {
-      LivingEntity mainTarget = enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity target2 ? target2 : null;
+      LivingEntity mainTarget = Enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity target2 ? target2 : null;
       if (mainTarget != null) {
          return mainTarget;
       } else if (this.rayTrace.isEnabled() && mc.targetedEntity instanceof LivingEntity livingEntity) {

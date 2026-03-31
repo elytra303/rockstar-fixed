@@ -21,7 +21,7 @@ public class HelpCommand {
 
    @Compile
    private void handle(CommandContext ctx) {
-      List<Command> list = new ArrayList<>(enigma.getInstance().getCommandManager().commands());
+      List<Command> list = new ArrayList<>(Enigma.getInstance().getCommandManager().commands());
       list.sort(Comparator.comparing(c -> c.names().getFirst(), String.CASE_INSENSITIVE_ORDER));
       List<String> infos = new ArrayList<>();
       int counter = 1;
@@ -31,7 +31,7 @@ public class HelpCommand {
             String.format(
                "%d) %s%s - %s",
                counter++,
-               enigma.getInstance().getCommandManager().getPrefix(),
+               Enigma.getInstance().getCommandManager().getPrefix(),
                command.names().getFirst(),
                Localizator.translate(command.description())
             )

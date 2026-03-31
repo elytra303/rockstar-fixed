@@ -36,7 +36,7 @@ public class Speed extends BaseModule {
       if (this.vanilla.isSelected()) {
          BlockPos pos = mc.player.getBlockPos().add(0, -1, 0);
          mc.options.sneakKey.setPressed(false);
-         enigma.getInstance().getRotationHandler().rotate(new Rotation(mc.player.getYaw(), 90.0F));
+         Enigma.getInstance().getRotationHandler().rotate(new Rotation(mc.player.getYaw(), 90.0F));
          if (mc.player.isOnGround() && !mc.options.jumpKey.isPressed()) {
             mc.player.jump();
             Vec3d velocity = mc.player.getVelocity();

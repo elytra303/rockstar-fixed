@@ -16,7 +16,7 @@ public abstract class ItemStackMixin {
    @Inject(method = "finishUsing", at = @At("TAIL"))
    private void onFinishUsing(World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir) {
       if (user instanceof PlayerEntity player) {
-         enigma.getInstance().getEventManager().triggerEvent(new FinishEatEvent(player, (ItemStack) (Object) this));
+         Enigma.getInstance().getEventManager().triggerEvent(new FinishEatEvent(player, (ItemStack) (Object) this));
       }
    }
 }

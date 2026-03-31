@@ -46,7 +46,7 @@ public class TargetPearl extends BaseModule {
    private final Timer pearlDelayTimer = new Timer();
    private final EventListener<ClientPlayerTickEvent> onUpdateEvent = event -> {
       if (mc.player != null && mc.world != null) {
-         RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+         RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
          if (this.tick > 0) {
             rotationHandler.rotate(new Rotation(this.rotationYaw, this.rotationPitch), MoveCorrection.NONE, 180.0F, 180.0F, 180.0F, RotationPriority.OVERRIDE);
             this.tick++;

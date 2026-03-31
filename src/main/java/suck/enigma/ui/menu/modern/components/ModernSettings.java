@@ -70,9 +70,9 @@ public class ModernSettings extends CustomComponent {
       }
 
       float alpha = Math.min(1.0F, this.animation.getValue());
-      boolean check = enigma.getInstance().getMenuScreen().getMenuAnimation().getValue()
-         == enigma.getInstance().getMenuScreen().getMenuAnimation().getTargetValue();
-      boolean dark = enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
+      boolean check = Enigma.getInstance().getMenuScreen().getMenuAnimation().getValue()
+         == Enigma.getInstance().getMenuScreen().getMenuAnimation().getTargetValue();
+      boolean dark = Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
       this.animation.setEasing(this.showing ? Easing.QUARTIC_OUT : Easing.BAKEK_BACK);
       float x = MathUtility.interpolate(this.module.getX(), this.x, alpha);
       float y = MathUtility.interpolate(this.module.getY(), this.y, alpha);
@@ -161,7 +161,7 @@ public class ModernSettings extends CustomComponent {
          .update(
             this.module.getModule().isEnabled()
                ? new ColorRGBA(151.0F, 71.0F, 255.0F)
-               : enigma.getInstance().getThemeManager().getCurrentTheme().getAdditionalColor()
+               : Enigma.getInstance().getThemeManager().getCurrentTheme().getAdditionalColor()
          );
       this.hoverAnimation.update(this.isHovered(context.getMouseX(), context.getMouseY()));
       if (this.isHovered(context.getMouseX(), context.getMouseY())) {

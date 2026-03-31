@@ -65,7 +65,7 @@ public class ConfigUploadServer extends NanoHTTPD implements IMinecraft {
                }
 
                System.out.println("Файл подтверждён, лоадим конфиг " + dest.getName());
-               ConfigManager mgr = enigma.getInstance().getConfigManager();
+               ConfigManager mgr = Enigma.getInstance().getConfigManager();
                ConfigFile cfg = mgr.getConfig(originalName);
                if (cfg == null) {
                   cfg = new ConfigFile(originalName);

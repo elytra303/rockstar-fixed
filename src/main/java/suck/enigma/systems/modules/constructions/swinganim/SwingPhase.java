@@ -73,13 +73,13 @@ public class SwingPhase extends SwingSettings {
       public void setCurrentValue(float currentValue) {
          super.setCurrentValue(currentValue);
          if (SwingAnimScreen.hasShiftDown()) {
-            for (Setting setting : enigma.getInstance().getSwingManager().getStartPhase().getSettings()) {
+            for (Setting setting : Enigma.getInstance().getSwingManager().getStartPhase().getSettings()) {
                if (setting.getName().equals(this.getName()) && setting instanceof SwingPhase.PhaseSlider slider) {
                   slider.silentSet(currentValue);
                }
             }
 
-            for (Setting settingx : enigma.getInstance().getSwingManager().getEndPhase().getSettings()) {
+            for (Setting settingx : Enigma.getInstance().getSwingManager().getEndPhase().getSettings()) {
                if (settingx.getName().equals(this.getName()) && settingx instanceof SwingPhase.PhaseSlider slider) {
                   slider.silentSet(currentValue);
                }

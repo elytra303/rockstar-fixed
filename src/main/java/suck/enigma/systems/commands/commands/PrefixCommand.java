@@ -36,7 +36,7 @@ public class PrefixCommand {
    private void handle(CommandContext ctx) {
       String action = (String)ctx.arguments().get(0);
       String newPrefix = (String)ctx.arguments().get(1);
-      CommandRegistry registry = enigma.getInstance().getCommandManager();
+      CommandRegistry registry = Enigma.getInstance().getCommandManager();
       String current = registry.getPrefix();
       if (action == null) {
          MessageUtility.info(Text.of(Localizator.translate("commands.prefix.current", current)));

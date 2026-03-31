@@ -21,7 +21,7 @@ public class PlayerEntityMixin {
    @Inject(method = "attack", at = @At("HEAD"), cancellable = true)
    private void attackAHook2(Entity target, CallbackInfo ci) {
       AttackEvent event = new AttackEvent(target);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
       if (event.isCancelled()) {
          ci.cancel();
       }
@@ -30,12 +30,12 @@ public class PlayerEntityMixin {
    @Inject(method = "attack", at = @At("RETURN"), cancellable = true)
    private void attackAHook(Entity target, CallbackInfo ci) {
       PostAttackEvent event = new PostAttackEvent(target);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
    }
 
    @Inject(method = "isPushedByFluids", at = @At("HEAD"), cancellable = true)
    private void removePushFromFluids(CallbackInfoReturnable<Boolean> cir) {
-      NoPush noPush = enigma.getInstance().getModuleManager().getModule(NoPush.class);
+      NoPush noPush = Enigma.getInstance().getModuleManager().getModule(NoPush.class);
       PlayerEntity player = (PlayerEntity) (Object) this;
       if (player == MinecraftClient.getInstance().player && noPush.isEnabled() && noPush.getFluids().isSelected()) {
          cir.setReturnValue(false);
@@ -44,7 +44,7 @@ public class PlayerEntityMixin {
 
    @Redirect(method = "travel(Lnet/minecraft/util/math/Vec3d;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getRotationVector()Lnet/minecraft/util/math/Vec3d;"))
    private Vec3d redirectGetRotationVectorInTravel(PlayerEntity instance) {
-      RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+      RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
       return rotationHandler.isIdling() ? instance.getRotationVector()
             : rotationHandler.getCurrentRotation().getRotationVector();
    }

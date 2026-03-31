@@ -64,8 +64,8 @@ public class DynamicIsland extends HudElement implements IMinecraft, IScaledReso
       new XrayStatus(this.statuses);
       new MusicStatus(this.statuses);
       new DefaultStatus(this.statuses).alwaysEnabled();
-      enigma.getInstance().getFileManager().readFile("client");
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getFileManager().readFile("client");
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    @Override

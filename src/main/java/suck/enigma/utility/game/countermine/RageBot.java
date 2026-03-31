@@ -51,8 +51,8 @@ public class RageBot implements IMinecraft {
       if (this.aim.isEnabled()) {
          TARGET_YAW = mc.player.getYaw();
          TargetSettings settings = new TargetSettings.Builder().targetPlayers(true).requiredRange(200.0F).sortBy(TargetComparators.FOV).build();
-         enigma.getInstance().getTargetManager().update(settings);
-         Entity targetEntity = enigma.getInstance().getTargetManager().getCurrentTarget();
+         Enigma.getInstance().getTargetManager().update(settings);
+         Entity targetEntity = Enigma.getInstance().getTargetManager().getCurrentTarget();
          if (targetEntity != null) {
             Vec3d pos = targetEntity.getPos().add(0.0, 0.2F, 0.0);
             Rotation toTarget = CMUtility.calculateRotation(pos);
@@ -62,7 +62,7 @@ public class RageBot implements IMinecraft {
             if (this.rage.isEnabled() || !(deltaYaw > 145.0F)) {
                if (this.rage.isEnabled()) {
                   if (this.silent.isEnabled()) {
-                     enigma.getInstance().getRotationHandler().rotate(toTarget, MoveCorrection.NONE, 180.0F, 180.0F, 180.0F, RotationPriority.TO_TARGET);
+                     Enigma.getInstance().getRotationHandler().rotate(toTarget, MoveCorrection.NONE, 180.0F, 180.0F, 180.0F, RotationPriority.TO_TARGET);
                   } else {
                      mc.player.setYaw(yaw);
                      mc.player.setPitch(pitch);
@@ -85,7 +85,7 @@ public class RageBot implements IMinecraft {
                         );
                   }
 
-                  enigma.getInstance()
+                  Enigma.getInstance()
                      .getRotationHandler()
                      .rotate(new Rotation(yaw, pitch), MoveCorrection.NONE, 180.0F, 180.0F, 180.0F, RotationPriority.TO_TARGET);
                } else {

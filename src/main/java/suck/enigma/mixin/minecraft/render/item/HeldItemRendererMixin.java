@@ -52,7 +52,7 @@ public abstract class HeldItemRendererMixin {
       boolean isRightArm = arm == Arm.RIGHT;
       matrices.push();
       HandRenderEvent event = new HandRenderEvent(arm, swingProgress, item, equipProgress, matrices);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
       if (event.isCancelled()) {
          ci.cancel();
          float f = -0.4F * MathHelper.sin(MathHelper.sqrt(0.0F) * (float) Math.PI);

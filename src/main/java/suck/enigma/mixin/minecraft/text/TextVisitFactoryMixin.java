@@ -19,7 +19,7 @@ public class TextVisitFactoryMixin {
       )
    )
    private static String patchName(String text) {
-      NameProtect nameProtectModule = enigma.getInstance().getModuleManager().getModule(NameProtect.class);
+      NameProtect nameProtectModule = Enigma.getInstance().getModuleManager().getModule(NameProtect.class);
       return nameProtectModule.isEnabled() ? nameProtectModule.patchName(text) : text;
    }
 }

@@ -31,7 +31,7 @@ public class BackTrack extends BaseModule {
    private final EventListener<ClientPlayerTickEvent> updateEvent = event -> {
       for (PlayerEntity player : mc.world.getPlayers()) {
          if (player != mc.player
-            && !enigma.getInstance().getFriendManager().isFriend(player.getName().getString())
+            && !Enigma.getInstance().getFriendManager().isFriend(player.getName().getString())
             && player instanceof BacktrackableEntity backtrackableEntity
             && backtrackableEntity.enigma2_0$getBackTracks().size() > 2) {
             backtrackableEntity.enigma2_0$getBackTracks().removeFirst();
@@ -45,7 +45,7 @@ public class BackTrack extends BaseModule {
 
          for (PlayerEntity player : mc.world.getPlayers()) {
             if (player != mc.player
-               && !enigma.getInstance().getFriendManager().isFriend(player.getName().getString())
+               && !Enigma.getInstance().getFriendManager().isFriend(player.getName().getString())
                && player instanceof BacktrackableEntity backtrackable) {
                List<BackTrack.Position> backTracks = backtrackable.enigma2_0$getBackTracks();
                if (!backTracks.isEmpty()) {

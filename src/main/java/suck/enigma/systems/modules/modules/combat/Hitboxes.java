@@ -36,7 +36,7 @@ public class Hitboxes extends BaseModule {
       } else if (entity.isDead()) {
          return false;
       } else {
-         return enigma.getInstance().isPanic() ? false : settings.isEntityValid(entity);
+         return Enigma.getInstance().isPanic() ? false : settings.isEntityValid(entity);
       }
    }
 

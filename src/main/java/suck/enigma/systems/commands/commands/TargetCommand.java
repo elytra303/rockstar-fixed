@@ -26,7 +26,7 @@ public class TargetCommand {
    private void handle(CommandContext ctx) {
       String action = (String)ctx.arguments().get(0);
       String id = (String)ctx.arguments().get(1);
-      TargetManager tm = enigma.getInstance().getTargetManager();
+      TargetManager tm = Enigma.getInstance().getTargetManager();
       String var5 = action.toLowerCase();
       switch (var5) {
          case "add":

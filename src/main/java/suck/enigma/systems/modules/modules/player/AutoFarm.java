@@ -137,7 +137,7 @@ public class AutoFarm extends BaseModule {
                this.timer.reset();
             }
          } else if (farmState.getBlock().equals(Blocks.FARMLAND) && !this.repairing) {
-            enigma.getInstance()
+            Enigma.getInstance()
                .getRotationHandler()
                .rotate(new Rotation(mc.player.getYaw(), 90.0F), MoveCorrection.SILENT, 180.0F, 180.0F, 180.0F, RotationPriority.USE_ITEM);
             if (cropState.getBlock() instanceof CropBlock crop) {

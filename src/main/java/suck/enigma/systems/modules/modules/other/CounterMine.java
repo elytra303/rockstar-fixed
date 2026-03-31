@@ -236,7 +236,7 @@ public class CounterMine extends BaseModule {
 
    public static boolean shouldHideEntity(ItemDisplayEntity entity) {
       String modelId = CMUtility.getModelIdFromNbt(entity.getItemStack(), MinecraftClient.getInstance().player.getRegistryManager());
-      CounterMine mod = enigma.getInstance().getModuleManager().getModule(CounterMine.class);
+      CounterMine mod = Enigma.getInstance().getModuleManager().getModule(CounterMine.class);
       if (modelId == null) {
          return false;
       } else {
@@ -256,17 +256,17 @@ public class CounterMine extends BaseModule {
 
    @Override
    public void onEnable() {
-      enigma.getInstance().getEventManager().subscribe(this.scanner);
-      enigma.getInstance().getEventManager().subscribe(this.antiAim);
-      enigma.getInstance().getEventManager().subscribe(this.rageBot);
+      Enigma.getInstance().getEventManager().subscribe(this.scanner);
+      Enigma.getInstance().getEventManager().subscribe(this.antiAim);
+      Enigma.getInstance().getEventManager().subscribe(this.rageBot);
    }
 
    @Override
    public void onDisable() {
-      enigma.getInstance().getTargetManager().reset();
-      enigma.getInstance().getEventManager().unsubscribe(this.scanner);
-      enigma.getInstance().getEventManager().unsubscribe(this.antiAim);
-      enigma.getInstance().getEventManager().unsubscribe(this.rageBot);
+      Enigma.getInstance().getTargetManager().reset();
+      Enigma.getInstance().getEventManager().unsubscribe(this.scanner);
+      Enigma.getInstance().getEventManager().unsubscribe(this.antiAim);
+      Enigma.getInstance().getEventManager().unsubscribe(this.rageBot);
    }
 
    @Generated

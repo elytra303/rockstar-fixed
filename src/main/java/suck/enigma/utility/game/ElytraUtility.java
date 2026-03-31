@@ -64,9 +64,9 @@ public final class ElytraUtility implements IMinecraft {
    }
 
    public static boolean leaving() {
-      Aura aura = enigma.getInstance().getModuleManager().getModule(Aura.class);
+      Aura aura = Enigma.getInstance().getModuleManager().getModule(Aura.class);
       return !aura.isCooledDown()
-            && enigma.getInstance().getTargetManager().getCurrentTarget() instanceof PlayerEntity player
+            && Enigma.getInstance().getTargetManager().getCurrentTarget() instanceof PlayerEntity player
             && !ElytraPredictionSystem.isLeaving(player)
          || CombatUtility.getMace() != null && !aura.getAttackTimer().finished(1500L);
    }
@@ -75,9 +75,9 @@ public final class ElytraUtility implements IMinecraft {
       SlotGroup<HotbarSlot> slotsToSearch = SlotGroups.hotbar();
       HotbarSlot slot = slotsToSearch.findItem(Items.FIREWORK_ROCKET);
       if (slot != null) {
-         LivingEntity target = enigma.getInstance().getTargetManager().getLivingTarget();
+         LivingEntity target = Enigma.getInstance().getTargetManager().getLivingTarget();
          Rotation rot = target == null
-            ? enigma.getInstance().getRotationHandler().getPlayerRotation()
+            ? Enigma.getInstance().getRotationHandler().getPlayerRotation()
             : RotationMath.getRotationTo(leaving() ? mc.player.getEyePos().add(leaveVec(target)) : targetPoint(target));
          mc.player.networkHandler.sendPacket(new UpdateSelectedSlotC2SPacket(slot.getSlotId()));
          mc.interactionManager
@@ -97,7 +97,7 @@ public final class ElytraUtility implements IMinecraft {
    public static Vec3d targetPoint(LivingEntity target) {
       return RotationMath.getNearestPoint(
          target,
-         enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled() && target instanceof PlayerEntity player
+         Enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled() && target instanceof PlayerEntity player
             ? ElytraPredictionSystem.predictPlayerPosition(player)
             : target.getPos()
       );
@@ -120,7 +120,7 @@ public final class ElytraUtility implements IMinecraft {
 
       for (Vec3d vector : leaveVectors) {
          if (MathUtility.canSeen(target.getEyePos().add(vector))
-            && (!enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).getSwapVector().isEnabled() || !vector.equals(lastVec))) {
+            && (!Enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).getSwapVector().isEnabled() || !vector.equals(lastVec))) {
             leaveVec = vector;
             break;
          }

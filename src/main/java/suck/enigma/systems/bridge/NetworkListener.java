@@ -10,6 +10,6 @@ public class NetworkListener {
    // Network.getInstance().onTick();
 
    public NetworkListener() {
-      // enigma.getInstance().getEventManager().subscribe(this);
+      // Enigma.getInstance().getEventManager().subscribe(this);
    }
 }

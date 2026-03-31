@@ -65,15 +65,15 @@ public abstract class BaseModule implements Module {
    public void setEnabled(boolean newState, boolean silent) {
       if (this.enabled != newState) {
          this.enabled = newState;
-         if (!(this instanceof MenuModule) && enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled() && !silent) {
+         if (!(this instanceof MenuModule) && Enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled() && !silent) {
             ClientSounds.MODULE
-               .play(enigma.getInstance().getModuleManager().getModule(Sounds.class).getVolume().getCurrentValue(), this.enabled ? 1.1F : 1.0F);
+               .play(Enigma.getInstance().getModuleManager().getModule(Sounds.class).getVolume().getCurrentValue(), this.enabled ? 1.1F : 1.0F);
          }
 
          if (this.enabled) {
-            enigma.getInstance().getEventManager().subscribe(this);
+            Enigma.getInstance().getEventManager().subscribe(this);
             if (!silent) {
-               enigma.getInstance()
+               Enigma.getInstance()
                   .getNotificationManager()
                   .addNotification(
                      NotificationType.SUCCESS,
@@ -86,9 +86,9 @@ public abstract class BaseModule implements Module {
 
             this.onEnable();
          } else {
-            enigma.getInstance().getEventManager().unsubscribe(this);
+            Enigma.getInstance().getEventManager().unsubscribe(this);
             if (!silent) {
-               enigma.getInstance()
+               Enigma.getInstance()
                   .getNotificationManager()
                   .addNotification(
                      NotificationType.ERROR,

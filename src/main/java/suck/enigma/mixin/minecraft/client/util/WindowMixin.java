@@ -18,7 +18,7 @@ public class WindowMixin {
       at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/Icons;getIcons(Lnet/minecraft/resource/ResourcePack;)Ljava/util/List;")
    )
    public List<InputSupplier<InputStream>> setCustomIcon(Icons instance, ResourcePack resourcePack) {
-      if (enigma.getInstance().isPanic()) {
+      if (Enigma.getInstance().isPanic()) {
          try {
             return instance.getIcons(resourcePack);
          } catch (Exception var5) {

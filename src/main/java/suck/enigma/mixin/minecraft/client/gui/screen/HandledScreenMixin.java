@@ -36,10 +36,10 @@ public abstract class HandledScreenMixin implements IMinecraft {
    @Inject(method = "render", at = @At("TAIL"))
    private void onRender(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
       CustomDrawContext customDrawContext = CustomDrawContext.of(context);
-      enigma.getInstance().getEventManager().triggerEvent(new ScreenRenderEvent(customDrawContext, delta));
+      Enigma.getInstance().getEventManager().triggerEvent(new ScreenRenderEvent(customDrawContext, delta));
 
       for (Slot slot : mc.player.currentScreenHandler.slots) {
-         InvUtils invUtils = enigma.getInstance().getModuleManager().getModule(InvUtils.class);
+         InvUtils invUtils = Enigma.getInstance().getModuleManager().getModule(InvUtils.class);
          if (this.isPointOverSlot(slot, mouseX, mouseY)
             && slot.isEnabled()
             && invUtils.isEnabled()
@@ -55,11 +55,11 @@ public abstract class HandledScreenMixin implements IMinecraft {
 
    @Inject(method = "mouseClicked", at = @At("HEAD"))
    private void onMouseClick(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
-      enigma.getInstance().getEventManager().triggerEvent(new ContainerClickEvent((float)mouseX, (float)mouseY, button));
+      Enigma.getInstance().getEventManager().triggerEvent(new ContainerClickEvent((float)mouseX, (float)mouseY, button));
    }
 
    @Inject(method = "mouseReleased", at = @At("HEAD"))
    public void mouseReleased(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
-      enigma.getInstance().getEventManager().triggerEvent(new ContainerReleaseEvent((float)mouseX, (float)mouseY, button));
+      Enigma.getInstance().getEventManager().triggerEvent(new ContainerReleaseEvent((float)mouseX, (float)mouseY, button));
    }
 }

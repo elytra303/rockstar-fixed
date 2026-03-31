@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class WeatherRendererMixin {
    @Inject(method = "renderWeather", at = @At("HEAD"), cancellable = true)
    private void onRenderWeather(FrameGraphBuilder frameGraphBuilder, Vec3d pos, float tickDelta, Fog fog, CallbackInfo ci) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getWeather().isSelected()) {
          ci.cancel();
       }

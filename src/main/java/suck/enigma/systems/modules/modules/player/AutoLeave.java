@@ -60,7 +60,7 @@ public class AutoLeave extends BaseModule {
                && !(e.distanceTo(e) > this.dist.getCurrentValue())
                && mc.player != null
                && !ServerUtility.hasCT
-               && !enigma.getInstance().getFriendManager().isFriend(e.getName().getString())) {
+               && !Enigma.getInstance().getFriendManager().isFriend(e.getName().getString())) {
                if (this.hub.isSelected()) {
                   mc.player.networkHandler.sendChatCommand("hub");
                } else if (this.serverLeave.isSelected()) {

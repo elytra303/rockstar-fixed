@@ -23,7 +23,7 @@ import ru.kotopushka.compiler.sdk.annotations.Compile;
 public class BindCommand {
    @Compile
    public Command command() {
-      List<String> moduleNames = enigma.getInstance().getModuleManager().getModules().stream()
+      List<String> moduleNames = Enigma.getInstance().getModuleManager().getModules().stream()
             .map(module -> module.getName().replace(" ", "")).toList();
       List<String> keyNames = this.getAvailableKeyNames();
       return CommandBuilder
@@ -48,7 +48,7 @@ public class BindCommand {
       Module module = (Module) context.arguments().get(1);
       String keyStr = (String) context.arguments().get(2);
       if (action.equalsIgnoreCase("list")) {
-         List<Module> modules = enigma.getInstance().getModuleManager().getModules().stream()
+         List<Module> modules = Enigma.getInstance().getModuleManager().getModules().stream()
                .filter(mx -> mx.getKey() != -1).toList();
          if (modules.isEmpty()) {
             MessageUtility.info(Text.of("Список биндов пуст"));

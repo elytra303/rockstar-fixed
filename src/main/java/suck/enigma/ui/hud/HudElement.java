@@ -76,7 +76,7 @@ public abstract class HudElement implements SettingsContainer, IMinecraft {
       }
 
       if (widthDelta != 0.0F) {
-         for (HudElement otherElement : enigma.getInstance().getHud().getElements()) {
+         for (HudElement otherElement : Enigma.getInstance().getHud().getElements()) {
             if (otherElement != this && otherElement.isShowing()) {
                float verticalOverlap = Math.min(this.y + this.height, otherElement.y + otherElement.height) - Math.max(this.y, otherElement.y);
                if (!(verticalOverlap <= 0.0F)) {
@@ -112,7 +112,7 @@ public abstract class HudElement implements SettingsContainer, IMinecraft {
          this.x = Math.clamp(context.getMouseX() - this.dragX, 0.0F, IScaledResolution.sr.getScaledWidth() - this.width);
          this.y = Math.clamp(context.getMouseY() - this.dragY, 0.0F, IScaledResolution.sr.getScaledHeight() - this.height);
          if (!(this instanceof DynamicIsland)) {
-            for (GridLine line : enigma.getInstance().getHud().getGrid().getLines()) {
+            for (GridLine line : Enigma.getInstance().getHud().getGrid().getLines()) {
                if (line.getType() == GridLine.Type.VERTICAL) {
                   this.x = this.snapToLine(line, this.x, List.of(0.0F, this.width, this.width / 2.0F), List.of(0.0F, -this.width, -this.width / 2.0F));
                } else {
@@ -149,9 +149,9 @@ public abstract class HudElement implements SettingsContainer, IMinecraft {
             popup.button(Localizator.translate("remove"), "icons/hud/trash.png", popup1 -> {
                this.showing = false;
                popup1.setShowing(false);
-               enigma.getInstance().getFileManager().writeFile("client");
+               Enigma.getInstance().getFileManager().writeFile("client");
             }).onClose(() -> this.select = false);
-            enigma.getInstance().getHud().getPopups().add(popup);
+            Enigma.getInstance().getHud().getPopups().add(popup);
          }
       }
    }
@@ -160,10 +160,10 @@ public abstract class HudElement implements SettingsContainer, IMinecraft {
       if (this.dragging && button == MouseButton.LEFT) {
          this.dragging = false;
          if (this.x != this.startDragX || this.y != this.startDragY) {
-            enigma.getInstance().getHud().getHistoryManager().registerMove(this, this.startDragX, this.startDragY, this.x, this.y);
+            Enigma.getInstance().getHud().getHistoryManager().registerMove(this, this.startDragX, this.startDragY, this.x, this.y);
          }
 
-         enigma.getInstance().getFileManager().writeFile("client");
+         Enigma.getInstance().getFileManager().writeFile("client");
       }
    }
 

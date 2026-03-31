@@ -74,7 +74,7 @@ public class Effects extends HudList {
             String effectName = potion.getName().getString() + " " + (effx.getAmplifier() > 0 ? effx.getAmplifier() + 1 : "");
             if (!mc.player.hasStatusEffect(effx.getEffectType())) {
                if (!this.ended.getOrDefault(potion, false) && !potion.getCategory().equals(StatusEffectCategory.HARMFUL)) {
-                  enigma.getInstance()
+                  Enigma.getInstance()
                      .getNotificationManager()
                      .addNotificationOther(NotificationType.INFO, "Эффект " + effectName + " закончился", "Действие эффекта завершено");
                   this.ended.put(potion, true);

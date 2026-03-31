@@ -50,7 +50,7 @@ public class TargetESP extends BaseModule {
    private LivingEntity prevTarget;
    private final EventListener<Render3DEvent> onRender3D = event -> {
       if (EntityUtility.isInGame()) {
-         LivingEntity target = enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity target2 ? target2 : null;
+         LivingEntity target = Enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity target2 ? target2 : null;
          this.animation.setEasing(Easing.FIGMA_EASE_IN_OUT);
          this.animation.update(target != null);
          this.moving.update(this.moving.getValue() + 10.0F + 50.0F);

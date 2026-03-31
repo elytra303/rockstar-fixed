@@ -43,7 +43,7 @@ public class CatCommand implements IMinecraft {
    };
 
    public CatCommand() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    public Command command() {

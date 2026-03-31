@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class ParticleManagerMixin {
    @Inject(method = "addBlockBreakParticles", at = @At("HEAD"), cancellable = true)
    private void onAddBlockBreakParticles(BlockPos blockPos, BlockState state, CallbackInfo info) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getBreakParticles().isSelected()) {
          info.cancel();
       }
@@ -27,7 +27,7 @@ public abstract class ParticleManagerMixin {
 
    @Inject(method = "addBlockBreakingParticles", at = @At("HEAD"), cancellable = true)
    private void onAddBlockBreakingParticles(BlockPos blockPos, Direction direction, CallbackInfo info) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getBreakParticles().isSelected()) {
          info.cancel();
       }
@@ -37,7 +37,7 @@ public abstract class ParticleManagerMixin {
    private void onAddParticle(
       ParticleEffect parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ, CallbackInfoReturnable<Particle> cir
    ) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getWeather().isSelected() && parameters.getType() == ParticleTypes.RAIN) {
          cir.cancel();
       }

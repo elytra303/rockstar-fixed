@@ -28,14 +28,14 @@ public class MouseMixin implements IMinecraft {
    @Inject(method = "onMouseButton", at = @At("HEAD"))
    private void onMouseButton(long window, int button, int action, int mods, CallbackInfo ci) {
       if (action == 1) {
-         enigma.getInstance().getEventManager().triggerEvent(new MouseEvent(button, action));
+         Enigma.getInstance().getEventManager().triggerEvent(new MouseEvent(button, action));
       }
    }
 
    @Inject(method = "onMouseScroll", at = @At("HEAD"))
    private void onMouseScroll(long window, double horizontal, double vertical, CallbackInfo ci) {
       if (vertical != 0.0) {
-         enigma.getInstance().getEventManager().triggerEvent(new MouseScrollEvent(vertical));
+         Enigma.getInstance().getEventManager().triggerEvent(new MouseScrollEvent(vertical));
       }
    }
 }

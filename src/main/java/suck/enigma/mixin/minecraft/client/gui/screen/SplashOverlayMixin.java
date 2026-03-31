@@ -53,7 +53,7 @@ public class SplashOverlayMixin implements IScaledResolution, IMinecraft {
 
    @Inject(method = "render", at = @At("HEAD"), cancellable = true)
    private void replaceRendering(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-      if (!enigma.getInstance().isPanic()) {
+      if (!Enigma.getInstance().isPanic()) {
          ci.cancel();
          int width = context.getScaledWindowWidth();
          int height = context.getScaledWindowHeight();

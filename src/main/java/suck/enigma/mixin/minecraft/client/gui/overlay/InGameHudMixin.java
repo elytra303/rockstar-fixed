@@ -35,7 +35,7 @@ public class InGameHudMixin implements IMinecraft {
          }
       }
 
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getScoreboard().isSelected()) {
          ci.cancel();
       }
@@ -43,7 +43,7 @@ public class InGameHudMixin implements IMinecraft {
 
    @Inject(method = "renderPortalOverlay", at = @At("HEAD"), cancellable = true)
    private void renderPortalOverlayHook(DrawContext context, float nauseaStrength, CallbackInfo ci) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getPortal().isSelected()) {
          ci.cancel();
       }
@@ -58,7 +58,7 @@ public class InGameHudMixin implements IMinecraft {
       )
    )
    private void onRenderPumpkinOverlay(Args args) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getPumpkin().isSelected()) {
          args.set(2, 0.0F);
       }
@@ -67,19 +67,19 @@ public class InGameHudMixin implements IMinecraft {
    @Inject(method = "render", at = @At("HEAD"))
    public void triggerPreHudRenderEvent(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
       CustomDrawContext customDrawContext = CustomDrawContext.of(context);
-      enigma.getInstance().getEventManager().triggerEvent(new PreHudRenderEvent(customDrawContext, tickCounter.getTickDelta(false)));
+      Enigma.getInstance().getEventManager().triggerEvent(new PreHudRenderEvent(customDrawContext, tickCounter.getTickDelta(false)));
    }
 
    @Inject(method = "render", at = @At("RETURN"))
    public void triggerPostHudRenderEvent(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
       CustomDrawContext customDrawContext = CustomDrawContext.of(context);
-      enigma.getInstance().getEventManager().triggerEvent(new PostHudRenderEvent(customDrawContext, tickCounter.getTickDelta(false)));
+      Enigma.getInstance().getEventManager().triggerEvent(new PostHudRenderEvent(customDrawContext, tickCounter.getTickDelta(false)));
    }
 
    @Inject(method = "renderMainHud", at = @At("TAIL"))
    private void triggerHudRenderEvent(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
       CustomDrawContext customDrawContext = CustomDrawContext.of(context);
       DrawUtility.blurProgram.draw();
-      enigma.getInstance().getEventManager().triggerEvent(new HudRenderEvent(customDrawContext, tickCounter.getTickDelta(false)));
+      Enigma.getInstance().getEventManager().triggerEvent(new HudRenderEvent(customDrawContext, tickCounter.getTickDelta(false)));
    }
 }

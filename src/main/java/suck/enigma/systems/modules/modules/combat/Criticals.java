@@ -18,7 +18,7 @@ public class Criticals extends BaseModule {
    private final EventListener<InternalAttackEvent> onAttack = event -> {
       if (!mc.player.isTouchingWater()) {
          if (!mc.player.isOnGround() && mc.player.fallDistance == 0.0F) {
-            RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+            RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
             Rotation rot = rotationHandler.isIdling() ? rotationHandler.getPlayerRotation() : rotationHandler.getCurrentRotation();
             rot = new Rotation(rot.getYaw() + MathUtility.random(-1.0, 1.0), rot.getPitch() + MathUtility.random(-1.0, 1.0));
             rot = RotationMath.correctRotation(rot);

@@ -80,7 +80,7 @@ public class Nuker extends BaseModule {
                   float yaw = (float)Math.toDegrees(Math.atan2(deltaZ, deltaX)) - 90.0F + MathUtility.random(-2.0, 2.0);
                   float pitch = (float)(-Math.toDegrees(Math.atan2(deltaY, horizontalDistance))) + MathUtility.random(-1.0, 1.0);
                   mc.player.networkHandler.sendPacket(new PlayerInteractItemC2SPacket(Hand.MAIN_HAND, 0, yaw, pitch));
-                  enigma.getInstance()
+                  Enigma.getInstance()
                      .getRotationHandler()
                      .rotate(new Rotation(yaw, pitch), MoveCorrection.SILENT, 180.0F, 180.0F, 180.0F, RotationPriority.NORMAL);
                   Direction direction = getDirection(pos);
@@ -116,7 +116,7 @@ public class Nuker extends BaseModule {
                   double horizontalDistance = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
                   float yaw = (float)Math.toDegrees(Math.atan2(deltaZ, deltaX)) - 90.0F + MathUtility.random(-2.0, 2.0);
                   float pitch = (float)(-Math.toDegrees(Math.atan2(deltaY, horizontalDistance))) + MathUtility.random(-1.0, 1.0);
-                  enigma.getInstance()
+                  Enigma.getInstance()
                      .getRotationHandler()
                      .rotate(new Rotation(yaw, pitch), MoveCorrection.SILENT, 180.0F, 180.0F, 180.0F, RotationPriority.NORMAL);
                   Direction direction = getDirection(pos);

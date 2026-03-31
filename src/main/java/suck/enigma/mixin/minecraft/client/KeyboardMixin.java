@@ -15,7 +15,7 @@ public class KeyboardMixin implements IMinecraft {
    @Inject(method = "onKey", at = @At("HEAD"))
    public void triggerKeyEvent(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci) {
       if (key != -1) {
-         enigma.getInstance().getEventManager().triggerEvent(new KeyPressEvent(action, key));
+         Enigma.getInstance().getEventManager().triggerEvent(new KeyPressEvent(action, key));
          if (mc.currentScreen == null) {
             if (key == 46 && action == 1) {
                mc.setScreen(new ChatScreen(""));

@@ -49,8 +49,8 @@ public class AimBot extends BaseModule {
             .requiredRange(this.distance.getCurrentValue())
             .sortBy(TargetComparators.FOV)
             .build();
-         enigma.getInstance().getTargetManager().update(settings);
-         Entity targetEntity = enigma.getInstance().getTargetManager().getCurrentTarget();
+         Enigma.getInstance().getTargetManager().update(settings);
+         Entity targetEntity = Enigma.getInstance().getTargetManager().getCurrentTarget();
          if (targetEntity != null) {
             Vec3d aimPos = this.getAimPosition(targetEntity);
             Rotation toTarget = this.calculateRotation(aimPos);
@@ -59,7 +59,7 @@ public class AimBot extends BaseModule {
             float deltaYaw = RotationMath.getAngleDifference(yaw, mc.player.getYaw());
             if (!(deltaYaw > this.fov.getCurrentValue()) && MathUtility.canSeen(targetEntity.getPos())) {
                if (this.silent.isEnabled()) {
-                  enigma.getInstance().getRotationHandler().rotate(toTarget);
+                  Enigma.getInstance().getRotationHandler().rotate(toTarget);
                } else {
                   mc.player.setYaw(yaw);
                   mc.player.setPitch(pitch);
@@ -131,6 +131,6 @@ public class AimBot extends BaseModule {
 
    @Override
    public void onDisable() {
-      enigma.getInstance().getTargetManager().reset();
+      Enigma.getInstance().getTargetManager().reset();
    }
 }

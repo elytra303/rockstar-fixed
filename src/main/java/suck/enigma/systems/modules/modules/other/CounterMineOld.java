@@ -186,7 +186,7 @@ public class CounterMineOld extends BaseModule {
             .networkHandler
             .sendPacket(new Full(mc.player.getX(), mc.player.getY(), mc.player.getZ(), yaw, pitch, mc.player.isOnGround(), mc.player.horizontalCollision));
          if (this.aim.isEnabled() && this.autoShoot.isEnabled()) {
-            enigma.getInstance()
+            Enigma.getInstance()
                .getRotationHandler()
                .rotate(new Rotation(yaw, pitch), MoveCorrection.NONE, 180.0F, 180.0F, 180.0F, RotationPriority.TO_TARGET);
          }
@@ -194,8 +194,8 @@ public class CounterMineOld extends BaseModule {
 
       if (mc.player != null && mc.world != null && this.aim.isEnabled()) {
          TargetSettings settings = new TargetSettings.Builder().targetPlayers(true).requiredRange(200.0F).sortBy(TargetComparators.FOV).build();
-         enigma.getInstance().getTargetManager().update(settings);
-         Entity targetEntity = enigma.getInstance().getTargetManager().getCurrentTarget();
+         Enigma.getInstance().getTargetManager().update(settings);
+         Entity targetEntity = Enigma.getInstance().getTargetManager().getCurrentTarget();
          if (targetEntity != null) {
             boolean notShoot = true;
             if (!MathUtility.canShoot(targetEntity.getPos())) {
@@ -207,7 +207,7 @@ public class CounterMineOld extends BaseModule {
                notShoot = false;
                if (this.silent.isEnabled()) {
                   if (!this.autoShoot.isEnabled()) {
-                     enigma.getInstance().getRotationHandler().rotate(toTarget, MoveCorrection.NONE, 180.0F, 180.0F, 180.0F, RotationPriority.TO_TARGET);
+                     Enigma.getInstance().getRotationHandler().rotate(toTarget, MoveCorrection.NONE, 180.0F, 180.0F, 180.0F, RotationPriority.TO_TARGET);
                   }
                } else {
                   mc.player.setYaw(yaw);
@@ -216,7 +216,7 @@ public class CounterMineOld extends BaseModule {
                }
 
                if (this.autoShoot.isEnabled()) {
-                  enigma.getInstance().getRotationHandler().rotate(toTarget, MoveCorrection.NONE, 180.0F, 180.0F, 180.0F, RotationPriority.TO_TARGET);
+                  Enigma.getInstance().getRotationHandler().rotate(toTarget, MoveCorrection.NONE, 180.0F, 180.0F, 180.0F, RotationPriority.TO_TARGET);
                   if (!this.temporaryStopping) {
                      this.temporaryStopping = true;
                      this.hasShotDuringPause = false;
@@ -384,7 +384,7 @@ public class CounterMineOld extends BaseModule {
 
    public static boolean shouldHideEntity(ItemDisplayEntity entity) {
       String modelId = getModelIdFromNbt(entity.getItemStack(), MinecraftClient.getInstance().player.getRegistryManager());
-      CounterMineOld mod = enigma.getInstance().getModuleManager().getModule(CounterMineOld.class);
+      CounterMineOld mod = Enigma.getInstance().getModuleManager().getModule(CounterMineOld.class);
       if (modelId == null) {
          return false;
       } else {
@@ -439,7 +439,7 @@ public class CounterMineOld extends BaseModule {
    @Override
    public void onDisable() {
       this.stop();
-      enigma.getInstance().getTargetManager().reset();
+      Enigma.getInstance().getTargetManager().reset();
    }
 
    public boolean isPlayerOnline(String playerName) {

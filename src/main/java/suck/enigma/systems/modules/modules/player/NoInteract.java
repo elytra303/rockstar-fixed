@@ -72,7 +72,7 @@ public class NoInteract extends BaseModule {
 
    public boolean shouldPreventInteract(Block block) {
       if (this.onlyAura.isEnabled()) {
-         return enigma.getInstance().getModuleManager().getModule(Aura.class).isEnabled();
+         return Enigma.getInstance().getModuleManager().getModule(Aura.class).isEnabled();
       } else if (block instanceof CraftingTableBlock && this.craftingTables.isSelected()) {
          return true;
       } else if (block instanceof EnchantingTableBlock && this.enchantingTables.isSelected()) {

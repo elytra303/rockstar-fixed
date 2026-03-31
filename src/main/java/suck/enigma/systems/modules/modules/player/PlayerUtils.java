@@ -42,7 +42,7 @@ public class PlayerUtils extends BaseModule {
    private final EventListener<InternalAttackEvent> onAttackEvent = event -> {
       if (this.noFriendDamage.isEnabled()
          && event.getEntity() instanceof PlayerEntity
-         && enigma.getInstance().getFriendManager().isFriend(event.getEntity().getName().getString())) {
+         && Enigma.getInstance().getFriendManager().isFriend(event.getEntity().getName().getString())) {
          event.cancel();
       }
    };

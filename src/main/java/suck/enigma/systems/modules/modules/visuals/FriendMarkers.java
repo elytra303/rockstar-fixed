@@ -35,7 +35,7 @@ public class FriendMarkers extends BaseModule {
          BufferBuilder builder = CrystalRenderer.createBuffer();
 
          for (AbstractClientPlayerEntity player : mc.world.getPlayers()) {
-            if (enigma.getInstance().getFriendManager().isFriend(player.getName().getString())) {
+            if (Enigma.getInstance().getFriendManager().isFriend(player.getName().getString())) {
                ms.push();
                RenderUtility.prepareMatrices(ms, Utils.getInterpolatedPos(player, event.getTickDelta()));
                float size = 0.1F;

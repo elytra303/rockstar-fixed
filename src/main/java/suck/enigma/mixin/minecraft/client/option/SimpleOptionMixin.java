@@ -22,8 +22,8 @@ public class SimpleOptionMixin<T> {
 
    @Inject(method = "getValue", at = @At("HEAD"), cancellable = true)
    public void getGammaValue(CallbackInfoReturnable<Double> cir) {
-      if (enigma.getInstance().getModuleManager() != null) {
-         Ambience ambienceModule = enigma.getInstance().getModuleManager().getModule(Ambience.class);
+      if (Enigma.getInstance().getModuleManager() != null) {
+         Ambience ambienceModule = Enigma.getInstance().getModuleManager().getModule(Ambience.class);
          if (ambienceModule.isEnabled() && ambienceModule.getBright().isEnabled() && this.text.equals(Text.translatable("options.gamma"))) {
             cir.setReturnValue(1337.0);
          }

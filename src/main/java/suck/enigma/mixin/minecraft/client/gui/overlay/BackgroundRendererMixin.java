@@ -26,7 +26,7 @@ public class BackgroundRendererMixin {
       cancellable = true
    )
    private static void onGetFogModifier(Entity entity, float tickDelta, CallbackInfoReturnable<Object> info) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getBlindness().isSelected()) {
          info.setReturnValue(null);
       }
@@ -36,7 +36,7 @@ public class BackgroundRendererMixin {
    private static Fog modifyFogProperties(
       Fog original, @Local(argsOnly = true) Camera camera, @Local(argsOnly = true) FogType fogType, @Local(argsOnly = true, ordinal = 0) float viewDistance
    ) {
-      CustomFog customFogModule = enigma.getInstance().getModuleManager().getModule(CustomFog.class);
+      CustomFog customFogModule = Enigma.getInstance().getModuleManager().getModule(CustomFog.class);
       if (customFogModule.shouldModifyFog(camera) && fogType == FogType.FOG_TERRAIN) {
          float start = MathHelper.clamp(customFogModule.getDistance().getFirstValue(), -8.0F, viewDistance);
          float end = MathHelper.clamp(customFogModule.getDistance().getSecondValue(), 0.0F, viewDistance);

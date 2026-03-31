@@ -22,7 +22,7 @@ public class MinecraftClientMixin {
 
    @Inject(method = "tick", at = @At("HEAD"))
    public void tick(CallbackInfo ci) {
-      enigma.getInstance().getEventManager().triggerEvent(new GameTickEvent());
+      Enigma.getInstance().getEventManager().triggerEvent(new GameTickEvent());
    }
 
    @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;onResolutionChanged()V"))
@@ -58,7 +58,7 @@ public class MinecraftClientMixin {
 
    @Inject(method = "doItemUse", at = @At("TAIL"))
    private void resetItemUseCooldown(CallbackInfo ci) {
-      NoDelay noDelayModule = enigma.getInstance().getModuleManager().getModule(NoDelay.class);
+      NoDelay noDelayModule = Enigma.getInstance().getModuleManager().getModule(NoDelay.class);
       if (noDelayModule.isEnabled() && noDelayModule.getRightClick().isEnabled()) {
          this.itemUseCooldown = 0;
       }

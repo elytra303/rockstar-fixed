@@ -84,7 +84,7 @@ public class DropDownScreen extends MenuScreen implements IMinecraft {
       this.searchField = new TextField(Fonts.REGULAR.getFont(12.0F));
       Map<String, FieldAction> append = new HashMap<>();
 
-      for (Module module : enigma.getInstance().getModuleManager().getModules()) {
+      for (Module module : Enigma.getInstance().getModuleManager().getModules()) {
          FieldAction action = new FieldAction(
             module::toggle,
             () -> this.panels
@@ -188,7 +188,7 @@ public class DropDownScreen extends MenuScreen implements IMinecraft {
             );
          }
 
-         boolean dark = enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
+         boolean dark = Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
          context.drawRoundedRect(
             this.searchField.getX(),
             this.searchField.getY(),
@@ -241,7 +241,7 @@ public class DropDownScreen extends MenuScreen implements IMinecraft {
       }
 
       this.colorPickers.removeIf(popup -> popup.getAnimation().getValue() == 0.0F && !popup.isShowing());
-      RussianRoulette russianRoulette = enigma.getInstance().getModuleManager().getModule(RussianRoulette.class);
+      RussianRoulette russianRoulette = Enigma.getInstance().getModuleManager().getModule(RussianRoulette.class);
       if (russianRoulette.isEnabled()) {
          if (russianRoulette.getQrTexture() == null) {
             return;
@@ -297,7 +297,7 @@ public class DropDownScreen extends MenuScreen implements IMinecraft {
    @Compile
    @Override
    public void onMouseClicked(double mouseX, double mouseY, MouseButton button) {
-      if (!enigma.getInstance().getHud().getIsland().handleClick((float)mouseX, (float)mouseY, button.getButtonIndex())) {
+      if (!Enigma.getInstance().getHud().getIsland().handleClick((float)mouseX, (float)mouseY, button.getButtonIndex())) {
          for (ColorPicker colorPicker : this.colorPickers) {
             boolean isPick = colorPicker.isPick();
             colorPicker.onMouseClicked(mouseX, mouseY, button);
@@ -385,15 +385,15 @@ public class DropDownScreen extends MenuScreen implements IMinecraft {
    @Compile
    public void close() {
       this.closing = true;
-      enigma.getInstance().getModuleManager().getModule(MenuModule.class).disable();
-      Sounds soundsModule = enigma.getInstance().getModuleManager().getModule(Sounds.class);
+      Enigma.getInstance().getModuleManager().getModule(MenuModule.class).disable();
+      Sounds soundsModule = Enigma.getInstance().getModuleManager().getModule(Sounds.class);
       if (soundsModule.isEnabled()) {
          ClientSounds.CLICKGUI_OPEN.play(soundsModule.getVolume().getCurrentValue(), 1.0F);
       }
 
-      enigma.getInstance().getFileManager().writeFile("client");
-      if (enigma.getInstance().getConfigManager().getCurrent() != null) {
-         enigma.getInstance().getConfigManager().getCurrent().save();
+      Enigma.getInstance().getFileManager().writeFile("client");
+      if (Enigma.getInstance().getConfigManager().getCurrent() != null) {
+         Enigma.getInstance().getConfigManager().getCurrent().save();
       }
 
       if (TextField.LAST_FIELD != null) {

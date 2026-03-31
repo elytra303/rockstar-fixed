@@ -33,7 +33,7 @@ public class ClientPlayerInteractionManagerMixin {
    @Inject(method = "attackEntity", at = @At("HEAD"), cancellable = true)
    private void enigma$critPre(PlayerEntity player, Entity target, CallbackInfo ci) {
       InternalAttackEvent event = new InternalAttackEvent(target);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
       if (event.isCancelled()) {
          ci.cancel();
       }
@@ -42,7 +42,7 @@ public class ClientPlayerInteractionManagerMixin {
    @Inject(method = "breakBlock", at = @At("RETURN"), cancellable = true)
    public void breakBlockHook(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
       BlockBreakEvent event = new BlockBreakEvent(pos);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
       if (event.isCancelled()) {
          cir.setReturnValue(false);
       }
@@ -51,7 +51,7 @@ public class ClientPlayerInteractionManagerMixin {
    @Inject(method = "attackBlock", at = @At("HEAD"), cancellable = true)
    private void onAttackBlock(BlockPos blockPos, Direction direction, CallbackInfoReturnable<Boolean> info) {
       StartBreakBlockEvent event = new StartBreakBlockEvent(blockPos);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
       if (event.isCancelled()) {
          info.cancel();
       }
@@ -60,7 +60,7 @@ public class ClientPlayerInteractionManagerMixin {
    @Inject(method = "interactBlock", at = @At("HEAD"), cancellable = true)
    public void preventInteraction(ClientPlayerEntity player, Hand hand, BlockHitResult hitResult, CallbackInfoReturnable<ActionResult> cir) {
       if (this.client.world != null) {
-         NoInteract noInteractModule = enigma.getInstance().getModuleManager().getModule(NoInteract.class);
+         NoInteract noInteractModule = Enigma.getInstance().getModuleManager().getModule(NoInteract.class);
          Block block = this.client.world.getBlockState(hitResult.getBlockPos()).getBlock();
          if (noInteractModule.isEnabled() && noInteractModule.shouldPreventInteract(block)) {
             cir.setReturnValue(ActionResult.PASS);

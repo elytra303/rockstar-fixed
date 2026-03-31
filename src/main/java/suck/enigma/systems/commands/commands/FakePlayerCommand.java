@@ -109,7 +109,7 @@ public class FakePlayerCommand implements IMinecraft {
    };
 
    public FakePlayerCommand() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    public Command command() {
@@ -147,7 +147,7 @@ public class FakePlayerCommand implements IMinecraft {
       this.fakePlayer.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 9999, 4));
       this.fakePlayer.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 9999, 1));
       mc.world.addEntity(this.fakePlayer);
-      enigma.getInstance()
+      Enigma.getInstance()
          .getNotificationManager()
          .addNotificationOther(
             NotificationType.SUCCESS, Localizator.translate("commands.fakeplayer.success"), Localizator.translate("commands.fakeplayer.added")
@@ -156,7 +156,7 @@ public class FakePlayerCommand implements IMinecraft {
 
    public void del() {
       if (this.fakePlayer == null) {
-         enigma.getInstance()
+         Enigma.getInstance()
             .getNotificationManager()
             .addNotificationOther(
                NotificationType.ERROR, Localizator.translate("commands.fakeplayer.error"), Localizator.translate("commands.fakeplayer.not_exists")
@@ -164,7 +164,7 @@ public class FakePlayerCommand implements IMinecraft {
       } else {
          this.fakePlayer.discard();
          this.fakePlayer = null;
-         enigma.getInstance()
+         Enigma.getInstance()
             .getNotificationManager()
             .addNotificationOther(
                NotificationType.SUCCESS, Localizator.translate("commands.fakeplayer.success"), Localizator.translate("commands.fakeplayer.removed")

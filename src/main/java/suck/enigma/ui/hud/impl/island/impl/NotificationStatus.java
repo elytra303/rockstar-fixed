@@ -18,8 +18,8 @@ public class NotificationStatus extends IslandStatus {
 
    @Override
    public void draw(CustomDrawContext context) {
-      DynamicIsland island = enigma.getInstance().getHud().getIsland();
-      List<Notification> notifications = enigma.getInstance().getNotificationManager().getNotifications();
+      DynamicIsland island = Enigma.getInstance().getHud().getIsland();
+      List<Notification> notifications = Enigma.getInstance().getNotificationManager().getNotifications();
       if (!notifications.isEmpty()) {
          Notification active = notifications.getLast();
          float x = sr.getScaledWidth() / 2.0F - island.getSize().width / 2.0F;
@@ -51,7 +51,7 @@ public class NotificationStatus extends IslandStatus {
 
    @Override
    public boolean canShow() {
-      List<Notification> notifications = enigma.getInstance().getNotificationManager().getNotifications();
+      List<Notification> notifications = Enigma.getInstance().getNotificationManager().getNotifications();
       return !notifications.isEmpty() && !notifications.getLast().getTimer().finished(notifications.getLast().getDuration());
    }
 }

@@ -30,7 +30,7 @@ public class NotificationManager {
    };
 
    public NotificationManager() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    public void addNotification(NotificationType type, String text) {

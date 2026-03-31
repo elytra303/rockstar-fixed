@@ -67,7 +67,7 @@ public class Nametags extends BaseModule {
             && (entity.getType() == EntityType.PLAYER || entity.getType() == EntityType.ITEM)
             && !(
                entity instanceof PlayerEntity player
-                  && enigma.getInstance().getFriendManager().isFriend(player.getName().getString())
+                  && Enigma.getInstance().getFriendManager().isFriend(player.getName().getString())
                   && this.offFriends.isEnabled()
             )) {
             this.entityList.add(entity);
@@ -318,7 +318,7 @@ public class Nametags extends BaseModule {
                y - 3,
                textWidth + 5,
                Fonts.MEDIUM.getFont(11.0F).height() + 6.0F,
-               enigma.getInstance().getFriendManager().isFriend(player.getName().getString())
+               Enigma.getInstance().getFriendManager().isFriend(player.getName().getString())
                   ? new ColorRGBA(0.0F, 125.0F, 0.0F, 100.0F)
                   : new ColorRGBA(0.0F, 0.0F, 0.0F, 100.0F)
             );
@@ -448,7 +448,7 @@ public class Nametags extends BaseModule {
       if (entity.getDisplayName() == null) {
          return Text.empty();
       } else {
-         NameProtect nameProtectModule = enigma.getInstance().getModuleManager().getModule(NameProtect.class);
+         NameProtect nameProtectModule = Enigma.getInstance().getModuleManager().getModule(NameProtect.class);
          String displayName = nameProtectModule.isEnabled()
             ? nameProtectModule.patchName(entity.getDisplayName().getString())
             : entity.getDisplayName().getString();
@@ -483,8 +483,8 @@ public class Nametags extends BaseModule {
       if (GuiUtility.isHovered(
          (double)scaledRectX, (double)scaledRectY, (double)scaledRectWidth, (double)scaledRectHeight, (double)event.getX(), (double)event.getY()
       )) {
-         FriendManager friendManager = enigma.getInstance().getFriendManager();
-         TargetManager targetManager = enigma.getInstance().getTargetManager();
+         FriendManager friendManager = Enigma.getInstance().getFriendManager();
+         TargetManager targetManager = Enigma.getInstance().getTargetManager();
          String name = entity.getName().getString();
          this.active = new Popup(event.getX(), event.getY(), 100.0F, 6.0F)
             .title(name)

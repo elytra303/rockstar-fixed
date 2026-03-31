@@ -32,7 +32,7 @@ public class ChatScreenMixin extends Screen implements IMinecraft {
 
    @Inject(method = "sendMessage(Ljava/lang/String;Z)V", at = @At("HEAD"), cancellable = true)
    private void onSendMessage(String text, boolean addToHistory, CallbackInfo ci) {
-      if (enigma.getInstance().getCommandManager().dispatch(text)) {
+      if (Enigma.getInstance().getCommandManager().dispatch(text)) {
          mc.inGameHud.getChatHud().addToMessageHistory(text);
          ci.cancel();
       }
@@ -40,16 +40,16 @@ public class ChatScreenMixin extends Screen implements IMinecraft {
 
    @Inject(method = "render", at = @At("RETURN"))
    public void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-      enigma.getInstance().getEventManager().triggerEvent(new ChatRenderEvent(CustomDrawContext.of(context), delta));
+      Enigma.getInstance().getEventManager().triggerEvent(new ChatRenderEvent(CustomDrawContext.of(context), delta));
    }
 
    @Inject(method = "mouseClicked", at = @At("HEAD"))
    private void onMouseClick(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
-      enigma.getInstance().getEventManager().triggerEvent(new ChatClickEvent((float)mouseX, (float)mouseY, button));
+      Enigma.getInstance().getEventManager().triggerEvent(new ChatClickEvent((float)mouseX, (float)mouseY, button));
    }
 
    public boolean mouseReleased(double mouseX, double mouseY, int button) {
-      enigma.getInstance().getEventManager().triggerEvent(new ChatReleaseEvent((float)mouseX, (float)mouseY, button));
+      Enigma.getInstance().getEventManager().triggerEvent(new ChatReleaseEvent((float)mouseX, (float)mouseY, button));
       return true;
    }
 }

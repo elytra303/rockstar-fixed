@@ -37,7 +37,7 @@ public class Grid {
       this.lines.add(new GridLine(GridLine.Type.HORIZONTAL, IScaledResolution.sr.getScaledHeight() / 4.0F - 0.5F));
       this.lines.add(new GridLine(GridLine.Type.HORIZONTAL, IScaledResolution.sr.getScaledHeight() / 4.0F * 3.0F - 0.5F));
 
-      for (HudElement element : enigma.getInstance().getHud().getElements()) {
+      for (HudElement element : Enigma.getInstance().getHud().getElements()) {
          if (!element.isDragging() && !(element instanceof DynamicIsland)) {
             this.lines.add(new GridLine(GridLine.Type.HORIZONTAL, element.y));
             if (element.x + element.width / 2.0F > IScaledResolution.sr.getScaledWidth() / 2.0F) {

@@ -32,7 +32,7 @@ public abstract class BlockCollisionSpliteratorMixin {
          return shape;
       } else {
          CollisionShapeEvent event = new CollisionShapeEvent(blockState, blockPos, shape);
-         enigma.getInstance().getEventManager().triggerEvent(event);
+         Enigma.getInstance().getEventManager().triggerEvent(event);
          return event.isCancelled() ? VoxelShapes.empty() : event.getShape();
       }
    }

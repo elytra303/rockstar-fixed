@@ -13,21 +13,21 @@ import net.minecraft.client.MinecraftClient;
 
 public class MenuCloseListener implements IMinecraft {
    private final EventListener<HudRenderEvent> onHudRender = event -> {
-      MenuScreen menuScreen = enigma.getInstance().getMenuScreen();
+      MenuScreen menuScreen = Enigma.getInstance().getMenuScreen();
       if (mc.currentScreen == null) {
-         if (enigma.getInstance().getModuleManager().getModule(MenuModule.class).getModern().isSelected()) {
+         if (Enigma.getInstance().getModuleManager().getModule(MenuModule.class).getModern().isSelected()) {
             if (!(menuScreen instanceof ModernScreen)) {
-               enigma.getInstance().setMenuScreen(new ModernScreen());
+               Enigma.getInstance().setMenuScreen(new ModernScreen());
             }
          } else if (!(menuScreen instanceof DropDownScreen)) {
-            enigma.getInstance().setMenuScreen(new DropDownScreen());
+            Enigma.getInstance().setMenuScreen(new DropDownScreen());
          }
       }
 
       if (menuScreen != null) {
          menuScreen.getMenuAnimation().update(menuScreen.isClosing() ? 0.0F : 1.0F);
-         if (!(mc.currentScreen instanceof MenuScreen) && enigma.getInstance().getModuleManager().getModule(MenuModule.class).isEnabled()) {
-            enigma.getInstance().getModuleManager().getModule(MenuModule.class).setEnabled(false);
+         if (!(mc.currentScreen instanceof MenuScreen) && Enigma.getInstance().getModuleManager().getModule(MenuModule.class).isEnabled()) {
+            Enigma.getInstance().getModuleManager().getModule(MenuModule.class).setEnabled(false);
          }
 
          if (menuScreen.getMenuAnimation().getValue() > 0.1F && !(mc.currentScreen instanceof MenuScreen) && menuScreen.isClosing()) {
@@ -38,6 +38,6 @@ public class MenuCloseListener implements IMinecraft {
    };
 
    public MenuCloseListener() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 }

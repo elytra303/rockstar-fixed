@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 public class SoundSystemMixinProtection {
    public static void playSound(SoundInstance sound, CallbackInfo ci) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled()
          && removals.getBeacon().isSelected()
          && (
@@ -45,6 +45,6 @@ public class SoundSystemMixinProtection {
          ci.cancel();
       }
 
-      enigma.getInstance().getEventManager().triggerEvent(new SoundEvent(sound));
+      Enigma.getInstance().getEventManager().triggerEvent(new SoundEvent(sound));
    }
 }

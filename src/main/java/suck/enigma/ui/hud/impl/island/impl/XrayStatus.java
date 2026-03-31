@@ -24,8 +24,8 @@ public class XrayStatus extends ExtandableStatus implements IMinecraft {
 
    @Override
    public void draw(CustomDrawContext context) {
-      DynamicIsland island = enigma.getInstance().getHud().getIsland();
-      XRay xRay = enigma.getInstance().getModuleManager().getModule(XRay.class);
+      DynamicIsland island = Enigma.getInstance().getHud().getIsland();
+      XRay xRay = Enigma.getInstance().getModuleManager().getModule(XRay.class);
       if (xRay.isEnabled() && this.haveOres(xRay)) {
          float x = sr.getScaledWidth() / 2.0F - island.getSize().width / 2.0F;
          float y = 7.0F;
@@ -115,7 +115,7 @@ public class XrayStatus extends ExtandableStatus implements IMinecraft {
 
    @Override
    public boolean canShow() {
-      XRay xRay = enigma.getInstance().getModuleManager().getModule(XRay.class);
+      XRay xRay = Enigma.getInstance().getModuleManager().getModule(XRay.class);
       return this.haveOres(xRay);
    }
 }

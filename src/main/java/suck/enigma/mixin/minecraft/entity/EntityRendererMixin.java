@@ -17,9 +17,9 @@ public abstract class EntityRendererMixin<T extends Entity, S extends EntityRend
    @Inject(method = "getDisplayName", at = @At("HEAD"), cancellable = true)
    private void onRenderLabel(T entity, CallbackInfoReturnable<Text> cir) {
       if (entity instanceof PlayerEntity player) {
-         Nametags nameTags = enigma.getInstance().getModuleManager().getModule(Nametags.class);
+         Nametags nameTags = Enigma.getInstance().getModuleManager().getModule(Nametags.class);
          if (nameTags.isEnabled()) {
-            if (nameTags.getOffFriends().isEnabled() && enigma.getInstance().getFriendManager().isFriend(player.getName().getString())) {
+            if (nameTags.getOffFriends().isEnabled() && Enigma.getInstance().getFriendManager().isFriend(player.getName().getString())) {
                return;
             }
 

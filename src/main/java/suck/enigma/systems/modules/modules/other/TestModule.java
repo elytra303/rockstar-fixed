@@ -77,7 +77,7 @@ public class TestModule extends BaseModule {
          .checkbox("Sosia", true)
          .checkbox("x, x, x", false);
 
-      for (Module module : enigma.getInstance().getModuleManager().getModules()) {
+      for (Module module : Enigma.getInstance().getModuleManager().getModules()) {
          System.out.println(String.format("modules.descriptions.%s=%s", module.getName().toLowerCase().replace(" ", "_"), module.getDescription()));
       }
 

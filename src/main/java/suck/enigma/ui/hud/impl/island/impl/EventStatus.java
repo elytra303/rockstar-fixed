@@ -39,7 +39,7 @@ public class EventStatus extends TimerStatus {
                      this.an = ServerUtility.ftAn;
                      this.timer.reset();
                      if (this.an == ServerUtility.ftAn) {
-                        enigma.getInstance()
+                        Enigma.getInstance()
                               .getWayPointsManager()
                               .add(
                                     this.activeEvents.getFirst().type.getName(),
@@ -68,7 +68,7 @@ public class EventStatus extends TimerStatus {
                         this.activeEvents.removeIf(e -> e.type == valuexx);
                         this.activeEvents.add(new EventStatus.ActiveEvent(valuexx, valuexx.getTime()));
                         this.timer.reset();
-                        enigma.getInstance()
+                        Enigma.getInstance()
                               .getWayPointsManager()
                               .add(
                                     valuexx.getName(),
@@ -87,21 +87,21 @@ public class EventStatus extends TimerStatus {
    };
    private final EventListener<WorldChangeEvent> worldChangeEvent = event -> {
       if (ServerUtility.ftAn != this.an) {
-         this.activeEvents.forEach(e -> enigma.getInstance().getWayPointsManager().del(e.type().getName()));
+         this.activeEvents.forEach(e -> Enigma.getInstance().getWayPointsManager().del(e.type().getName()));
          this.activeEvents.clear();
       }
    };
 
    public EventStatus(SelectSetting setting) {
       super(setting, "events");
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    @Override
    public void draw(CustomDrawContext context) {
       this.activeEvents.removeIf(event -> {
          if (this.timer.getElapsedTime() >= event.type().getTime()) {
-            enigma.getInstance().getWayPointsManager().del(event.type().getName());
+            Enigma.getInstance().getWayPointsManager().del(event.type().getName());
             return true;
          } else {
             return false;

@@ -51,7 +51,7 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
 
    @Override
    public void onInit() {
-      for (Module module : enigma.getInstance()
+      for (Module module : Enigma.getInstance()
          .getModuleManager()
          .getModules()
          .stream()
@@ -86,10 +86,10 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
       this.sizing.setDuration(500L);
       this.sizing
          .update(
-            enigma.getInstance().getMenuScreen().isClosing()
+            Enigma.getInstance().getMenuScreen().isClosing()
                ? 2.0F
                : (
-                  Math.abs(sr.getScaledWidth() / 2.0F - this.x) / 1500.0F * 3.0F < enigma.getInstance().getMenuScreen().getMenuAnimation().getValue()
+                  Math.abs(sr.getScaledWidth() / 2.0F - this.x) / 1500.0F * 3.0F < Enigma.getInstance().getMenuScreen().getMenuAnimation().getValue()
                      ? 1.0F
                      : 0.0F
                )
@@ -105,8 +105,8 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
    }
 
    public void renderBackground(UIContext context) {
-      float alpha = enigma.getInstance().getMenuScreen().isClosing()
-         ? enigma.getInstance().getMenuScreen().getMenuAnimation().getValue()
+      float alpha = Enigma.getInstance().getMenuScreen().isClosing()
+         ? Enigma.getInstance().getMenuScreen().getMenuAnimation().getValue()
          : this.sizing.getValue();
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
       this.scale(context);
@@ -116,15 +116,15 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
          this.width - 2.0F,
          this.height - 2.0F,
          BorderRadius.all(10.0F),
-         Colors.getBackgroundColor().withAlpha(255.0F * (enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK ? 0.55F : 0.7F))
+         Colors.getBackgroundColor().withAlpha(255.0F * (Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK ? 0.55F : 0.7F))
       );
       RenderUtility.end(context.getMatrices());
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
    }
 
    public void renderShadow(UIContext context) {
-      float alpha = enigma.getInstance().getMenuScreen().isClosing()
-         ? enigma.getInstance().getMenuScreen().getMenuAnimation().getValue()
+      float alpha = Enigma.getInstance().getMenuScreen().isClosing()
+         ? Enigma.getInstance().getMenuScreen().getMenuAnimation().getValue()
          : this.sizing.getValue();
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
       this.scale(context);
@@ -134,7 +134,7 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
    }
 
    public void renderBlur(UIContext context) {
-      float alpha = enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
+      float alpha = Enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
       this.scale(context);
       if (Interface.showMinimalizm()) {
          context.drawBlurredRect(this.x, this.y, this.width, this.height, 45.0F, 10.0F, BorderRadius.all(10.0F), ColorRGBA.WHITE.withAlpha(255.0F * alpha));
@@ -176,10 +176,10 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
       this.settingsScroll.update();
       float headerHeight = 24.0F;
       this.updateScale(context);
-      float alpha = enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
+      float alpha = Enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
       this.scale(context);
-      boolean dark = enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
+      boolean dark = Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
       context.drawSquircle(
          this.x,
          this.y,
@@ -304,7 +304,7 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
 
    public void drawRegular8(UIContext context) {
       float headerHeight = 24.0F;
-      float alpha = enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
+      float alpha = Enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
       float separatorHeight = 4.0F;
       if (this.selectedModuleComponent != null) {
@@ -362,7 +362,7 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
    }
 
    public void drawIcons(UIContext context) {
-      float alpha = enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
+      float alpha = Enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
       if (this.selectedModuleComponent != null) {
          this.lastSelected = this.selectedModuleComponent;
@@ -396,7 +396,7 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
 
    public void drawType(UIContext context) {
       float headerHeight = 24.0F;
-      float alpha = enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
+      float alpha = Enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
       this.scale(context);
       float iconScale = 8.0F;
@@ -415,7 +415,7 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
 
    public void drawSplit(UIContext context) {
       float headerHeight = 24.0F;
-      float alpha = enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
+      float alpha = Enigma.getInstance().getMenuScreen().isClosing() ? 2.0F - this.sizing.getValue() : this.sizing.getValue();
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
       float separatorHeight = 4.0F;
       if (this.selectedModuleComponent != null) {
@@ -486,7 +486,7 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
          float y = this.y + 28.0F;
          if (GuiUtility.isHovered((double)this.x, (double)y, (double)this.width, 20.0, mouseX, mouseY) && button == MouseButton.LEFT) {
             this.selectedModuleComponent = null;
-            if (enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled()) {
+            if (Enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled()) {
                ClientSounds.CLICKGUI_OPEN.play(0.8F, 1.2F);
             }
          }
@@ -557,7 +557,7 @@ public class MenuPanel extends CustomComponent implements IScaledResolution {
    }
 
    private boolean searchCheck(ModuleComponent component) {
-      if (!(enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen)) {
+      if (!(Enigma.getInstance().getMenuScreen() instanceof DropDownScreen dropDownScreen)) {
          return true;
       } else {
          TextField search = dropDownScreen.getSearchField();

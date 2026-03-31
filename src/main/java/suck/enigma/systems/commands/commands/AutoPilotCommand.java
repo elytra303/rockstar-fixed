@@ -57,8 +57,8 @@ public class AutoPilotCommand implements IMinecraft {
                         sequence -> new PlayerInteractItemC2SPacket(
                            Hand.OFF_HAND,
                            sequence,
-                           enigma.getInstance().getRotationHandler().getServerRotation().getYaw(),
-                           enigma.getInstance().getRotationHandler().getServerRotation().getPitch()
+                           Enigma.getInstance().getRotationHandler().getServerRotation().getYaw(),
+                           Enigma.getInstance().getRotationHandler().getServerRotation().getPitch()
                         )
                      );
                   this.timer.reset();
@@ -89,7 +89,7 @@ public class AutoPilotCommand implements IMinecraft {
    };
 
    private void initialize() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    public AutoPilotCommand() {
@@ -141,7 +141,7 @@ public class AutoPilotCommand implements IMinecraft {
    private void stopAutoPilot() {
       this.active = false;
       this.target = null;
-      enigma.getInstance().getEventManager().unsubscribe(this);
+      Enigma.getInstance().getEventManager().unsubscribe(this);
       mc.options.sprintKey.setPressed(false);
       mc.options.forwardKey.setPressed(false);
    }

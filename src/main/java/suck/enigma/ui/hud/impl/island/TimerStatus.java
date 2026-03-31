@@ -28,7 +28,7 @@ public class TimerStatus extends IslandStatus implements IMinecraft {
 
    @Override
    public void draw(CustomDrawContext context) {
-      DynamicIsland island = enigma.getInstance().getHud().getIsland();
+      DynamicIsland island = Enigma.getInstance().getHud().getIsland();
       float x = sr.getScaledWidth() / 2.0F - island.getSize().width / 2.0F;
       float y = 7.0F;
       Font timeFont = Fonts.MEDIUM.getFont(6.0F);

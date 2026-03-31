@@ -58,7 +58,7 @@ public class MineHelper extends BaseModule {
    };
    private final EventListener<ClientPlayerTickEvent> onUpdateEvent = event -> {
       if (mc.player != null && this.rotate) {
-         enigma.getInstance()
+         Enigma.getInstance()
             .getRotationHandler()
             .rotate(new Rotation(mc.player.getYaw(), 90.0F), MoveCorrection.SILENT, 180.0F, 180.0F, 180.0F, RotationPriority.USE_ITEM);
       }
@@ -71,7 +71,7 @@ public class MineHelper extends BaseModule {
       }
 
       if (!switched && this.timer.finished(800L)) {
-         enigma.getInstance().getNotificationManager().addNotificationOther(NotificationType.ERROR, "Кирка почти сломана!", "Нет замены/опыта для починки");
+         Enigma.getInstance().getNotificationManager().addNotificationOther(NotificationType.ERROR, "Кирка почти сломана!", "Нет замены/опыта для починки");
          this.timer.reset();
       }
    }
@@ -80,7 +80,7 @@ public class MineHelper extends BaseModule {
       if (mc.player != null && mc.currentScreen == null) {
          ItemStack pickaxe = mc.player.getMainHandStack();
          if (!this.isValidPickaxe(pickaxe) || pickaxe.getDamage() == 0) {
-            enigma.getInstance().getNotificationManager().addNotificationOther(NotificationType.ERROR, "Ошибка", "Нет кирки или она не повреждена!");
+            Enigma.getInstance().getNotificationManager().addNotificationOther(NotificationType.ERROR, "Ошибка", "Нет кирки или она не повреждена!");
             this.rotate = false;
          } else if (this.ensureBottleInOffhand()) {
             this.useExperienceBottle();
@@ -96,7 +96,7 @@ public class MineHelper extends BaseModule {
          SlotGroup<ItemSlot> searchArea = SlotGroups.inventory().and(SlotGroups.hotbar());
          ItemSlot bottleSlot = searchArea.findItem((Predicate<ItemStack>)(stack -> stack.getItem() == Items.EXPERIENCE_BOTTLE));
          if (bottleSlot == null) {
-            enigma.getInstance()
+            Enigma.getInstance()
                .getNotificationManager()
                .addNotificationOther(NotificationType.ERROR, "Нет бутылок опыта!", "Вам необходимо иметь бутылочки опыта в инвентаре");
             this.rotate = false;
@@ -113,7 +113,7 @@ public class MineHelper extends BaseModule {
          mc.options.useKey.setPressed(false);
          this.rotate = false;
       } else {
-         RotationHandler rotation = enigma.getInstance().getRotationHandler();
+         RotationHandler rotation = Enigma.getInstance().getRotationHandler();
          mc.interactionManager
             .sendSequencedPacket(
                mc.world,
@@ -132,7 +132,7 @@ public class MineHelper extends BaseModule {
          InventoryUtility.selectHotbarSlot(bestSlot);
          if (this.timer.finished(800L)) {
             ItemStack newStack = bestSlot.itemStack();
-            enigma.getInstance()
+            Enigma.getInstance()
                .getNotificationManager()
                .addNotificationOther(
                   NotificationType.SUCCESS,

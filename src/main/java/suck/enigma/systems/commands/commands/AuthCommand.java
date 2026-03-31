@@ -20,7 +20,7 @@ public class AuthCommand {
 
    @Compile
    private void handle(CommandContext ctx) {
-      Map<String, String> map = enigma.getInstance().getModuleManager().getModule(AutoAuth.class).listPassword();
+      Map<String, String> map = Enigma.getInstance().getModuleManager().getModule(AutoAuth.class).listPassword();
       int counter = 1;
       if (map.isEmpty()) {
          MessageUtility.error(Text.of(Localizator.translate("commands.auth.empty")));

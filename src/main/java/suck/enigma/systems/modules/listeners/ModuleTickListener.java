@@ -7,7 +7,7 @@ import suck.enigma.systems.modules.Module;
 
 public class ModuleTickListener implements EventListener<ClientPlayerTickEvent> {
    public void onEvent(ClientPlayerTickEvent event) {
-      for (Module module : enigma.getInstance().getModuleManager().getModules()) {
+      for (Module module : Enigma.getInstance().getModuleManager().getModules()) {
          if (module.isEnabled()) {
             module.tick();
          }

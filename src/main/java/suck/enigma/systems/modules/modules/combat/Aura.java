@@ -98,7 +98,7 @@ public class Aura extends BaseModule {
    private final Timer collideTimer = new Timer();
    private final EventListener<ClientPlayerTickEvent> onPlayerTick = event -> {
       if (mc.player != null) {
-         float requiredAimDistance = enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled()
+         float requiredAimDistance = Enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled()
                  ? 50.0F
                  : this.aimDistance.getCurrentValue();
          TargetSettings.Builder builder = new TargetSettings.Builder()
@@ -118,13 +118,13 @@ public class Aura extends BaseModule {
          }
 
          TargetSettings settings = builder.build();
-         LivingEntity target = enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity living ? living : null;
+         LivingEntity target = Enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity living ? living : null;
          if (!this.targeting.isEnabled()
                  || target == null
                  || MathHelper.sqrt((float)mc.player.squaredDistanceTo(RotationMath.getNearestPoint(target))) > requiredAimDistance
                  || !mc.world.hasEntity(target)
                  || !target.isAlive()) {
-            enigma.getInstance().getTargetManager().update(settings);
+            Enigma.getInstance().getTargetManager().update(settings);
          }
 
          if (target != null) {
@@ -210,7 +210,7 @@ public class Aura extends BaseModule {
                                       .getEyePos()
                                       .add(
                                               mc.player
-                                                      .getRotationVector(-90.0F, enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw())
+                                                      .getRotationVector(-90.0F, Enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw())
                                                       .multiply(this.attackDistance.getCurrentValue())
                                       ),
                               ShapeType.COLLIDER,
@@ -224,8 +224,8 @@ public class Aura extends BaseModule {
       } else {
          return !MathUtility.canTraceWithBlock(
                  this.attackDistance.getCurrentValue(),
-                 enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw(),
-                 enigma.getInstance().getRotationHandler().getCurrentRotation().getPitch(),
+                 Enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw(),
+                 Enigma.getInstance().getRotationHandler().getCurrentRotation().getPitch(),
                  mc.player,
                  targetedEntity,
                  !this.walls.isEnabled()
@@ -286,8 +286,8 @@ public class Aura extends BaseModule {
                             sequence -> new PlayerInteractItemC2SPacket(
                                     mc.player.getActiveHand(),
                                     sequence,
-                                    enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw(),
-                                    enigma.getInstance().getRotationHandler().getCurrentRotation().getPitch()
+                                    Enigma.getInstance().getRotationHandler().getCurrentRotation().getYaw(),
+                                    Enigma.getInstance().getRotationHandler().getCurrentRotation().getPitch()
                             )
                     );
          }
@@ -310,12 +310,12 @@ public class Aura extends BaseModule {
                moveCorrection = MoveCorrection.NONE;
             }
 
-            RotationHandler handler = enigma.getInstance().getRotationHandler();
+            RotationHandler handler = Enigma.getInstance().getRotationHandler();
             if (this.rotationMode.is(this.simpleRotation)) {
                Rotation rot = RotationMath.getRotationTo(
                        RotationMath.getNearestPoint(
                                targetedEntity,
-                               enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled() && targetedEntity instanceof PlayerEntity player
+                               Enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled() && targetedEntity instanceof PlayerEntity player
                                        ? ElytraPredictionSystem.predictPlayerPosition(player)
                                        : targetedEntity.getPos()
                        )
@@ -323,7 +323,7 @@ public class Aura extends BaseModule {
                if (mc.player.getEyePos().distanceTo(targetedEntity.getEyePos()) > 3.0) {
                   rot.setYaw(
                           RotationMath.getRotationTo(
-                                          (enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled()
+                                          (Enigma.getInstance().getModuleManager().getModule(ElytraTarget.class).isEnabled()
                                                   && targetedEntity instanceof PlayerEntity playerx
                                                   ? ElytraPredictionSystem.predictPlayerPosition(playerx)
                                                   : targetedEntity.getPos())
@@ -337,7 +337,7 @@ public class Aura extends BaseModule {
             }
 
             if (this.rotationMode.is(this.holyWorldRotation)) {
-               Rotation current = enigma.getInstance().getRotationHandler().getCurrentRotation();
+               Rotation current = Enigma.getInstance().getRotationHandler().getCurrentRotation();
                Box box = targetedEntity.getBoundingBox();
                double offsetX = this.getSensitivity((float) Math.cos(System.currentTimeMillis() / 1000.0)) * 0.15;
                double offsetY = this.getSensitivity((float) Math.cos(System.currentTimeMillis() / 10000.0)) * 0.15;
@@ -583,13 +583,13 @@ public class Aura extends BaseModule {
    }
 
    public boolean shouldPreventSprinting() {
-      LivingEntity target = enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity living ? living : null;
+      LivingEntity target = Enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity living ? living : null;
       if (target == null || mc.player == null) {
          return false;
       } else if (this.styleAttack.is(this.fastPvp)) {
          return false;
       } else {
-         Criticals criticals = enigma.getInstance().getModuleManager().getModule(Criticals.class);
+         Criticals criticals = Enigma.getInstance().getModuleManager().getModule(Criticals.class);
          boolean predict = criticals.isEnabled() && (criticals.canCritical() || mc.player.isOnGround())
                  || !mc.player.isOnGround() && FallingPlayer.fromPlayer(mc.player).findFall(CombatUtility.getFallDistance(target));
          return this.onlyCriticals.isEnabled()
@@ -616,7 +616,7 @@ public class Aura extends BaseModule {
 
    @Override
    public void onDisable() {
-      enigma.getInstance().getTargetManager().reset();
+      Enigma.getInstance().getTargetManager().reset();
       super.onDisable();
    }
 

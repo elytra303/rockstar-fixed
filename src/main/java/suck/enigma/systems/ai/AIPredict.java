@@ -36,7 +36,7 @@ public class AIPredict implements IMinecraft {
          var2.printStackTrace();
       }
 
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    public Rotation predictRotation(Rotation prev, LivingEntity target) {

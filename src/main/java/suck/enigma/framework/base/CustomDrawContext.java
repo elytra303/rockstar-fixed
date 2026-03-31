@@ -58,7 +58,7 @@ public class CustomDrawContext extends DrawContext implements IMinecraft {
          );
       }
 
-      boolean dark = enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
+      boolean dark = Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
       this.drawSquircle(
          x, y, width, height, squircle, BorderRadius.all(6.0F), Colors.getBackgroundColor().withAlpha(255.0F * (dark ? 0.8F - 0.6F * Interface.glass() : 0.7F))
       );

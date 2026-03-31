@@ -31,13 +31,13 @@ public class SwapIntegration implements IMinecraft {
    };
 
    public SwapIntegration() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    private void processItemUse() {
       if (mc.player != null && mc.world != null && mc.interactionManager != null && mc.player.getItemCooldownManager() != null) {
          if (!(this.targetSlot instanceof HotbarSlot)) {
-            enigma.getInstance().getModuleManager().getModule(GuiMove.class).setStay(true);
+            Enigma.getInstance().getModuleManager().getModule(GuiMove.class).setStay(true);
          }
 
          switch (this.currentState) {
@@ -48,7 +48,7 @@ public class SwapIntegration implements IMinecraft {
                         mc.world, sequence -> new PlayerInteractItemC2SPacket(Hand.MAIN_HAND, sequence, mc.player.getYaw(), mc.player.getPitch())
                      );
                   this.currentState = SwapIntegration.ItemUseState.RETURNING_SLOT;
-               } else if (enigma.getInstance().getModuleManager().getModule(GuiMove.class).canSend()) {
+               } else if (Enigma.getInstance().getModuleManager().getModule(GuiMove.class).canSend()) {
                   mc.interactionManager
                      .sendSequencedPacket(
                         mc.world, sequence -> new PlayerInteractItemC2SPacket(Hand.MAIN_HAND, sequence, mc.player.getYaw(), mc.player.getPitch())
@@ -60,7 +60,7 @@ public class SwapIntegration implements IMinecraft {
                if (this.targetSlot instanceof HotbarSlot) {
                   InventoryUtility.selectHotbarSlot(this.originalSlot);
                   this.resetUseState();
-               } else if (enigma.getInstance().getModuleManager().getModule(GuiMove.class).canSend()) {
+               } else if (Enigma.getInstance().getModuleManager().getModule(GuiMove.class).canSend()) {
                   HotbarSlot currentSlot = InventoryUtility.getCurrentHotbarSlot();
                   InventoryUtility.hotbarSwap(this.targetSlot.getIdForServer(), this.originalSlot.getSlotId());
                   this.resetUseState();
@@ -82,7 +82,7 @@ public class SwapIntegration implements IMinecraft {
             SlotGroup<ItemSlot> group = SlotGroups.hotbar().and(SlotGroups.inventory());
             ItemSlot itemSlot = group.findItem(itemType);
             if (itemSlot == null) {
-               enigma.getInstance()
+               Enigma.getInstance()
                   .getNotificationManager()
                   .addNotificationOther(NotificationType.ERROR, "Предмет не найден", "Вам необходимо иметь " + itemType.getName().getString() + " в инвентаре");
             } else if (!mc.player.getItemCooldownManager().isCoolingDown(itemSlot.itemStack())) {

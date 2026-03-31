@@ -28,7 +28,7 @@ public class CreeperFarm extends BaseModule {
             double distance = mc.player.getPos().distanceTo(creeper.getPos());
             if (distance <= 3.3) {
                Rotation rot = this.calculateCreeperRotation(creeper);
-               enigma.getInstance().getRotationHandler().rotate(rot);
+               Enigma.getInstance().getRotationHandler().rotate(rot);
                if (mc.player.getAttackCooldownProgress(1.0F) >= 0.9) {
                   mc.interactionManager.attackEntity(mc.player, creeper);
                   mc.player.swingHand(Hand.MAIN_HAND);

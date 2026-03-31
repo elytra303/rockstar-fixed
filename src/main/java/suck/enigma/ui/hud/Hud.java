@@ -136,13 +136,13 @@ public class Hud implements IMinecraft, IScaledResolution {
       int modifiers = event.getModifiers();
       int keyCode = event.getKeyCode();
       if (keyCode == 90 && (modifiers & 2) != 0) {
-         enigma.getInstance().getHud().getHistoryManager().undo();
+         Enigma.getInstance().getHud().getHistoryManager().undo();
       } else if (keyCode == 89 && (modifiers & 2) != 0) {
-         enigma.getInstance().getHud().getHistoryManager().redo();
+         Enigma.getInstance().getHud().getHistoryManager().redo();
       }
    };
    private final EventListener<ChatClickEvent> onClick = event -> {
-      for (Entity entity : enigma.getInstance().getModuleManager().getModule(Nametags.class).getEntityList()) {
+      for (Entity entity : Enigma.getInstance().getModuleManager().getModule(Nametags.class).getEntityList()) {
          Vec3d pos = Utils.getInterpolatedPos(entity, 1.0F).add(0.0, entity.getBoundingBox().getLengthY() + 0.5, 0.0);
          Vec2f screenPos = Utils.worldToScreen(pos);
          if (screenPos != null && entity.getType() == EntityType.PLAYER && this.handleClick(event, entity, screenPos)) {
@@ -174,13 +174,13 @@ public class Hud implements IMinecraft, IScaledResolution {
                elementx.pos(event.getX(), event.getY());
                elementx.setShowing(true);
                popup1.setShowing(false);
-               enigma.getInstance().getFileManager().writeFile("client");
+               Enigma.getInstance().getFileManager().writeFile("client");
             });
          }
 
          this.popups.add(popup);
       } else if (event.getButton() == 1 && this.disabledElements().isEmpty() && this.timer.finished(600L)) {
-         enigma.getInstance()
+         Enigma.getInstance()
             .getNotificationManager()
             .addNotificationOther(NotificationType.ERROR, "Элементов нет", "Элементы закончились, добавлять больше нечего");
          this.timer.reset();
@@ -201,7 +201,7 @@ public class Hud implements IMinecraft, IScaledResolution {
 
    @CompileBytecode
    private void initialize() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
       this.elements.addAll(List.of(new Effects(), new KeyBinds(), new TargetHud(), this.island = new DynamicIsland(), new WorldElement(), new PlayerElement()));
    }
 

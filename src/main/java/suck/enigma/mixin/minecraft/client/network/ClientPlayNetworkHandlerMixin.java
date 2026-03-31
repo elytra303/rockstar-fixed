@@ -45,7 +45,7 @@ public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonNetworkH
       Entity itemEntity = this.client.world.getEntityById(packet.getEntityId());
       Entity entity = this.client.world.getEntityById(packet.getCollectorEntityId());
       if (itemEntity instanceof ItemEntity && entity == this.client.player) {
-         enigma.getInstance().getEventManager().triggerEvent(new PickupEvent(((ItemEntity)itemEntity).getStack(), packet.getStackAmount()));
+         Enigma.getInstance().getEventManager().triggerEvent(new PickupEvent(((ItemEntity)itemEntity).getStack(), packet.getStackAmount()));
       }
    }
 
@@ -69,7 +69,7 @@ public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonNetworkH
                WorldUtility.blockEntities.add(be);
             }
          });
-         XRay xray = enigma.getInstance().getModuleManager().getModule(XRay.class);
+         XRay xray = Enigma.getInstance().getModuleManager().getModule(XRay.class);
          MinecraftClient mc = MinecraftClient.getInstance();
          if (xray != null && xray.isEnabled() && mc.world != null) {
             new Thread(() -> xray.scanChunk(chunk)).start();
@@ -80,7 +80,7 @@ public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonNetworkH
    @Inject(method = "onGameJoin", at = @At("TAIL"))
    private void onGameJoin(GameJoinS2CPacket packet, CallbackInfo ci) {
       WorldUtility.blockEntities.clear();
-      enigma.getInstance().getEventManager().triggerEvent(new WorldChangeEvent());
+      Enigma.getInstance().getEventManager().triggerEvent(new WorldChangeEvent());
    }
 
    @Inject(method = "onPlayerPositionLook", at = @At("HEAD"))

@@ -19,14 +19,14 @@ public abstract class FireworkRocketEntityMixin implements IMinecraft {
    private void redirectSetVelocity(LivingEntity shooter, Vec3d velocity) {
       FireworkRocketEntity rocketEntity = (FireworkRocketEntity) (Object) this;
       FireworkEvent event = new FireworkEvent(shooter, velocity, rocketEntity);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
       shooter.setVelocity(event.getVelocity());
    }
 
    @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getRotationVector()Lnet/minecraft/util/math/Vec3d;"))
    private Vec3d redirectGetRotationVector(LivingEntity instance) {
       if (instance == mc.player) {
-         RotationHandler rotationHandler = enigma.getInstance().getRotationHandler();
+         RotationHandler rotationHandler = Enigma.getInstance().getRotationHandler();
          if (rotationHandler != null && rotationHandler.getState() != RotationState.IDLE) {
             Rotation currentRotation = rotationHandler.getCurrentRotation();
             return Vec3d.fromPolar(currentRotation.getPitch(), currentRotation.getYaw());

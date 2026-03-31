@@ -23,7 +23,7 @@ public class RotationHandler implements IMinecraft {
 
    public RotationHandler(RotationUpdateListener rotationUpdateListener) {
       this.rotationUpdateListener = rotationUpdateListener;
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    public boolean isIdling() {
@@ -69,7 +69,7 @@ public class RotationHandler implements IMinecraft {
          }
 
          this.renderRotation = new Rotation(yaw, pitch);
-         if (enigma.getInstance().getTargetManager().getCurrentTarget() != null) {
+         if (Enigma.getInstance().getTargetManager().getCurrentTarget() != null) {
          }
       }
    }

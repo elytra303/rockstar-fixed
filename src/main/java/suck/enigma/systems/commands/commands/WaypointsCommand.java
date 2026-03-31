@@ -37,7 +37,7 @@ public class WaypointsCommand implements IMinecraft, IScaledResolution {
    };
 
    public WaypointsCommand() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    public Command command() {
@@ -68,7 +68,7 @@ public class WaypointsCommand implements IMinecraft, IScaledResolution {
       String x = (String)ctx.arguments().get(2);
       String y = (String)ctx.arguments().get(3);
       String z = (String)ctx.arguments().get(4);
-      WayPointsManager wayPointsManager = enigma.getInstance().getWayPointsManager();
+      WayPointsManager wayPointsManager = Enigma.getInstance().getWayPointsManager();
       String var8 = action.toLowerCase();
       switch (var8) {
          case "add":
@@ -97,7 +97,7 @@ public class WaypointsCommand implements IMinecraft, IScaledResolution {
    }
 
    private void renderBack(HudRenderEvent event, MatrixStack matrices) {
-      for (Entry<String, Vec3d> entry : enigma.getInstance().getWayPointsManager().getEntries()) {
+      for (Entry<String, Vec3d> entry : Enigma.getInstance().getWayPointsManager().getEntries()) {
          String name = entry.getKey();
          Vec3d pos = entry.getValue();
          Vec3d renderPos = pos.add(0.0, 0.5, 0.0);
@@ -118,7 +118,7 @@ public class WaypointsCommand implements IMinecraft, IScaledResolution {
    }
 
    private void renderText(HudRenderEvent event, MatrixStack matrices) {
-      for (Entry<String, Vec3d> entry : enigma.getInstance().getWayPointsManager().getEntries()) {
+      for (Entry<String, Vec3d> entry : Enigma.getInstance().getWayPointsManager().getEntries()) {
          String name = entry.getKey();
          Vec3d pos = entry.getValue();
          Vec3d renderPos = pos.add(0.0, 0.5, 0.0);

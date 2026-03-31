@@ -32,9 +32,9 @@ public abstract class ChatInputSuggestorMixin {
    @Inject(method = "refresh", at = @At(value = "INVOKE", target = "Lcom/mojang/brigadier/StringReader;canRead()Z", remap = false), cancellable = true)
    private void injectAutoCompletion(CallbackInfo ci) {
       String text = this.textField.getText();
-      String prefix = enigma.getInstance().getCommandManager().getPrefix();
+      String prefix = Enigma.getInstance().getCommandManager().getPrefix();
       if (text.startsWith(prefix)) {
-         this.pendingSuggestions = enigma.getInstance().getCommandManager().autoComplete(text, this.textField.getCursor());
+         this.pendingSuggestions = Enigma.getInstance().getCommandManager().autoComplete(text, this.textField.getCursor());
          this.pendingSuggestions.thenRun(() -> {
             try {
                if (this.pendingSuggestions.isDone() && !this.pendingSuggestions.get().isEmpty() && this.window == null) {

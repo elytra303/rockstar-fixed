@@ -23,7 +23,7 @@ public class AutoFarmCounter implements IMinecraft {
    public int price = 0;
 
    public int getTotalSelectedCrops() {
-      AutoFarm autoFarm = enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
+      AutoFarm autoFarm = Enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
       int totalCount = 0;
 
       for (int i = 0; i < mc.player.getInventory().main.size(); i++) {
@@ -54,7 +54,7 @@ public class AutoFarmCounter implements IMinecraft {
    }
 
    public int getNonSelectedCropSlots() {
-      AutoFarm autoFarm = enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
+      AutoFarm autoFarm = Enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
       int nonSelectedSlots = 0;
 
       for (int i = 0; i < mc.player.getInventory().main.size(); i++) {
@@ -83,7 +83,7 @@ public class AutoFarmCounter implements IMinecraft {
    }
 
    public void checkPrice() {
-      AutoFarm autoFarm = enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
+      AutoFarm autoFarm = Enigma.getInstance().getModuleManager().getModule(AutoFarm.class);
       List<Item> items = List.of(Items.CARROT, Items.POTATO, Items.BEETROOT_SEEDS);
       if (mc.player.currentScreenHandler instanceof GenericContainerScreenHandler && this.price == 0) {
          if (ServerUtility.isFT()

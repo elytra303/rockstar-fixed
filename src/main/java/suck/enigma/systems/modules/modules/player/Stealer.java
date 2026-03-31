@@ -115,7 +115,7 @@ public class Stealer extends BaseModule {
             BlockPos pos = this.target.getPos();
             Vec3d hitVec = Vec3d.ofCenter(pos);
             Rotation rotation = RotationMath.getRotationTo(hitVec);
-            enigma.getInstance().getRotationHandler().rotate(rotation, MoveCorrection.NONE, 22.0F, 22.0F, 22.0F, RotationPriority.USE_ITEM);
+            Enigma.getInstance().getRotationHandler().rotate(rotation, MoveCorrection.NONE, 22.0F, 22.0F, 22.0F, RotationPriority.USE_ITEM);
             BlockHitResult hit = new BlockHitResult(hitVec, Direction.UP, pos, false);
             mc.interactionManager.interactBlock(mc.player, Hand.MAIN_HAND, hit);
             mc.player.swingHand(Hand.MAIN_HAND);

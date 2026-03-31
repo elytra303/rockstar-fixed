@@ -50,7 +50,7 @@ public class BooleanSettingComponent extends MenuSettingComponent<BooleanSetting
       this.enableAnimation.update(this.setting.isEnabled() ? 1.0F : 0.0F);
       this.backgroundColorAnimation
          .update(
-            this.setting.isEnabled() ? new ColorRGBA(151.0F, 71.0F, 255.0F) : enigma.getInstance().getThemeManager().getCurrentTheme().getAdditionalColor()
+            this.setting.isEnabled() ? new ColorRGBA(151.0F, 71.0F, 255.0F) : Enigma.getInstance().getThemeManager().getCurrentTheme().getAdditionalColor()
          );
       this.hoverAnimation.update(this.isHovered(context.getMouseX(), context.getMouseY()));
       if (this.isHovered(context.getMouseX(), context.getMouseY())) {

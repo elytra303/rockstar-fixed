@@ -17,7 +17,7 @@ public class DefaultStatus extends IslandStatus {
 
    @Override
    public void draw(CustomDrawContext context) {
-      DynamicIsland island = enigma.getInstance().getHud().getIsland();
+      DynamicIsland island = Enigma.getInstance().getHud().getIsland();
       float x = sr.getScaledWidth() / 2.0F - island.getSize().width / 2.0F;
       float y = 7.0F;
       float width = this.size.width = 20.0F + Fonts.MEDIUM.getFont(7.0F).width("enigma");

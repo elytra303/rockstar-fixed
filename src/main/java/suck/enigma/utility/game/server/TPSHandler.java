@@ -27,7 +27,7 @@ public class TPSHandler {
       this.nextIndex = 0;
       this.timeLastTimeUpdate = -1L;
       Arrays.fill(this.tickRates, 0.0F);
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    public float getTPS() {

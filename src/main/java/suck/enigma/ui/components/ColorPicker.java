@@ -114,7 +114,7 @@ public class ColorPicker extends CustomComponent implements IScaledResolution, I
       this.saturationAnim.update(1.0F - this.saturation);
       this.alphaAnim.update(this.alpha);
       this.huePreviewColorAnimation.update(ColorRGBA.fromHSB(this.hue, 1.0F, 1.0F));
-      boolean dark = enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
+      boolean dark = Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
       ColorRGBA bgColor = Colors.getBackgroundColor().withAlpha(255.0F * (dark ? 0.9F - 0.6F * Interface.glass() : 0.7F));
       ColorRGBA withoutAlpha = ColorRGBA.fromHSB(this.hue, this.brightness, this.saturation);
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, Math.min(1.0F, this.animation.getValue()));
@@ -391,7 +391,7 @@ public class ColorPicker extends CustomComponent implements IScaledResolution, I
          if (GuiUtility.isHovered((double)(this.x + 45.0F + xOffset), (double)(this.y + this.height - 36.0F + yOffset), 11.0, 11.0, mouseX, mouseY)) {
             if (button.getButtonIndex() != 0) {
                preset.showing = false;
-               enigma.getInstance().getFileManager().writeFile("client");
+               Enigma.getInstance().getFileManager().writeFile("client");
             } else {
                this.update(preset.color);
             }
@@ -412,7 +412,7 @@ public class ColorPicker extends CustomComponent implements IScaledResolution, I
 
       if (GuiUtility.isHovered((double)(this.x + 45.0F + xOffset), (double)(this.y + this.height - 36.0F + yOffset), 11.0, 11.0, mouseX, mouseY) && canAppend) {
          COLOR_PRESETS.add(new ColorPicker.Preset(this.built()));
-         enigma.getInstance().getFileManager().writeFile("client");
+         Enigma.getInstance().getFileManager().writeFile("client");
       } else if (button.getButtonIndex() != 0) {
          this.pick = false;
       } else {

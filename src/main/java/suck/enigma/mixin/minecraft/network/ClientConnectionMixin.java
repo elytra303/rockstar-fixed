@@ -21,7 +21,7 @@ public class ClientConnectionMixin implements IMinecraft {
    @Inject(method = "handlePacket", at = @At("HEAD"), cancellable = true)
    private static <T extends PacketListener> void triggerReceivePacketEvent(Packet<T> packet, PacketListener listener, CallbackInfo ci) {
       ReceivePacketEvent event = new ReceivePacketEvent(packet);
-      enigma.getInstance().getEventManager().triggerEvent(event);
+      Enigma.getInstance().getEventManager().triggerEvent(event);
       if (event.isCancelled()) {
          ci.cancel();
       }
@@ -31,7 +31,7 @@ public class ClientConnectionMixin implements IMinecraft {
    public void triggerSendPacketEvent(Packet<?> packet, CallbackInfo ci) {
       SendPacketEvent event = new SendPacketEvent(packet);
       if (!stackOverflowFix) {
-         enigma.getInstance().getEventManager().triggerEvent(event);
+         Enigma.getInstance().getEventManager().triggerEvent(event);
          if (event.isCancelled()) {
             ci.cancel();
          }

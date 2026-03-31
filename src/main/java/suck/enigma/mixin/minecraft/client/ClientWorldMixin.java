@@ -18,8 +18,8 @@ public class ClientWorldMixin {
 
    @Inject(method = "getDimensionEffects", at = @At("HEAD"), cancellable = true)
    private void onGetSkyProperties(CallbackInfoReturnable<DimensionEffects> info) {
-      if (enigma.getInstance().getModuleManager().getModule(Ambience.class).isEnabled()
-         && enigma.getInstance().getModuleManager().getModule(Ambience.class).getEndSky().isEnabled()) {
+      if (Enigma.getInstance().getModuleManager().getModule(Ambience.class).isEnabled()
+         && Enigma.getInstance().getModuleManager().getModule(Ambience.class).getEndSky().isEnabled()) {
          info.setReturnValue(this.endSky);
       }
    }

@@ -34,6 +34,6 @@ public class ServerConnectionHandler implements IMinecraft {
    };
 
    public ServerConnectionHandler() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 }

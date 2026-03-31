@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ClientWorldMixin {
    @Inject(method = "handleBlockUpdate", at = @At("HEAD"))
    private void onHandleBlockUpdate(BlockPos pos, BlockState state, int flags, CallbackInfo ci) {
-      XRay xrayModule = enigma.getInstance().getModuleManager().getModule(XRay.class);
+      XRay xrayModule = Enigma.getInstance().getModuleManager().getModule(XRay.class);
       if (xrayModule != null && xrayModule.isEnabled()) {
          Block block = state.getBlock();
          BlockPos immutablePos = pos.toImmutable();

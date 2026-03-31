@@ -20,7 +20,7 @@ public final class Colors {
    private static final ColorAnimation FLAT_COLOR_ANIMATION = new ColorAnimation(500L);
 
    private static Theme getTheme() {
-      return enigma.getInstance().getThemeManager().getCurrentTheme();
+      return Enigma.getInstance().getThemeManager().getCurrentTheme();
    }
 
    public static ColorRGBA getBackgroundColor() {

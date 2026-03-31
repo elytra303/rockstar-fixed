@@ -21,9 +21,9 @@ public class MenuModule extends BaseModule {
    @Override
    public void onEnable() {
       if (!(mc.currentScreen instanceof MenuScreen)) {
-         MenuScreen menuScreen = enigma.getInstance().getMenuScreen();
+         MenuScreen menuScreen = Enigma.getInstance().getMenuScreen();
          mc.setScreen(menuScreen);
-         Sounds soundsModule = enigma.getInstance().getModuleManager().getModule(Sounds.class);
+         Sounds soundsModule = Enigma.getInstance().getModuleManager().getModule(Sounds.class);
          if (soundsModule.isEnabled()) {
             ClientSounds.CLICKGUI_OPEN.play(soundsModule.getVolume().getCurrentValue());
          }
@@ -36,7 +36,7 @@ public class MenuModule extends BaseModule {
    public void onDisable() {
       if (mc.currentScreen instanceof MenuScreen) {
          mc.setScreen(null);
-         enigma.getInstance().getMenuScreen().setClosing(true);
+         Enigma.getInstance().getMenuScreen().setClosing(true);
       }
 
       super.onDisable();

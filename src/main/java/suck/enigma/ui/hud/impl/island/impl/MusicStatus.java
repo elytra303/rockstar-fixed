@@ -36,7 +36,7 @@ public class MusicStatus extends ExtandableStatus implements IMinecraft {
    private int lyricsOffset = 0;
    private final EventListener<MouseScrollEvent> onMouseScroll = event -> {
       if (this.showLyrics) {
-         DynamicIsland island = enigma.getInstance().getHud().getIsland();
+         DynamicIsland island = Enigma.getInstance().getHud().getIsland();
          if (island.active() == this && island.isExtended()) {
             if (event.getVerticalAmount() < 0.0) {
                this.lyricsOffset++;
@@ -48,7 +48,7 @@ public class MusicStatus extends ExtandableStatus implements IMinecraft {
                this.lyricsOffset--;
             }
 
-            String[] lines = enigma.getInstance().getMusicTracker().getLyrics().split("\\n");
+            String[] lines = Enigma.getInstance().getMusicTracker().getLyrics().split("\\n");
             int maxOffset = Math.max(0, lines.length - 6);
             this.lyricsOffset = Math.min(Math.max(0, this.lyricsOffset), maxOffset);
          }
@@ -62,15 +62,15 @@ public class MusicStatus extends ExtandableStatus implements IMinecraft {
          this.waveAnims[i] = new Animation(400L, 0.0F, Easing.LINEAR);
       }
 
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    @Override
    public void draw(CustomDrawContext context) {
-      DynamicIsland island = enigma.getInstance().getHud().getIsland();
+      DynamicIsland island = Enigma.getInstance().getHud().getIsland();
       float x = sr.getScaledWidth() / 2.0F - island.getSize().width / 2.0F;
       float y = 7.0F;
-      MusicTracker tracker = enigma.getInstance().getMusicTracker();
+      MusicTracker tracker = Enigma.getInstance().getMusicTracker();
       ColorRGBA textColor = Colors.getTextColor();
       if (tracker.haveActiveSession() && tracker.getSession() != null) {
          MediaInfo media = tracker.getSession().getMedia();
@@ -254,12 +254,12 @@ public class MusicStatus extends ExtandableStatus implements IMinecraft {
 
    @Override
    public void click(float mouseX, float mouseY, int button) {
-      DynamicIsland island = enigma.getInstance().getHud().getIsland();
+      DynamicIsland island = Enigma.getInstance().getHud().getIsland();
       float x = sr.getScaledWidth() / 2.0F - island.getSize().width / 2.0F;
       float y = 7.0F;
       float width = this.size.width;
       float height = this.size.height;
-      MusicTracker tracker = enigma.getInstance().getMusicTracker();
+      MusicTracker tracker = Enigma.getInstance().getMusicTracker();
       if (tracker.haveActiveSession()) {
          if (GuiUtility.isHovered((double)(x + width / 2.0F - 40.0F), (double)(y + height - 9.0F - 16.0F), 16.0, 16.0, (double)mouseX, (double)mouseY)) {
             tracker.getSession().previous();
@@ -299,9 +299,9 @@ public class MusicStatus extends ExtandableStatus implements IMinecraft {
 
    @Override
    public boolean canShow() {
-      return enigma.getInstance().getMusicTracker().getSession() != null
-         && enigma.getInstance().getMusicTracker().haveActiveSession()
-         && !enigma.getInstance().getMusicTracker().getSession().getOwner().toLowerCase().contains("gram");
+      return Enigma.getInstance().getMusicTracker().getSession() != null
+         && Enigma.getInstance().getMusicTracker().haveActiveSession()
+         && !Enigma.getInstance().getMusicTracker().getSession().getOwner().toLowerCase().contains("gram");
    }
 
    public static String formatTime(long totalSeconds) {
@@ -312,6 +312,6 @@ public class MusicStatus extends ExtandableStatus implements IMinecraft {
 
    @Override
    public ColorRGBA getColor() {
-      return super.getColor().mix(enigma.getInstance().getMusicTracker().getMediaColor(), 0.2F);
+      return super.getColor().mix(Enigma.getInstance().getMusicTracker().getMediaColor(), 0.2F);
    }
 }

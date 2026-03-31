@@ -37,7 +37,7 @@ public class EntityMixin implements IMinecraft, BacktrackableEntity {
 
    @Inject(method = "getBoundingBox", at = @At("HEAD"), cancellable = true)
    public final void getBoundingBox(CallbackInfoReturnable<Box> cir) {
-      Hitboxes hitbox = enigma.getInstance().getModuleManager().getModule(Hitboxes.class);
+      Hitboxes hitbox = Enigma.getInstance().getModuleManager().getModule(Hitboxes.class);
       Entity entity = (Entity) (Object) this;
       if (entity instanceof LivingEntity livingEntity && hitbox.isEnabled() && hitbox.shouldModifyHitbox(livingEntity)
             && entity.getId() != mc.player.getId()) {

@@ -26,7 +26,7 @@ public abstract class AbstractBlockStateMixin {
       cancellable = true
    )
    private void onGetCollisionShape(BlockView world, BlockPos pos, ShapeContext context, CallbackInfoReturnable<VoxelShape> cir) {
-      if (enigma.getInstance().getModuleManager() != null && enigma.getInstance().getModuleManager().getModule(FreeCam.class).isEnabled()) {
+      if (Enigma.getInstance().getModuleManager() != null && Enigma.getInstance().getModuleManager().getModule(FreeCam.class).isEnabled()) {
          cir.setReturnValue(VoxelShapes.empty());
       }
    }

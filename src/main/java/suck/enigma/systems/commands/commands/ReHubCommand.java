@@ -28,7 +28,7 @@ public class ReHubCommand implements IMinecraft {
    };
 
    public ReHubCommand() {
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    public Command command() {

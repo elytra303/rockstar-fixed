@@ -24,7 +24,7 @@ public class TargetManager implements IMinecraft {
    }
 
    public void addTarget(String name) {
-      if (enigma.getInstance().getFriendManager().listFriends().contains(name)) {
+      if (Enigma.getInstance().getFriendManager().listFriends().contains(name)) {
          MessageUtility.error(Text.of(Localizator.translate("commands.target.friend_error")));
       } else if (this.target.contains(name)) {
          MessageUtility.error(Text.of(Localizator.translate("commands.target.already_exists", name)));
@@ -85,7 +85,7 @@ public class TargetManager implements IMinecraft {
    }
 
    public LivingEntity getLivingTarget() {
-      return enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity target2 ? target2 : null;
+      return Enigma.getInstance().getTargetManager().getCurrentTarget() instanceof LivingEntity target2 ? target2 : null;
    }
 
    @Nullable

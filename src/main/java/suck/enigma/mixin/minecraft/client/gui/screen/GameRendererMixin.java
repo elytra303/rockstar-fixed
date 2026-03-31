@@ -34,7 +34,7 @@ public abstract class GameRendererMixin {
 
    @Inject(method = "tiltViewWhenHurt", at = @At("HEAD"), cancellable = true)
    private void tiltViewWhenHurtHook(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       if (removals.isEnabled() && removals.getHurtCam().isSelected()) {
          ci.cancel();
       }
@@ -42,7 +42,7 @@ public abstract class GameRendererMixin {
 
    @Redirect(method = "renderWorld", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;lerp(FFF)F"))
    private float renderWorldHook(float delta, float first, float second) {
-      Removals removals = enigma.getInstance().getModuleManager().getModule(Removals.class);
+      Removals removals = Enigma.getInstance().getModuleManager().getModule(Removals.class);
       return removals.isEnabled() && removals.getNausea().isSelected() ? 0.0F : MathHelper.lerp(delta, first, second);
    }
 }

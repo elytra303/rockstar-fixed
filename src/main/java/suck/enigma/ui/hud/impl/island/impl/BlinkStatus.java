@@ -19,7 +19,7 @@ public class BlinkStatus extends IslandStatus {
 
    @Override
    public void draw(CustomDrawContext context) {
-      DynamicIsland island = enigma.getInstance().getHud().getIsland();
+      DynamicIsland island = Enigma.getInstance().getHud().getIsland();
       Blink blink = this.blink();
       Font font = Fonts.MEDIUM.getFont(7.0F);
       float x = sr.getScaledWidth() / 2.0F - island.getSize().width / 2.0F;
@@ -50,6 +50,6 @@ public class BlinkStatus extends IslandStatus {
    }
 
    private Blink blink() {
-      return enigma.getInstance().getModuleManager().getModule(Blink.class);
+      return Enigma.getInstance().getModuleManager().getModule(Blink.class);
    }
 }

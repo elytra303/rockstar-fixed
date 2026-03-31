@@ -30,17 +30,17 @@ public class AutoAccept extends BaseModule {
          return true;
       } else {
          if (this.acceptMode.is(this.friendsOnly)) {
-            if (enigma.getInstance().getFriendManager().isFriend(message.split(" ")[1])
-               || enigma.getInstance()
+            if (Enigma.getInstance().getFriendManager().isFriend(message.split(" ")[1])
+               || Enigma.getInstance()
                   .getFriendManager()
                   .isFriend(message.replace("\u0a77 просит телепортироваться к Вам.\u0a77§l [ੲ§l✔\u0a77§l]\u0a77§l [\u0a7c§l✗\u0a77§l]", "").replace("੶", ""))
-               || enigma.getInstance().getFriendManager().isFriend(message.replace("➝ Ник: ", ""))) {
+               || Enigma.getInstance().getFriendManager().isFriend(message.replace("➝ Ник: ", ""))) {
                return true;
             }
 
             if (message.contains("телепортироваться")) {
                String[] parts = message.split(" ");
-               return parts.length >= 2 && enigma.getInstance().getFriendManager().isFriend(parts[2]);
+               return parts.length >= 2 && Enigma.getInstance().getFriendManager().isFriend(parts[2]);
             }
          }
 

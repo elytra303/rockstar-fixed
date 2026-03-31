@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(FeatureRenderer.class)
 public abstract class FeatureRendererMixin {
    @Unique
-   private static final AntiInvisible ANTI_INVISIBLE_MODULE = enigma.getInstance().getModuleManager().getModule(AntiInvisible.class);
+   private static final AntiInvisible ANTI_INVISIBLE_MODULE = Enigma.getInstance().getModuleManager().getModule(AntiInvisible.class);
 
    @WrapOperation(
       method = "renderModel",

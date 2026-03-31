@@ -36,8 +36,8 @@ public class PresetComponent extends CustomComponent {
 
    @Override
    protected void renderComponent(UIContext context) {
-      SwingManager swingManager = enigma.getInstance().getSwingManager();
-      SwingPresetManager manager = enigma.getInstance().getSwingPresetManager();
+      SwingManager swingManager = Enigma.getInstance().getSwingManager();
+      SwingPresetManager manager = Enigma.getInstance().getSwingPresetManager();
       List<SwingPresetFile> presets = manager.getSwingPresetFiles();
       float x = this.x + 8.0F;
       float y = this.y - 1.0F;
@@ -49,7 +49,7 @@ public class PresetComponent extends CustomComponent {
       ScissorUtility.push(context.getMatrices(), x - 1.0F, y + 7.5F, width + 2.0F, 7.0F + this.height - 46.0F);
       float offset = 0.0F;
 
-      for (SwingPreset value : enigma.getInstance().getSwingManager().getPresets()) {
+      for (SwingPreset value : Enigma.getInstance().getSwingManager().getPresets()) {
          float elmtY = (float)(y + 14.0F + offset - this.scrollHandler.getValue());
          boolean hover = GuiUtility.isHovered(x - 1.0F, y + 7.5F, width + 2.0F, 7.0F + this.height - 46.0F, context)
             && GuiUtility.isHovered((double)(x - 1.0F), (double)(elmtY - 4.0F), (double)(width + 2.0F), 12.0, context.getMouseX(), context.getMouseY());
@@ -154,15 +154,15 @@ public class PresetComponent extends CustomComponent {
    @Override
    public void onMouseClicked(double mouseX, double mouseY, MouseButton button) {
       this.textField.onMouseClicked(mouseX, mouseY, button);
-      SwingManager swingManager = enigma.getInstance().getSwingManager();
-      SwingPresetManager manager = enigma.getInstance().getSwingPresetManager();
+      SwingManager swingManager = Enigma.getInstance().getSwingManager();
+      SwingPresetManager manager = Enigma.getInstance().getSwingPresetManager();
       List<SwingPresetFile> presets = manager.getSwingPresetFiles();
       float x = this.x + 8.0F;
       float y = this.y - 1.0F;
       float width = this.width - 16.0F;
       float offset = 0.0F;
 
-      for (SwingPreset value : enigma.getInstance().getSwingManager().getPresets()) {
+      for (SwingPreset value : Enigma.getInstance().getSwingManager().getPresets()) {
          float elmtY = (float)(y + 14.0F + offset - this.scrollHandler.getValue());
          boolean hover = GuiUtility.isHovered(
                (double)(x - 1.0F), (double)(y + 7.5F), (double)(width + 2.0F), (double)(7.0F + this.height - 46.0F), mouseX, mouseY
@@ -228,19 +228,19 @@ public class PresetComponent extends CustomComponent {
    }
 
    private void create() {
-      SwingPresetManager manager = enigma.getInstance().getSwingPresetManager();
-      SwingManager swingManager = enigma.getInstance().getSwingManager();
+      SwingPresetManager manager = Enigma.getInstance().getSwingPresetManager();
+      SwingManager swingManager = Enigma.getInstance().getSwingManager();
       swingManager.getBezier().start(0.5F, 1.0F).end(0.5F, 0.0F);
       swingManager.getBack().enabled(true);
       swingManager.getSpeed().setCurrentValue(2.0F);
 
-      for (Setting setting : enigma.getInstance().getSwingManager().getStartPhase().getSettings()) {
+      for (Setting setting : Enigma.getInstance().getSwingManager().getStartPhase().getSettings()) {
          if (setting instanceof SwingPhase.PhaseSlider slider) {
             slider.setCurrentValue(0.0F);
          }
       }
 
-      for (Setting settingx : enigma.getInstance().getSwingManager().getEndPhase().getSettings()) {
+      for (Setting settingx : Enigma.getInstance().getSwingManager().getEndPhase().getSettings()) {
          if (settingx instanceof SwingPhase.PhaseSlider slider) {
             slider.setCurrentValue(0.0F);
          }
@@ -282,9 +282,9 @@ public class PresetComponent extends CustomComponent {
 
    @Override
    public float getHeight() {
-      SwingPresetManager manager = enigma.getInstance().getSwingPresetManager();
+      SwingPresetManager manager = Enigma.getInstance().getSwingPresetManager();
       List<SwingPresetFile> presets = manager.getSwingPresetFiles();
       return this.height = this.heightAnim
-         .update(Math.min(presets.size() * 12 + enigma.getInstance().getSwingManager().getPresets().size() * 12 - 12, 182) + 46);
+         .update(Math.min(presets.size() * 12 + Enigma.getInstance().getSwingManager().getPresets().size() * 12 - 12, 182) + 46);
    }
 }

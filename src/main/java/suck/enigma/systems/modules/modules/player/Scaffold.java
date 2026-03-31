@@ -77,11 +77,11 @@ public class Scaffold extends BaseModule {
                float yawDiff = Math.abs(rotation.getYaw() - mc.player.getYaw());
                float pitchDiff = Math.abs(rotation.getPitch() - mc.player.getPitch());
                if (yawDiff > 10.0F || pitchDiff > 10.0F) {
-                  enigma.getInstance().getRotationHandler().rotate(rotation, MoveCorrection.DIRECT, 100.0F, 100.0F, 100.0F, RotationPriority.USE_ITEM);
+                  Enigma.getInstance().getRotationHandler().rotate(rotation, MoveCorrection.DIRECT, 100.0F, 100.0F, 100.0F, RotationPriority.USE_ITEM);
                }
 
                ActionResult result = mc.interactionManager.interactBlock(mc.player, Hand.MAIN_HAND, hit);
-               if (result.isAccepted() && enigma.getInstance().getRotationHandler().isIdling()) {
+               if (result.isAccepted() && Enigma.getInstance().getRotationHandler().isIdling()) {
                   mc.player.swingHand(Hand.MAIN_HAND);
                   this.placeTimer.reset();
                }

@@ -22,7 +22,7 @@ public class ParameterBuilder<T> {
    };
    public static final ParameterValidator<Module> MODULE = text -> {
       try {
-         Module module = enigma.getInstance().getModuleManager().getModule(text);
+         Module module = Enigma.getInstance().getModuleManager().getModule(text);
          return ValidationResult.ok(module);
       } catch (UnknownModuleException var2) {
          return ValidationResult.error("Module with name '%s' was not found".formatted(text));

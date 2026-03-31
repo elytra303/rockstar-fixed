@@ -29,7 +29,7 @@ public class SwingAnimation extends BaseModule {
          MatrixStack matrices = event.getMatrices();
          float swingProgress = event.getSwingProgress();
          float equipProgress = event.getEquipProgress();
-         SwingTransformations trans = enigma.getInstance().getSwingManager().transformations(swingProgress);
+         SwingTransformations trans = Enigma.getInstance().getSwingManager().transformations(swingProgress);
          matrices.translate(trans.anchorX(), trans.anchorY(), trans.anchorZ());
          matrices.translate(trans.moveX(), trans.moveY(), trans.moveZ());
          matrices.multiply(
@@ -42,8 +42,8 @@ public class SwingAnimation extends BaseModule {
    };
 
    public boolean shouldApplyAnimation(ItemStack itemStack) {
-      Aura auraModule = enigma.getInstance().getModuleManager().getModule(Aura.class);
-      Entity target = enigma.getInstance().getTargetManager().getCurrentTarget();
+      Aura auraModule = Enigma.getInstance().getModuleManager().getModule(Aura.class);
+      Entity target = Enigma.getInstance().getTargetManager().getCurrentTarget();
       Item item = itemStack.getItem();
       return !this.onlyAura.isEnabled() || auraModule.isEnabled() && target != null
          ? item != Items.AIR

@@ -16,10 +16,10 @@ public class Panic extends BaseModule {
    @Override
    public void onEnable() {
       TitleBarHelper.setLightTitleBar();
-      enigma.getInstance().setPanic(true);
-      enigma.getInstance().getFileManager().saveClientFiles();
+      Enigma.getInstance().setPanic(true);
+      Enigma.getInstance().getFileManager().saveClientFiles();
 
-      for (Module module : enigma.getInstance().getModuleManager().getModules()) {
+      for (Module module : Enigma.getInstance().getModuleManager().getModules()) {
          module.setKey(-1);
          module.disable();
       }

@@ -44,8 +44,8 @@ public class CustomTitleScreen extends CustomScreen implements IMinecraft {
    protected void init() {
       String basePath = "image/mainmenu/icons/";
       if (!once) {
-         if (enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled()) {
-            ClientSounds.WELCOME.play(enigma.getInstance().getModuleManager().getModule(Sounds.class).getVolume().getCurrentValue());
+         if (Enigma.getInstance().getModuleManager().getModule(Sounds.class).isEnabled()) {
+            ClientSounds.WELCOME.play(Enigma.getInstance().getModuleManager().getModule(Sounds.class).getVolume().getCurrentValue());
          }
 
          buttons.add(new CustomButton(basePath + "single.png", 12.0F, () -> mc.setScreen(new SelectWorldScreen(this))));
@@ -106,14 +106,14 @@ public class CustomTitleScreen extends CustomScreen implements IMinecraft {
       }
 
       if (this.shouldShowIsland()) {
-         enigma.getInstance().getHud().getIsland().render(context);
+         Enigma.getInstance().getHud().getIsland().render(context);
       }
    }
 
    @Compile
    @Override
    public void onMouseClicked(double mouseX, double mouseY, MouseButton button) {
-      if (!this.shouldShowIsland() || !enigma.getInstance().getHud().getIsland().handleClick((float)mouseX, (float)mouseY, button.getButtonIndex())) {
+      if (!this.shouldShowIsland() || !Enigma.getInstance().getHud().getIsland().handleClick((float)mouseX, (float)mouseY, button.getButtonIndex())) {
          for (CustomButton customButton : buttons) {
             if (customButton.hovered(mouseX, mouseY) && customButton.getActiveAnim().getValue() == 1.0F) {
                customButton.click(mouseX, mouseY, button.getButtonIndex());
@@ -129,7 +129,7 @@ public class CustomTitleScreen extends CustomScreen implements IMinecraft {
    @Compile
    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
       if (keyCode == 69) {
-         enigma.getInstance().getThemeManager().switchTheme();
+         Enigma.getInstance().getThemeManager().switchTheme();
       }
 
       if (Screen.hasControlDown() && keyCode == 82) {
@@ -144,7 +144,7 @@ public class CustomTitleScreen extends CustomScreen implements IMinecraft {
    }
 
    private boolean shouldShowIsland() {
-      return enigma.getInstance().getMusicTracker().haveActiveSession();
+      return Enigma.getInstance().getMusicTracker().haveActiveSession();
    }
 
    public boolean shouldCloseOnEsc() {

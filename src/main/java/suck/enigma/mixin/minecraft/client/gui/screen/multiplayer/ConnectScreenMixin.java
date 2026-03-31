@@ -19,6 +19,6 @@ public class ConnectScreenMixin {
       at = @At("HEAD")
    )
    private void onNewConnection(MinecraftClient client, ServerAddress address, ServerInfo info, CookieStorage cookieStorage, CallbackInfo ci) {
-      enigma.getInstance().getEventManager().triggerEvent(new ServerConnectionEvent(address, info, cookieStorage));
+      Enigma.getInstance().getEventManager().triggerEvent(new ServerConnectionEvent(address, info, cookieStorage));
    }
 }

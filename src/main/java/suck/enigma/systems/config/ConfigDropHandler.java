@@ -60,7 +60,7 @@ public final class ConfigDropHandler implements IMinecraft {
          File dest = new File(destDir, src.getName());
          Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
          String name = src.getName().substring(0, src.getName().lastIndexOf(46));
-         ConfigManager manager = enigma.getInstance().getConfigManager();
+         ConfigManager manager = Enigma.getInstance().getConfigManager();
          manager.refresh();
          ConfigFile cfg = manager.getConfig(name);
          if (cfg == null) {
@@ -70,7 +70,7 @@ public final class ConfigDropHandler implements IMinecraft {
 
          cfg.load();
          MessageUtility.info(Text.of("Конфиг " + name + " загружен"));
-         enigma.getInstance().getNotificationManager().addNotification(NotificationType.SUCCESS, Text.translatable("configs.loaded").getString());
+         Enigma.getInstance().getNotificationManager().addNotification(NotificationType.SUCCESS, Text.translatable("configs.loaded").getString());
       } catch (Exception var7) {
          enigma.LOGGER.error("Failed to load dropped config {}", path, var7);
       }

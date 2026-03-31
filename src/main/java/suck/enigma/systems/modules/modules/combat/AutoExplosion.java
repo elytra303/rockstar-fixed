@@ -54,7 +54,7 @@ public class AutoExplosion extends BaseModule {
             int crystalSlot = slot.getIdForServer();
             Vec3d targetVec = new Vec3d(targetPos.getX() + 0.5, targetPos.getY(), targetPos.getZ() + 0.5);
             float[] rotations = this.calculateLookAngles(targetVec);
-            enigma.getInstance().getRotationHandler().rotate(new Rotation(rotations[0], rotations[1]));
+            Enigma.getInstance().getRotationHandler().rotate(new Rotation(rotations[0], rotations[1]));
             if (this.delayTimer.finished((long)this.delay.getCurrentValue() / 2L)) {
                mc.player.getInventory().selectedSlot = crystalSlot - 36;
                this.placeCrystal(targetPos.down());

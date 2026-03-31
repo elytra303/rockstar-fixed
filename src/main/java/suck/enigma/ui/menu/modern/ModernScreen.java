@@ -95,7 +95,7 @@ public class ModernScreen extends MenuScreen implements IMinecraft, IScaledResol
 
          this.categories.add(modern);
          filteredModules.addAll(
-            enigma.getInstance()
+            Enigma.getInstance()
                .getModuleManager()
                .getModules()
                .stream()
@@ -109,7 +109,7 @@ public class ModernScreen extends MenuScreen implements IMinecraft, IScaledResol
       this.searchField = new TextField(Fonts.MEDIUM.getFont(6.0F));
       Map<String, FieldAction> append = new HashMap<>();
 
-      for (Module module : enigma.getInstance().getModuleManager().getModules()) {
+      for (Module module : Enigma.getInstance().getModuleManager().getModules()) {
          FieldAction action = new FieldAction(
             module::toggle,
             () -> this.categories
@@ -173,7 +173,7 @@ public class ModernScreen extends MenuScreen implements IMinecraft, IScaledResol
          }
       }
 
-      boolean dark = enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
+      boolean dark = Enigma.getInstance().getThemeManager().getCurrentTheme() == Theme.DARK;
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
       RenderUtility.scale(
          context.getMatrices(),
@@ -474,7 +474,7 @@ public class ModernScreen extends MenuScreen implements IMinecraft, IScaledResol
                categoryx.getCategory().getName(),
                x + 143.0F,
                y + 16.0F + categoryx.getY(),
-               enigma.getInstance().getThemeManager().getCurrentTheme().getTextColor()
+               Enigma.getInstance().getThemeManager().getCurrentTheme().getTextColor()
             );
          }
       }
@@ -567,7 +567,7 @@ public class ModernScreen extends MenuScreen implements IMinecraft, IScaledResol
    @Compile
    @Override
    public void onMouseClicked(double mouseX, double mouseY, MouseButton button) {
-      if (!enigma.getInstance().getHud().getIsland().handleClick((float)mouseX, (float)mouseY, button.getButtonIndex())) {
+      if (!Enigma.getInstance().getHud().getIsland().handleClick((float)mouseX, (float)mouseY, button.getButtonIndex())) {
          for (ColorPicker colorPicker : this.colorPickers) {
             boolean isPick = colorPicker.isPick();
             colorPicker.onMouseClicked(mouseX, mouseY, button);
@@ -730,15 +730,15 @@ public class ModernScreen extends MenuScreen implements IMinecraft, IScaledResol
    @Compile
    public void close() {
       this.closing = true;
-      enigma.getInstance().getModuleManager().getModule(MenuModule.class).disable();
-      Sounds soundsModule = enigma.getInstance().getModuleManager().getModule(Sounds.class);
+      Enigma.getInstance().getModuleManager().getModule(MenuModule.class).disable();
+      Sounds soundsModule = Enigma.getInstance().getModuleManager().getModule(Sounds.class);
       if (soundsModule.isEnabled()) {
          ClientSounds.CLICKGUI_OPEN.play(soundsModule.getVolume().getCurrentValue(), 1.0F);
       }
 
-      enigma.getInstance().getFileManager().writeFile("client");
-      if (enigma.getInstance().getConfigManager().getCurrent() != null) {
-         enigma.getInstance().getConfigManager().getCurrent().save();
+      Enigma.getInstance().getFileManager().writeFile("client");
+      if (Enigma.getInstance().getConfigManager().getCurrent() != null) {
+         Enigma.getInstance().getConfigManager().getCurrent().save();
       }
 
       if (TextField.LAST_FIELD != null) {

@@ -127,7 +127,7 @@ public class ModuleManager {
    public ModuleManager(EventListener<ClientPlayerTickEvent> tickListener, EventListener<HudRenderEvent> moduleWidgetRenderer) {
       this.tickListener = tickListener;
       this.moduleWidgetRenderer = moduleWidgetRenderer;
-      enigma.getInstance().getEventManager().subscribe(this);
+      Enigma.getInstance().getEventManager().subscribe(this);
    }
 
    @CompileBytecode

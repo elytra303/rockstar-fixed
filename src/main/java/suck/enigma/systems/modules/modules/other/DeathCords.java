@@ -25,7 +25,7 @@ public class DeathCords extends BaseModule {
          int zCord = (int)mc.player.getZ();
          MessageUtility.info(Text.of("Координаты смерти: " + xCord + " " + yCord + " " + zCord));
          if (this.wayDeath.isEnabled()) {
-            WayPointsManager wayPointsManager = enigma.getInstance().getWayPointsManager();
+            WayPointsManager wayPointsManager = Enigma.getInstance().getWayPointsManager();
             if (wayPointsManager.contains("Death")) {
                wayPointsManager.del("Death");
             }
