@@ -1,7 +1,7 @@
 package suck.enigma.systems.modules.constructions.swinganim;
 
 import java.util.Collection;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomScreen;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.framework.objects.MouseButton;

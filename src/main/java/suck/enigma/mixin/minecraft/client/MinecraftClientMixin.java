@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.protection.client.MinecraftClientMixinProtection;
 import suck.enigma.systems.event.impl.game.GameTickEvent;
 import suck.enigma.systems.modules.modules.player.NoDelay;

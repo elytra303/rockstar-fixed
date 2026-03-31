@@ -2,7 +2,7 @@ package suck.enigma.mixin.minecraft.client.gui.screen;
 
 import java.util.Optional;
 import java.util.function.Consumer;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.ui.components.gif.Gif;
 import suck.enigma.utility.animation.base.Animation;

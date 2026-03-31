@@ -2,7 +2,7 @@ package suck.enigma.ui.mainmenu;
 
 import java.util.ArrayList;
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomScreen;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.framework.msdf.Font;

@@ -2,7 +2,7 @@ package suck.enigma.systems.modules.modules.combat;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.player.ClientPlayerTickEvent;
 import suck.enigma.systems.event.impl.render.Render3DEvent;

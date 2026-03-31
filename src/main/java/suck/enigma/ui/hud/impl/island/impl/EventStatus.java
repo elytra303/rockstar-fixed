@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomDrawContext;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.game.WorldChangeEvent;

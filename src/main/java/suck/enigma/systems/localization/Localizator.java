@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nonnull;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import ru.kotopushka.compiler.sdk.annotations.VMProtect;
 import ru.kotopushka.compiler.sdk.enums.VMProtectType;
 

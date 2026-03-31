@@ -13,7 +13,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.game.WorldChangeEvent;
 import suck.enigma.systems.event.impl.network.SendPacketEvent;

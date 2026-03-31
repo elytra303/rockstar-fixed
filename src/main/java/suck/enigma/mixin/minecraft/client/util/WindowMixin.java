@@ -2,7 +2,7 @@ package suck.enigma.mixin.minecraft.client.util;
 
 import java.io.InputStream;
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import net.minecraft.client.util.Icons;
 import net.minecraft.client.util.Window;
 import net.minecraft.resource.InputSupplier;

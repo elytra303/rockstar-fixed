@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomDrawContext;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.render.HudRenderEvent;

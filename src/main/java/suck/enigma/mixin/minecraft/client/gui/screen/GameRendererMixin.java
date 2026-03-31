@@ -1,7 +1,7 @@
 package suck.enigma.mixin.minecraft.client.gui.screen;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.visuals.Removals;
 import suck.enigma.utility.render.Utils;
 import net.minecraft.client.render.GameRenderer;

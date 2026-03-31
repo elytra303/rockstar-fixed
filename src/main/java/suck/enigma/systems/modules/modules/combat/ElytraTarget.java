@@ -4,7 +4,7 @@ import com.mojang.blaze3d.platform.GlStateManager.DstFactor;
 import com.mojang.blaze3d.platform.GlStateManager.SrcFactor;
 import com.mojang.blaze3d.systems.RenderSystem;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.game.AttackEvent;
 import suck.enigma.systems.event.impl.game.PostAttackEvent;

@@ -3,7 +3,7 @@ package suck.enigma.mixin.minecraft.entity;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import java.util.ArrayList;
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.combat.BackTrack;
 import suck.enigma.systems.modules.modules.combat.Hitboxes;
 import suck.enigma.utility.interfaces.IMinecraft;

@@ -1,7 +1,7 @@
 package suck.enigma.ui.mainmenu;
 
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.framework.objects.BorderRadius;
 import suck.enigma.utility.animation.base.Animation;

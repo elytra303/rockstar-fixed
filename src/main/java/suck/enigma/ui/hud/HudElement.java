@@ -4,7 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.framework.objects.MouseButton;
 import suck.enigma.systems.localization.Localizator;

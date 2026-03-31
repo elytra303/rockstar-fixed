@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.render.HudRenderEvent;
 import suck.enigma.systems.localization.Language;

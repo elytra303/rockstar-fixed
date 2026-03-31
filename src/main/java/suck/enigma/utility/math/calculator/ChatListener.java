@@ -1,6 +1,6 @@
 package suck.enigma.utility.math.calculator;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.network.SendPacketEvent;
 import suck.enigma.utility.interfaces.IMinecraft;

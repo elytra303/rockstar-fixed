@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.network;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.network.ReceivePacketEvent;
 import suck.enigma.systems.event.impl.network.SendPacketEvent;
 import suck.enigma.utility.interfaces.IMinecraft;

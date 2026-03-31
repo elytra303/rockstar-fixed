@@ -3,7 +3,7 @@ package suck.enigma.ui.hud;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomDrawContext;
 import suck.enigma.ui.hud.impl.island.DynamicIsland;
 import suck.enigma.utility.colors.ColorRGBA;

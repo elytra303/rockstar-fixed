@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.network;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.mixin.accessors.EntityS2CPacketAccessor;
 import suck.enigma.systems.modules.modules.combat.BackTrack;
 import suck.enigma.utility.interfaces.IMinecraft;

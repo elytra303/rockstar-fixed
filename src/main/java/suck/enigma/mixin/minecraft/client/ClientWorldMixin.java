@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.visuals.Ambience;
 import net.minecraft.client.render.DimensionEffects;
 import net.minecraft.client.render.DimensionEffects.End;

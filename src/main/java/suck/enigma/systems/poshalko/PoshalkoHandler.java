@@ -1,6 +1,6 @@
 package suck.enigma.systems.poshalko;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.render.PreHudRenderEvent;
 import suck.enigma.systems.event.impl.window.KeyPressEvent;

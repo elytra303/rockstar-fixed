@@ -1,6 +1,6 @@
 package suck.enigma.systems.ai;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.msdf.Fonts;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.game.AttackEvent;

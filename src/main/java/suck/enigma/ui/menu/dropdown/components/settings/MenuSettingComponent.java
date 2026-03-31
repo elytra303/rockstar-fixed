@@ -1,7 +1,7 @@
 package suck.enigma.ui.menu.dropdown.components.settings;
 
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomComponent;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.systems.localization.Localizator;

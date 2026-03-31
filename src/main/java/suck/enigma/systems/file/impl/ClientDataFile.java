@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.Map.Entry;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.config.ConfigFile;
 import suck.enigma.systems.file.ClientFile;
 import suck.enigma.systems.file.FileManager;

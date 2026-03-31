@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.visuals.Removals;
 import suck.enigma.ui.hud.impl.island.DynamicIsland;
 import suck.enigma.ui.hud.impl.island.impl.PVPStatus;

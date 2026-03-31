@@ -1,6 +1,6 @@
 package suck.enigma.systems.modules.modules.other;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.network.ReceivePacketEvent;
 import suck.enigma.systems.modules.api.ModuleCategory;

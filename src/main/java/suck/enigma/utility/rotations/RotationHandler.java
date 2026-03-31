@@ -1,7 +1,7 @@
 package suck.enigma.utility.rotations;
 
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.utility.interfaces.IMinecraft;
 import suck.enigma.utility.math.MathUtility;
 import suck.enigma.utility.time.Timer;

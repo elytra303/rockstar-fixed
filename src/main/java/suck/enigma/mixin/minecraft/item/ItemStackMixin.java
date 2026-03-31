@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.item;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.game.FinishEatEvent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

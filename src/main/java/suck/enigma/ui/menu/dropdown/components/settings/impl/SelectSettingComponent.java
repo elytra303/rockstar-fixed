@@ -3,7 +3,7 @@ package suck.enigma.ui.menu.dropdown.components.settings.impl;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomComponent;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.framework.msdf.Font;

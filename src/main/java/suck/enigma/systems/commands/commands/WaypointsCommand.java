@@ -1,7 +1,7 @@
 package suck.enigma.systems.commands.commands;
 
 import java.util.Map.Entry;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.msdf.Fonts;
 import suck.enigma.systems.commands.Command;
 import suck.enigma.systems.commands.CommandBuilder;

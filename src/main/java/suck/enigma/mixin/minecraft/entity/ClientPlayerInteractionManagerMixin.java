@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.entity;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.game.BlockBreakEvent;
 import suck.enigma.systems.event.impl.game.InternalAttackEvent;
 import suck.enigma.systems.event.impl.game.StartBreakBlockEvent;

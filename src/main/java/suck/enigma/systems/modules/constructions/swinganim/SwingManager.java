@@ -3,7 +3,7 @@ package suck.enigma.systems.modules.constructions.swinganim;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.constructions.swinganim.presets.SwingPreset;
 import suck.enigma.systems.modules.constructions.swinganim.presets.SwingPresetManager;
 import suck.enigma.systems.setting.settings.BezierSetting;

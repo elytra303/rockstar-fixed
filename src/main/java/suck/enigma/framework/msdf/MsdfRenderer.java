@@ -3,7 +3,7 @@ package suck.enigma.framework.msdf;
 import com.mojang.blaze3d.systems.RenderSystem;
 import java.util.List;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.other.NameProtect;
 import suck.enigma.utility.colors.Colors;
 import suck.enigma.utility.render.batching.Batching;

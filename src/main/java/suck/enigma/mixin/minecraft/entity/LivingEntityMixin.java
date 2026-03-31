@@ -2,7 +2,7 @@ package suck.enigma.mixin.minecraft.entity;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.game.EntityDeathEvent;
 import suck.enigma.systems.event.impl.game.EntityJumpEvent;
 import suck.enigma.systems.modules.modules.player.NoDelay;

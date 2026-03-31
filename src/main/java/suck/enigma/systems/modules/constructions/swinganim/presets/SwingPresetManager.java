@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.file.FileManager;
 import suck.enigma.utility.game.MessageUtility;
 import net.minecraft.text.Text;

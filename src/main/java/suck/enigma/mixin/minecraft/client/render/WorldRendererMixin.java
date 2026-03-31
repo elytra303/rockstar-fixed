@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.render;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.render.Render3DEvent;
 import suck.enigma.utility.interfaces.IMinecraft;
 import net.minecraft.client.render.Camera;

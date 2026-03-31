@@ -1,7 +1,7 @@
 package suck.enigma.mixin.minecraft.world.explosion;
 
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.mixin.accessors.ExplosionImplAccessor;
 import suck.enigma.systems.event.impl.game.AncientDebrisEvent;
 import suck.enigma.utility.interfaces.IMinecraft;

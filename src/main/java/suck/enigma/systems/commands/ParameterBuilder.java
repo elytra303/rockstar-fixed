@@ -3,7 +3,7 @@ package suck.enigma.systems.commands;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.Module;
 import suck.enigma.systems.modules.exception.UnknownModuleException;
 

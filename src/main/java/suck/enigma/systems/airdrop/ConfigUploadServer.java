@@ -13,7 +13,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.config.ConfigFile;
 import suck.enigma.systems.config.ConfigManager;
 import suck.enigma.utility.interfaces.IMinecraft;

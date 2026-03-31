@@ -3,7 +3,7 @@ package suck.enigma.utility.game;
 import java.util.List;
 import java.util.function.Predicate;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.combat.Aura;
 import suck.enigma.systems.modules.modules.combat.ElytraTarget;
 import suck.enigma.utility.colors.ColorRGBA;

@@ -2,7 +2,7 @@ package suck.enigma.mixin.minecraft.client.network;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.game.CloseScreenEvent;
 import suck.enigma.systems.event.impl.player.ClientPlayerTickEndEvent;
 import suck.enigma.systems.event.impl.player.ClientPlayerTickEvent;

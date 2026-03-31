@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.window.KeyPressEvent;
 import suck.enigma.utility.interfaces.IMinecraft;
 import net.minecraft.client.Keyboard;

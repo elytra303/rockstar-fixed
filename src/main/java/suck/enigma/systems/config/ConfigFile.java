@@ -11,7 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.file.FileManager;
 import suck.enigma.systems.localization.Localizator;
 import suck.enigma.systems.modules.Module;

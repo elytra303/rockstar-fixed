@@ -3,7 +3,7 @@ package suck.enigma.systems.target;
 import java.util.Comparator;
 import java.util.function.Function;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.combat.AntiBot;
 import suck.enigma.systems.modules.modules.other.CounterMine;
 import suck.enigma.utility.game.countermine.Point;

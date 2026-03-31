@@ -1,6 +1,6 @@
 package suck.enigma.systems.bridge;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 // import suck.enigma.systems.event.EventListener;
 // import suck.enigma.systems.event.impl.game.GameTickEvent;
 // import pw.lucent.bridge.client.core.Network;

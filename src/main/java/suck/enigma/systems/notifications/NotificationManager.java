@@ -3,7 +3,7 @@ package suck.enigma.systems.notifications;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.render.HudRenderEvent;
 

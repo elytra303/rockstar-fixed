@@ -1,7 +1,7 @@
 package suck.enigma.systems.modules.constructions.swinganim;
 
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.setting.Setting;
 import suck.enigma.systems.setting.SettingsContainer;
 import suck.enigma.systems.setting.settings.SliderSetting;

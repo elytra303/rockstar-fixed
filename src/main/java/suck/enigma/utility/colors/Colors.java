@@ -1,7 +1,7 @@
 package suck.enigma.utility.colors;
 
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.theme.Theme;
 import suck.enigma.utility.animation.types.ColorAnimation;
 

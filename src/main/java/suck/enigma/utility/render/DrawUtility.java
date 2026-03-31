@@ -2,7 +2,7 @@ package suck.enigma.utility.render;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.objects.BorderRadius;
 import suck.enigma.framework.objects.gradient.Gradient;
 import suck.enigma.framework.shader.GlProgram;

@@ -2,7 +2,7 @@ package suck.enigma.systems.modules.modules.other;
 
 import java.util.Map;
 import java.util.Map.Entry;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.game.PickupEvent;
 import suck.enigma.systems.modules.api.ModuleCategory;

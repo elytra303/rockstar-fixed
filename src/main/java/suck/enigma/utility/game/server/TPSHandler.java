@@ -1,7 +1,7 @@
 package suck.enigma.utility.game.server;
 
 import java.util.Arrays;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.network.ReceivePacketEvent;
 import net.minecraft.network.packet.s2c.play.WorldTimeUpdateS2CPacket;

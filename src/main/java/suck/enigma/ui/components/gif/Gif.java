@@ -3,7 +3,7 @@ package suck.enigma.ui.components.gif;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomComponent;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.utility.colors.Colors;

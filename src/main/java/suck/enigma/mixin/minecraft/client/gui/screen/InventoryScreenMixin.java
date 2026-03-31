@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.gui.screen;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.mixin.accessors.ScreenAccessor;
 import suck.enigma.systems.localization.Localizator;
 import suck.enigma.utility.interfaces.IMinecraft;

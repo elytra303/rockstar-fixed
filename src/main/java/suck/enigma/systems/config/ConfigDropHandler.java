@@ -4,7 +4,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.file.FileManager;
 import suck.enigma.systems.notifications.NotificationType;
 import suck.enigma.utility.game.MessageUtility;

@@ -1,6 +1,6 @@
 package suck.enigma.protection.client;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import ru.kotopushka.compiler.sdk.annotations.VMProtect;
 import ru.kotopushka.compiler.sdk.enums.VMProtectType;

@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.gui.overlay;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.visuals.Removals;
 import net.minecraft.block.enums.CameraSubmersionType;
 import net.minecraft.client.render.Camera;

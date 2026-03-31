@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.render;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.visuals.Removals;
 import net.minecraft.client.render.Fog;
 import net.minecraft.client.render.FrameGraphBuilder;

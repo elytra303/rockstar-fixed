@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.gui.overlay;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomDrawContext;
 import suck.enigma.systems.event.impl.render.HudRenderEvent;
 import suck.enigma.systems.event.impl.render.PostHudRenderEvent;

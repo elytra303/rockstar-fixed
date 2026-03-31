@@ -2,7 +2,7 @@ package suck.enigma.systems.commands.commands;
 
 import com.mojang.authlib.GameProfile;
 import java.util.UUID;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.commands.Command;
 import suck.enigma.systems.commands.CommandBuilder;
 import suck.enigma.systems.commands.CommandContext;

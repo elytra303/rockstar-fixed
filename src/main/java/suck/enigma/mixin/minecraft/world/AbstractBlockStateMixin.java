@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.world;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.player.FreeCam;
 import net.minecraft.block.Block;
 import net.minecraft.block.ShapeContext;

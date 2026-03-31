@@ -1,7 +1,7 @@
 package suck.enigma.ui.hud.impl.island.impl;
 
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomDrawContext;
 import suck.enigma.framework.msdf.Fonts;
 import suck.enigma.framework.objects.BorderRadius;

@@ -2,7 +2,7 @@ package suck.enigma.ui.components.popup.list;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.framework.msdf.Font;
 import suck.enigma.framework.msdf.Fonts;

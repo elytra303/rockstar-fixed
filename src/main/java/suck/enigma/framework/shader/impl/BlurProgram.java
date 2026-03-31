@@ -4,7 +4,7 @@ import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
 import com.mojang.blaze3d.systems.RenderSystem;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.utility.interfaces.IMinecraft;
 import suck.enigma.utility.interfaces.IWindow;
 import suck.enigma.utility.render.CustomRenderTarget;

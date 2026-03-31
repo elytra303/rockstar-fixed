@@ -11,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.file.FileManager;
 import suck.enigma.systems.modules.Module;
 import suck.enigma.systems.setting.Setting;

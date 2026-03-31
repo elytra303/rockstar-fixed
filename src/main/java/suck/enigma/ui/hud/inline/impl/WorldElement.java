@@ -1,6 +1,6 @@
 package suck.enigma.ui.hud.inline.impl;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.systems.setting.settings.BooleanSetting;
 import suck.enigma.ui.hud.inline.InlineElement;

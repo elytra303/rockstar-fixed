@@ -1,6 +1,6 @@
 package suck.enigma.protection.client;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.game.SoundEvent;
 import suck.enigma.systems.modules.modules.visuals.Removals;
 import net.minecraft.client.sound.SoundInstance;

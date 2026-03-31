@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.commands.Command;
 import suck.enigma.systems.commands.CommandBuilder;
 import suck.enigma.systems.commands.CommandContext;

@@ -1,6 +1,6 @@
 package suck.enigma.ui.menu.api;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.render.HudRenderEvent;

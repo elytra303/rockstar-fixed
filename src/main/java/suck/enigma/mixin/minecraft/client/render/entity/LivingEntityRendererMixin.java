@@ -5,7 +5,7 @@ import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.mixin.accessors.BipedEntityModelAccessor;
 import suck.enigma.systems.modules.modules.visuals.AntiInvisible;
 import suck.enigma.systems.modules.modules.visuals.FriendMarkers;

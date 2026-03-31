@@ -1,7 +1,7 @@
 package suck.enigma.systems.commands.commands;
 
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.commands.Command;
 import suck.enigma.systems.commands.CommandBuilder;
 import suck.enigma.systems.commands.ParameterBuilder;

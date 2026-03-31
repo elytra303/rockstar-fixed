@@ -2,7 +2,7 @@ package suck.enigma.ui.hud.impl.island.impl;
 
 import dev.redstones.mediaplayerinfo.MediaInfo;
 import dev.redstones.mediaplayerinfo.impl.win.WindowsMediaSession;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomDrawContext;
 import suck.enigma.framework.msdf.Fonts;
 import suck.enigma.framework.objects.BorderRadius;

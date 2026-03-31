@@ -1,7 +1,7 @@
 package suck.enigma.systems.modules.modules.combat;
 
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.api.ModuleCategory;
 import suck.enigma.systems.modules.api.ModuleInfo;
 import suck.enigma.systems.modules.impl.BaseModule;

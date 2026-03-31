@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.entity;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.game.AttackEvent;
 import suck.enigma.systems.event.impl.game.PostAttackEvent;
 import suck.enigma.systems.modules.modules.player.NoPush;

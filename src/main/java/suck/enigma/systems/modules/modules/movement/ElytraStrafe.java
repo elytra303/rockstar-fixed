@@ -1,6 +1,6 @@
 package suck.enigma.systems.modules.modules.movement;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.player.InputEvent;
 import suck.enigma.systems.modules.api.ModuleCategory;

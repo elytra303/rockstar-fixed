@@ -3,7 +3,7 @@ package suck.enigma.systems.modules.modules.player;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.player.ClientPlayerTickEvent;
 import suck.enigma.systems.modules.api.ModuleCategory;

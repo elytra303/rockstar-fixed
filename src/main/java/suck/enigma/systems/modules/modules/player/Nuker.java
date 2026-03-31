@@ -3,7 +3,7 @@ package suck.enigma.systems.modules.modules.player;
 import com.mojang.blaze3d.platform.GlStateManager.DstFactor;
 import com.mojang.blaze3d.platform.GlStateManager.SrcFactor;
 import com.mojang.blaze3d.systems.RenderSystem;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.player.ClientPlayerTickEvent;
 import suck.enigma.systems.event.impl.render.Render3DEvent;

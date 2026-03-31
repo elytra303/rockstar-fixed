@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.utility.colors.ColorRGBA;
 import suck.enigma.utility.interfaces.IMinecraft;
 import net.minecraft.client.texture.NativeImage;

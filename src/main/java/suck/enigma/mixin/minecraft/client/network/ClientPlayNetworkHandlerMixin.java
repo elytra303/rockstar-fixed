@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.network;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.game.PickupEvent;
 import suck.enigma.systems.event.impl.game.WorldChangeEvent;
 import suck.enigma.systems.modules.modules.visuals.XRay;

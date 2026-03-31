@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.input;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.player.InputEvent;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

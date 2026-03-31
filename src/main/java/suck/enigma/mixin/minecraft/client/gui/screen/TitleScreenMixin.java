@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.gui.screen;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.ui.mainmenu.CustomTitleScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.TitleScreen;

@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.gui.screen;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomDrawContext;
 import suck.enigma.systems.event.impl.render.ScreenRenderEvent;
 import suck.enigma.systems.event.impl.window.ContainerClickEvent;

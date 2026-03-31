@@ -1,7 +1,7 @@
 package suck.enigma.systems.modules.modules.visuals;
 
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.render.Render3DEvent;
 import suck.enigma.systems.modules.api.ModuleCategory;

@@ -6,7 +6,7 @@ import java.net.URL;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import javax.imageio.ImageIO;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.commands.Command;
 import suck.enigma.systems.commands.CommandBuilder;
 import suck.enigma.systems.event.EventListener;

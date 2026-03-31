@@ -3,7 +3,7 @@ package suck.enigma.systems.friends;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.localization.Localizator;
 import suck.enigma.utility.game.EntityUtility;
 import suck.enigma.utility.game.MessageUtility;

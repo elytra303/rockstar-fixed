@@ -4,7 +4,7 @@ import com.mojang.brigadier.suggestion.Suggestions;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import javax.annotation.Nullable;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import net.minecraft.client.gui.screen.ChatInputSuggestor;
 import net.minecraft.client.gui.screen.ChatInputSuggestor.SuggestionWindow;
 import net.minecraft.client.gui.widget.TextFieldWidget;

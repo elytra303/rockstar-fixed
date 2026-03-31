@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.window.MouseEvent;
 import suck.enigma.systems.event.impl.window.MouseScrollEvent;
 import suck.enigma.utility.game.cursor.CursorType;

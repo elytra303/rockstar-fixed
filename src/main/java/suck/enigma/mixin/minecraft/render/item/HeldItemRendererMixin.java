@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.render.item;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.render.HandRenderEvent;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;

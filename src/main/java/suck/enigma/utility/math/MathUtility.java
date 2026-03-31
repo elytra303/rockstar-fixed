@@ -10,7 +10,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Predicate;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.combat.ElytraTarget;
 import suck.enigma.utility.game.prediction.ElytraPredictionSystem;
 import suck.enigma.utility.interfaces.IMinecraft;

@@ -3,7 +3,7 @@ package suck.enigma.mixin.minecraft.render.entity.feature;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.visuals.AntiInvisible;
 import suck.enigma.utility.colors.Colors;
 import suck.enigma.utility.mixins.EntityRenderStateAddition;

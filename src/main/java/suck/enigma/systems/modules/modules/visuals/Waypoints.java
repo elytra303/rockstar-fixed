@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.msdf.Fonts;
 import suck.enigma.framework.objects.BorderRadius;
 import suck.enigma.systems.event.EventListener;

@@ -3,7 +3,7 @@ package suck.enigma.systems.ai;
 import ai.catboost.CatBoostError;
 import ai.catboost.CatBoostModel;
 import ai.catboost.CatBoostPredictions;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.game.AttackEvent;
 import suck.enigma.utility.interfaces.IMinecraft;

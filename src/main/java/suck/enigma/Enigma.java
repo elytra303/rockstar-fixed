@@ -52,9 +52,9 @@ import ru.kotopushka.compiler.sdk.annotations.Initialization;
 public enum Enigma implements IMinecraft {
    INSTANCE;
 
-   public static final String NAME = "enigma";
-   public static final String BUILD_TYPE = "Beta";
-   public static final String VERSION = "2.0";
+   public static final String NAME = "Enigma";
+   public static final String BUILD_TYPE = "Release";
+   public static final String VERSION = "1.0";
    public static final String MOD_ID = "enigma".toLowerCase();
    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
    private EventManager eventManager;

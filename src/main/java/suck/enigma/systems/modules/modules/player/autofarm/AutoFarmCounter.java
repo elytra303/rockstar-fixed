@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.player.AutoFarm;
 import suck.enigma.utility.game.server.ServerUtility;
 import suck.enigma.utility.interfaces.IMinecraft;

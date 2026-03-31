@@ -1,7 +1,7 @@
 package suck.enigma.systems.event.handlers;
 
 // import com.viaversion.viafabricplus.ViaFabricPlus;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.network.ServerConnectionEvent;
 import suck.enigma.systems.event.impl.player.ClientPlayerTickEvent;

@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.msdf.Fonts;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.game.EntityJumpEvent;

@@ -3,7 +3,7 @@ package suck.enigma.systems.modules.constructions.swinganim.presets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomComponent;
 import suck.enigma.framework.base.UIContext;
 import suck.enigma.framework.msdf.Fonts;

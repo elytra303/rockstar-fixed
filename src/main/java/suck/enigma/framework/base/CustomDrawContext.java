@@ -1,6 +1,6 @@
 package suck.enigma.framework.base;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.msdf.Font;
 import suck.enigma.framework.msdf.MsdfRenderer;
 import suck.enigma.framework.objects.BorderRadius;

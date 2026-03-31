@@ -2,7 +2,7 @@ package suck.enigma.systems.modules.modules.player;
 
 import java.util.Comparator;
 import java.util.List;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.window.KeyPressEvent;
 import suck.enigma.systems.event.impl.window.MouseEvent;

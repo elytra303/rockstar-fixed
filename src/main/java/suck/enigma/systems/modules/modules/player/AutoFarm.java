@@ -3,7 +3,7 @@ package suck.enigma.systems.modules.modules.player;
 import java.util.List;
 import java.util.function.Predicate;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.EventListener;
 import suck.enigma.systems.event.impl.player.ClientPlayerTickEvent;
 import suck.enigma.systems.localization.Localizator;

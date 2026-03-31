@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.client.gui.screen.multiplayer;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.event.impl.network.ServerConnectionEvent;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.multiplayer.ConnectScreen;

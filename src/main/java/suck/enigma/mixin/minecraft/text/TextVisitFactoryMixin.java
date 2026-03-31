@@ -1,6 +1,6 @@
 package suck.enigma.mixin.minecraft.text;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.other.NameProtect;
 import net.minecraft.text.TextVisitFactory;
 import org.spongepowered.asm.mixin.Mixin;

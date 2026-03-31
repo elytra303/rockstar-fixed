@@ -3,7 +3,7 @@ package suck.enigma.systems.modules.impl;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.localization.Language;
 import suck.enigma.systems.localization.Localizator;
 import suck.enigma.systems.modules.Module;

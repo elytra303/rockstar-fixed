@@ -1,7 +1,7 @@
 package suck.enigma.systems.notifications;
 
 import lombok.Generated;
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.framework.base.CustomDrawContext;
 import suck.enigma.framework.msdf.Fonts;
 import suck.enigma.framework.objects.BorderRadius;

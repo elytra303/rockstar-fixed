@@ -1,6 +1,6 @@
 package suck.enigma.systems.modules.modules.player.autofarm;
 
-import suck.enigma.enigma;
+import suck.enigma.Enigma;
 import suck.enigma.systems.modules.modules.player.AutoFarm;
 import suck.enigma.utility.interfaces.IMinecraft;
 import suck.enigma.utility.inventory.InventoryUtility;
